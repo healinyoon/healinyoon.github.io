@@ -5,9 +5,19 @@
     <link>https://healinyoon.github.io/tags/</link>
     <description>Recent content in Tags on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 22 Aug 2020 23:52:44 +0900</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My First Blog</title>
+      <link>https://healinyoon.github.io/2020/08/my-first-blog/</link>
+      <pubDate>Sat, 22 Aug 2020 23:52:44 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/08/my-first-blog/</guid>
+      <description>hi </description>
+    </item>
     
     <item>
       <title>About</title>
