@@ -3,40 +3,40 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://healinyoon.github.io/</loc>
+    <loc>https://healinyoon.github.io/</loc>
     <lastmod>2020-08-22T14:31:48+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://healinyoon.github.io/posts/</loc>
+    <loc>https://healinyoon.github.io/posts/</loc>
     <lastmod>2020-08-22T14:31:48+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://healinyoon.github.io/2020/08/test/</loc>
+    <loc>https://healinyoon.github.io/2020/08/test/</loc>
     <lastmod>2020-08-22T14:31:48+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://healinyoon.github.io/categories/</loc>
+    <loc>https://healinyoon.github.io/categories/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://healinyoon.github.io/series/</loc>
+    <loc>https://healinyoon.github.io/series/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://healinyoon.github.io/tags/</loc>
+    <loc>https://healinyoon.github.io/tags/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

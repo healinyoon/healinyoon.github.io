@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on healinyoon blog</title>
-    <link>http://healinyoon.github.io/posts/</link>
+    <link>https://healinyoon.github.io/posts/</link>
     <description>Recent content in Posts on healinyoon blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 22 Aug 2020 14:31:48 +0900</lastBuildDate>
     
-        <atom:link href="http://healinyoon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://healinyoon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Test</title>
-      <link>http://healinyoon.github.io/2020/08/test/</link>
+      <link>https://healinyoon.github.io/2020/08/test/</link>
       <pubDate>Sat, 22 Aug 2020 14:31:48 +0900</pubDate>
       
-      <guid>http://healinyoon.github.io/2020/08/test/</guid>
+      <guid>https://healinyoon.github.io/2020/08/test/</guid>
       <description>Test </description>
     </item>
     
