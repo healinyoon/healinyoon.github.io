@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <title>
-        ringu blog</title>
+        Docker 설치하기(CentOS) - ringu blog
+      </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
@@ -19,26 +20,33 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    
+    <meta name="description" content="Intro 이번 포스트에서는 CentOS에 Docker를 설치하는 방법을 정리했습니다. 1. Docker 설치하기 # yum 패키지 업데이트 yum update # docker, docker registry 설치 yum -y install docker docker-registry 2. Docker 실행 및" />
     <meta name="generator" content="Hugo 0.74.3 with theme pure" />
-    <title>ringu blog</title>
+    <title>Docker 설치하기(CentOS) - ringu blog</title>
     
-    <link rel="alternate" type="application/rss+xml" href="https://healinyoon.github.io/categories/syntax/index.xml" title="ringu blog" />
     
     <link rel="stylesheet" href="https://healinyoon.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="syntax" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://healinyoon.github.io/categories/syntax/" />
-<meta property="og:updated_time" content="2019-06-01T23:52:44+09:00" />
-<meta itemprop="name" content="syntax">
-<meta itemprop="description" content="">
+    <meta property="og:title" content="Docker 설치하기(CentOS)" />
+<meta property="og:description" content="Intro 이번 포스트에서는 CentOS에 Docker를 설치하는 방법을 정리했습니다. 1. Docker 설치하기 # yum 패키지 업데이트 yum update # docker, docker registry 설치 yum -y install docker docker-registry 2. Docker 실행 및" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://healinyoon.github.io/2019/06/20190611_docker_install/" />
+<meta property="article:published_time" content="2019-06-01T23:52:44+09:00" />
+<meta property="article:modified_time" content="2019-06-01T23:52:44+09:00" />
+<meta itemprop="name" content="Docker 설치하기(CentOS)">
+<meta itemprop="description" content="Intro 이번 포스트에서는 CentOS에 Docker를 설치하는 방법을 정리했습니다. 1. Docker 설치하기 # yum 패키지 업데이트 yum update # docker, docker registry 설치 yum -y install docker docker-registry 2. Docker 실행 및">
+<meta itemprop="datePublished" content="2019-06-01T23:52:44+09:00" />
+<meta itemprop="dateModified" content="2019-06-01T23:52:44+09:00" />
+<meta itemprop="wordCount" content="749">
+
+
+
+<meta itemprop="keywords" content="docker," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="syntax"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Docker 설치하기(CentOS)"/>
+<meta name="twitter:description" content="Intro 이번 포스트에서는 CentOS에 Docker를 설치하는 방법을 정리했습니다. 1. Docker 설치하기 # yum 패키지 업데이트 yum update # docker, docker registry 설치 yum -y install docker docker-registry 2. Docker 실행 및"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -204,43 +212,206 @@
 
     
     
-<main class="main" role="main">
-    <article class="article article-categories article-type-list" itemscope="">
-        <header class="article-header">
-            <h1 itemprop="name" class="hidden-xs">syntax</h1>
-            <p class="text-muted hidden-xs">Total 2 categories</p>
-            <nav role="navigation" id="nav-main" class="okayNav">
-                <ul>
-                    <li><a href="/categories/">All</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/docker/">docker</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/syntax/">syntax</a></li>
-                </ul>
-            </nav>
-        </header>
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2019/06/20190611_docker_install/"
+    >Docker 설치하기(CentOS)</a
+  >
+</h1>
+
+      <div class="article-meta">
         
-        <div class="article-body">
-            <div class="panel panel-default b-no">
-                <div class="panel-heading" role="tab">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" href="#collapse55152fd428afc5d73e8878d27d0b09c3" aria-expanded="true">
-                            <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>syntax
-                        </a>
-                        <small class="text-muted">(Total1 articles)</small>
-                    </h4>
-                </div>
-                <div id="collapse55152fd428afc5d73e8878d27d0b09c3" class="panel-collapse collapse in" role="tabpanel"
-                    aria-labelledby="heading55152fd428afc5d73e8878d27d0b09c3">
-                    <div class="panel-body">
-                        <div class="collection"><a href="https://healinyoon.github.io/2019/06/20190611_docker_install/" class="collection-item" itemprop="url" target="_blank">
-    <time datetime="2019-06-01 23:52:44 &#43;0900 KST" itemprop="datePublished" style="margin-right: 5px;">2019-06-01
-    </time>Docker 설치하기(CentOS)
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://healinyoon.github.io/2019/06/20190611_docker_install/" class="article-date">
+  <time datetime="2019-06-01 23:52:44 &#43;0900 KST" itemprop="datePublished">2019-06-01</time>
 </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/docker/"> docker </a>
+  <a class="article-category-link" href="/categories/syntax/"> syntax </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/docker/"> docker </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2019/06/20190611_docker_install/#comments"
+            class="article-comment-link">Comments</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 749words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="intro">Intro</h1>
+<p>이번 포스트에서는 CentOS에 Docker를 설치하는 방법을 정리했습니다.</p>
+<hr>
+<h1 id="1-docker-설치하기">1. Docker 설치하기</h1>
+<pre><code># yum 패키지 업데이트
+yum update
+
+# docker, docker registry 설치
+yum -y install docker docker-registry
+</code></pre>
+<hr>
+<h1 id="2-docker-실행-및-정보-확인">2. Docker 실행 및 정보 확인</h1>
+<h2 id="2-1-docker-실행하기">2-1. Docker 실행하기</h2>
+<pre><code># 시스템 부팅 시 docker를 시작하도록 설정
+systemctl enable docker.service
+
+# Docker 실행
+systemctl start docker.service
+
+# Docker 상태 확인
+systemctl status docker.service
+</code></pre>
+<h2 id="2-2-docker-명령어-사용하기">2-2. Docker 명령어 사용하기</h2>
+<p>Docker 명령어의 기본 형식은 <code>docker {명령어}</code> 입니다.</p>
+<pre><code># Docker 버전 확인
+docker version
+
+# Docker 실행 환경 확인
+docker system info
+
+# Docker 디스크 상태 확인
+docker system df
+
+# 그 외 Docker 명령어 살펴보기
+docker -help
+</code></pre>
+<hr>
+<h1 id="3-docker-사용해보기">3. Docker 사용해보기</h1>
+<p>Docker가 정상적으로 동작하는지 확인하기 위해 컨테이너를 실행합니다.</p>
+<h2 id="3-1-docker-컨테이너-실행하기">3-1. Docker 컨테이너 실행하기</h2>
+<pre><code># Docker 컨테이너 실행 명령어
+docker run {옵션} {컨테이너 명/ID}
+</code></pre>
+<p>docker run 명령어는 컨테이너를 생성하고 실행시키는 명령어 입니다. 이때 dockers는 로컬에 해당 이미지가 있는지 학인하고, 없는 경우 docker hub에서 <code>pull</code>을 먼저 진행하고 컨테이너를 생성합니다.</p>
+<h2 id="3-2-hello-world">3-2. Hello, world!</h2>
+<pre><code>docker run hello-world
+</code></pre>
+<p>hello-world 컨테이너가 실행되면 다음과 같이 메세지가 출력됩니다.</p>
+<pre><code>Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+</code></pre>
+<h2 id="3-3-nginx">3-3. Nginx</h2>
+<p>이번에는 Nginx 웹서버를 docker로 설치해보겠습니다.</p>
+<pre><code># Nginx 이미지 다운로드
+docker pull nginx
+
+# 다운로드한 이미지 확인
+docker images
+
+# Nginx 컨테이너 실행
+docker run --name nginx-webserver -d -p 80:80 nginx
+</code></pre>
+<p><code>docker run</code> 명령어에서 자주 쓰이는 옵션은 다음과 같습니다.</p>
+<ul>
+<li>&ndash;name: 컨테이너의 이름을 설정한다.</li>
+<li>-d: 컨테이너를 백그라운드에서 실행시킨다.</li>
+<li>-p: 호스트 포트와 컨테이너 내부의 포트를 매핑한다(형식: -p {host 포트}:{컨테이너 포트}).</li>
+</ul>
+<p>실행중인 docker 컨테이너를 확인하고 싶을 때는 <code>docker ps</code> 명령어로 확인 할 수 있습니다.</p>
+<pre><code># 실행중인 컨테이너 확인
+docker ps
+
+# 컨테이너 상태 확인
+docker container stats
+</code></pre>
+<p>마지막으로 http://localhost:80으로 접속해서 Nginx 웹 브라우저를 확인합니다.</p>
+<p><img src="/assets/images/2019-06-01-DockerSeries2/1.png" alt="DockerSeries2-(1)">{: width=&quot;900&rdquo; height=&quot;700&rdquo;}</p>
+<hr>
+<h1 id="참고-사이트">참고 사이트</h1>
+<ul>
+<li><a href="https://niceman.tistory.com/36">https://niceman.tistory.com/36</a></li>
+<li><a href="https://futurecreator.github.io/2018/11/16/docker-container-basics/">https://futurecreator.github.io/2018/11/16/docker-container-basics/</a></li>
+<li><a href="http://pyrasis.com/Docker/Docker-HOWTO">http://pyrasis.com/Docker/Docker-HOWTO</a></li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://healinyoon.github.io/2019/06/20190611_docker_install/" title="Docker 설치하기(CentOS)" target="_blank" rel="external">https://healinyoon.github.io/2019/06/20190611_docker_install/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/healinyoon" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://healinyoon.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/healinyoon" target="_blank"><span class="text-dark">rin gu</span><small class="ml-1x">A Developer</small></a></h3>
+        <div>Linux, Infrastructure, DevOps</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="next">
+                <a href="https://healinyoon.github.io/about/"
+                    title="About"><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
         </div>
-    </article>
+    </div>
+</nav>
+
 </main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
 <ul class="social-links">
     <li><a href="https://github.com/healinyoon" target="_blank" title="github" data-toggle=tooltip data-placement=top >
@@ -315,6 +486,7 @@
         hasInnerContainers: true,
     });
 </script>
+
 
   </body>
 </html>
