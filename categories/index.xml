@@ -27,5 +27,14 @@
       <description>배우는 것을 좋아하는 3년차 개발자 입니다. 주요 기술 Linux Infrastructure DevOps 프로젝트</description>
     </item>
     
+    <item>
+      <title>Docker 설치하기(CentOS)</title>
+      <link>https://healinyoon.github.io/1/01/20190611_docker_install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://healinyoon.github.io/1/01/20190611_docker_install/</guid>
+      <description>Intro 이번 포스트에서는 CentOS에 Docker를 설치하는 방법을 정리했습니다. 1. Docker 설치하기 # yum 패키지 업데이트 yum update # docker, docker registry 설치 yum -y install docker docker-registry 2. Docker 실행 및</description>
+    </item>
+    
   </channel>
 </rss>

@@ -5,10 +5,18 @@
     <link>https://healinyoon.github.io/categories/syntax/</link>
     <description>Recent content in syntax on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/categories/syntax/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My First Blog</title>
+      <link>https://healinyoon.github.io/2020/08/my-first-blog/</link>
+      <pubDate>Sat, 22 Aug 2020 23:52:44 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/08/my-first-blog/</guid>
+      <description>hi </description>
+    </item>
     
     <item>
       <title>About</title>
@@ -20,49 +28,12 @@
     </item>
     
     <item>
-      <title>Markdown Syntax Guide</title>
-      <link>https://healinyoon.github.io/2019/03/markdown-syntax/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <title>Docker 설치하기(CentOS)</title>
+      <link>https://healinyoon.github.io/1/01/20190611_docker_install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://healinyoon.github.io/2019/03/markdown-syntax/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Rich Content</title>
-      <link>https://healinyoon.github.io/2019/03/rich-content/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://healinyoon.github.io/2019/03/rich-content/</guid>
-      <description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugo-s-built-in-shortcodes&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Placeholder Text</title>
-      <link>https://healinyoon.github.io/2019/03/placeholder-text/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://healinyoon.github.io/2019/03/placeholder-text/</guid>
-      <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de
-pectora summo.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Math Typesetting</title>
-      <link>https://healinyoon.github.io/2019/03/math-typesetting/</link>
-      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://healinyoon.github.io/2019/03/math-typesetting/</guid>
-      <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Emoji Support</title>
-      <link>https://healinyoon.github.io/2019/03/emoji-support/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://healinyoon.github.io/2019/03/emoji-support/</guid>
-      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+      <guid>https://healinyoon.github.io/1/01/20190611_docker_install/</guid>
+      <description>Intro 이번 포스트에서는 CentOS에 Docker를 설치하는 방법을 정리했습니다. 1. Docker 설치하기 # yum 패키지 업데이트 yum update # docker, docker registry 설치 yum -y install docker docker-registry 2. Docker 실행 및</description>
     </item>
     
   </channel>
