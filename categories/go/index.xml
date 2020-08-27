@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Jenkins Master-Slave 구성하기</title>
+      <link>https://healinyoon.github.io/2020/08/20200827_jenkins_master_slave/</link>
+      <pubDate>Thu, 27 Aug 2020 19:35:29 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/08/20200827_jenkins_master_slave/</guid>
+      <description>Jenkins Master-Slave Jenkins는 기본적으로 단일 서버로 동작합니다. 그러나 단일 서버는 다음과 같은 상황을 충족하기 충분하지 않습니다. 빌드 테스트를 위한 다양한 환경이 필</description>
+    </item>
+    
+    <item>
       <title>CI/CD와 Jenkins</title>
       <link>https://healinyoon.github.io/2020/08/20200827_cicd_and_jenkins/</link>
       <pubDate>Thu, 27 Aug 2020 19:25:40 +0900</pubDate>
