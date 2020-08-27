@@ -3,41 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://healinyoon.github.io/2020/08/my-first-blog/</loc>
-    <lastmod>2020-08-22T23:52:44+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/posts/</loc>
-    <lastmod>2020-08-22T23:52:44+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/</loc>
-    <lastmod>2020-08-22T23:52:44+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/tags/ringugugugu/</loc>
-    <lastmod>2020-08-22T23:52:44+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/tags/</loc>
-    <lastmod>2020-08-22T23:52:44+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://healinyoon.github.io/about/</loc>
     <lastmod>2020-08-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -67,6 +32,27 @@
   
   <url>
     <loc>https://healinyoon.github.io/2019/06/20190611_docker_install/</loc>
+    <lastmod>2019-06-01T23:52:44+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/posts/</loc>
+    <lastmod>2019-06-01T23:52:44+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/</loc>
+    <lastmod>2019-06-01T23:52:44+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/tags/</loc>
     <lastmod>2019-06-01T23:52:44+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
