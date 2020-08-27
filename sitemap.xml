@@ -3,6 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://healinyoon.github.io/2020/08/20200827_cicd_and_jenkins/</loc>
+    <lastmod>2020-08-27T19:25:40+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/posts/</loc>
+    <lastmod>2020-08-27T19:25:40+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/</loc>
+    <lastmod>2020-08-27T19:25:40+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://healinyoon.github.io/tags/blog/</loc>
     <lastmod>2020-08-27T19:13:30+09:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -39,20 +60,6 @@
   
   <url>
     <loc>https://healinyoon.github.io/2020/08/20200827_hugo_blog/</loc>
-    <lastmod>2020-08-27T19:13:30+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/posts/</loc>
-    <lastmod>2020-08-27T19:13:30+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/</loc>
     <lastmod>2020-08-27T19:13:30+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

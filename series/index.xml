@@ -10,6 +10,15 @@
     
     
     <item>
+      <title>CI/CD와 Jenkins</title>
+      <link>https://healinyoon.github.io/2020/08/20200827_cicd_and_jenkins/</link>
+      <pubDate>Thu, 27 Aug 2020 19:25:40 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/08/20200827_cicd_and_jenkins/</guid>
+      <description>CI/CD란 CI/CD는 애플리케이션 개발 단계를 자동화하여 보다 작은 코드 단위와 짧은 주기로 Test와 Build를 수행하고 고객에게 제공하는 방법을 의미</description>
+    </item>
+    
+    <item>
       <title>HUGO 블로그 새글 업로드하기</title>
       <link>https://healinyoon.github.io/2020/08/20200827_hugo_blog/</link>
       <pubDate>Thu, 27 Aug 2020 19:13:30 +0900</pubDate>
