@@ -5,10 +5,19 @@
     <link>https://healinyoon.github.io/posts/</link>
     <description>Recent content in Posts on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 01 Jun 2019 23:52:44 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2020 19:13:30 +0900</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HUGO 블로그 새글 업로드하기</title>
+      <link>https://healinyoon.github.io/2020/08/20200827_hugo_blog/</link>
+      <pubDate>Thu, 27 Aug 2020 19:13:30 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/08/20200827_hugo_blog/</guid>
+      <description>HUGO 글 생성하기 $ hugo new {파일명} HUGO 블로그 빌드 $ hugo -t {테마명} Git push $ cd public $ git add . $ git commit -m &amp;quot;{commit 메세지}&amp;quot; $ git push origin master $ cd .. $ git add . $ git commit -m &amp;quot;{commit 메</description>
+    </item>
     
     <item>
       <title>About</title>
