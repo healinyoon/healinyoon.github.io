@@ -10,6 +10,15 @@
     
     
     <item>
+      <title>Jenkins와 JenkinsX</title>
+      <link>https://healinyoon.github.io/2020/08/20200828_jenkins_vs_jenkinsx/</link>
+      <pubDate>Fri, 28 Aug 2020 14:44:05 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/08/20200828_jenkins_vs_jenkinsx/</guid>
+      <description>WHAT IS JENKINS? Written in Java Most popular tools in today&amp;rsquo;s market, built for CI(Continuous Intergration) purpose Used to build and test software project and makes it easy for developer to integrate the required changed to the project WHAT IS JENKINSX? NEED OF JENKINSX JENKINS VS JENKINSX 참고</description>
+    </item>
+    
+    <item>
       <title>Jenkins Master-Slave 구성하기</title>
       <link>https://healinyoon.github.io/2020/08/20200827_jenkins_master_slave/</link>
       <pubDate>Thu, 27 Aug 2020 19:35:29 +0900</pubDate>
