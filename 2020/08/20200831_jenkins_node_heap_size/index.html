@@ -20,7 +20,7 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="목적 Jenkins node heap memory 사이즈 변경 방법 정리 참고 자료 Java Memory Management for Java Virtual Machine (JVM) Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide CloudBees Jenkins JVM troubleshooting Jenkins 권장 사양 내용 Jenkins에서는 다양한 JAVA 옵션을 인수로 받" />
+    <meta name="description" content="목적 Jenkins node heap memory 사이즈 변경 방법 정리 참고 자료 Java Memory Management for Java Virtual Machine (JVM) Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide CloudBees Jenkins JVM troubleshooting Jenkins 권장 사양 Jenkinst Heap Memory 옵션 Jenkins에서는 다양한 JAVA 옵션을 인" />
     <meta name="generator" content="Hugo 0.74.3 with theme pure" />
     <title>Jenkins Node Heap Memory 사이즈 설정하기(-Xmx/-Xms 옵션) - ringu blog</title>
     
@@ -30,23 +30,23 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
     <meta property="og:title" content="Jenkins Node Heap Memory 사이즈 설정하기(-Xmx/-Xms 옵션)" />
-<meta property="og:description" content="목적 Jenkins node heap memory 사이즈 변경 방법 정리 참고 자료 Java Memory Management for Java Virtual Machine (JVM) Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide CloudBees Jenkins JVM troubleshooting Jenkins 권장 사양 내용 Jenkins에서는 다양한 JAVA 옵션을 인수로 받" />
+<meta property="og:description" content="목적 Jenkins node heap memory 사이즈 변경 방법 정리 참고 자료 Java Memory Management for Java Virtual Machine (JVM) Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide CloudBees Jenkins JVM troubleshooting Jenkins 권장 사양 Jenkinst Heap Memory 옵션 Jenkins에서는 다양한 JAVA 옵션을 인" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://healinyoon.github.io/2020/08/20200831_jenkins_node_heap_size/" />
 <meta property="article:published_time" content="2020-08-31T13:26:55+09:00" />
 <meta property="article:modified_time" content="2020-08-31T13:26:55+09:00" />
 <meta itemprop="name" content="Jenkins Node Heap Memory 사이즈 설정하기(-Xmx/-Xms 옵션)">
-<meta itemprop="description" content="목적 Jenkins node heap memory 사이즈 변경 방법 정리 참고 자료 Java Memory Management for Java Virtual Machine (JVM) Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide CloudBees Jenkins JVM troubleshooting Jenkins 권장 사양 내용 Jenkins에서는 다양한 JAVA 옵션을 인수로 받">
+<meta itemprop="description" content="목적 Jenkins node heap memory 사이즈 변경 방법 정리 참고 자료 Java Memory Management for Java Virtual Machine (JVM) Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide CloudBees Jenkins JVM troubleshooting Jenkins 권장 사양 Jenkinst Heap Memory 옵션 Jenkins에서는 다양한 JAVA 옵션을 인">
 <meta itemprop="datePublished" content="2020-08-31T13:26:55+09:00" />
 <meta itemprop="dateModified" content="2020-08-31T13:26:55+09:00" />
-<meta itemprop="wordCount" content="287">
+<meta itemprop="wordCount" content="288">
 
 
 
 <meta itemprop="keywords" content="ci/cd,jvm," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Jenkins Node Heap Memory 사이즈 설정하기(-Xmx/-Xms 옵션)"/>
-<meta name="twitter:description" content="목적 Jenkins node heap memory 사이즈 변경 방법 정리 참고 자료 Java Memory Management for Java Virtual Machine (JVM) Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide CloudBees Jenkins JVM troubleshooting Jenkins 권장 사양 내용 Jenkins에서는 다양한 JAVA 옵션을 인수로 받"/>
+<meta name="twitter:description" content="목적 Jenkins node heap memory 사이즈 변경 방법 정리 참고 자료 Java Memory Management for Java Virtual Machine (JVM) Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide CloudBees Jenkins JVM troubleshooting Jenkins 권장 사양 Jenkinst Heap Memory 옵션 Jenkins에서는 다양한 JAVA 옵션을 인"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -281,7 +281,7 @@
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://healinyoon.github.io/2020/08/20200831_jenkins_node_heap_size/" class="">
+<a href="https://healinyoon.github.io/2020/08/20200831_jenkins_node_heap_size/" class="article-date">
   <time datetime="2020-08-31 13:26:55 &#43;0900 KST" itemprop="datePublished">2020-08-31</time>
 </a>
 </span>
@@ -297,7 +297,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/08/20200831_jenkins_node_heap_size/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 287words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 288words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1minutes </span>
       </div>
     </div>
@@ -311,23 +311,23 @@
 <li><a href="https://docs.cloudbees.com/docs/admin-resources/latest/jvm-troubleshooting/#recommended-options">CloudBees Jenkins JVM troubleshooting</a></li>
 <li><a href="https://docs.cloudbees.com/docs/admin-resources/latest/jvm-troubleshooting/#suggested-specifications">Jenkins 권장 사양</a></li>
 </ul>
-<h1 id="내용">내용</h1>
-<p>Jenkins에서는 다양한 JAVA 옵션을 인수로 받을 수 있음.
-Jenkins node heap memory 사이즈를 변경하기 위한 인수는 <code>-Xmx</code>와 <code>-Xms</code>가 있음</p>
+<h1 id="jenkinst-heap-memory-옵션">Jenkinst Heap Memory 옵션</h1>
+<p>Jenkins에서는 다양한 JAVA 옵션을 인수로 받을 수 있음<br>
+Jenkins node heap memory 사이즈를 변경하기 위한 인수: <code>-Xmx</code>와 <code>-Xms</code></p>
 <pre><code>-Xms&lt;size&gt;        set initial Java heap size
 -Xmx&lt;size&gt;        set maximum Java heap size
 </code></pre>
-<h3 id="예시">예시</h3>
-<h4 id="master의-etcdefaultjenkins에서-설정">master의 /etc/default/jenkins에서 설정</h4>
+<h1 id="예시">예시</h1>
+<h3 id="1-master의-etcdefaultjenkins에서-설정">1) master의 /etc/default/jenkins에서 설정</h3>
 <pre><code>AVA_ARGS=&quot;-Xmx256m&quot;     # default value
 JAVA_ARGS=&quot;-Xmx2048m&quot;   # 2048MB size
 </code></pre>
-<h4 id="jenkins-ui에서-slave-설정">Jenkins UI에서 slave 설정</h4>
+<h3 id="2-jenkins-ui에서-slave-설정">2) Jenkins UI에서 slave 설정</h3>
 <p>[Jenkins 관리] &gt; [노드 관리] &gt; &lsquo;노드 선택 후 ' [설정] &gt; [고급]
 <img src="/images/20200831_jenkins_node_heap_size/args.png" alt="heap"></p>
-<h3 id="jenkins-권장-사양httpsdocscloudbeescomdocsadmin-resourceslatestjvm-troubleshootingsuggested-specifications"><a href="https://docs.cloudbees.com/docs/admin-resources/latest/jvm-troubleshooting/#suggested-specifications">Jenkins 권장 사양</a></h3>
+<h1 id="jenkins-권장-사양자세히httpsdocscloudbeescomdocsadmin-resourceslatestjvm-troubleshootingsuggested-specifications">Jenkins 권장 사양<a href="https://docs.cloudbees.com/docs/admin-resources/latest/jvm-troubleshooting/#suggested-specifications">자세히</a></h1>
 <p><img src="/images/20200831_jenkins_node_heap_size/heap.png" alt="heap"></p>
-<h3 id="추가">추가</h3>
+<h1 id="참고">참고</h1>
 <ol>
 <li>It is recommended to define the same value for both -Xms and -Xmx so that the memory is allocated on startup rather than runtime.</li>
 <li>대/소문자는 상관 없음(예: <code>-Xmx10G</code>는 <code>-Xmx10g</code>와 동일함)</li>
