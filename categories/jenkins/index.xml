@@ -5,10 +5,19 @@
     <link>https://healinyoon.github.io/categories/jenkins/</link>
     <description>Recent content in jenkins on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 27 Aug 2020 19:35:29 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2020 13:26:55 +0900</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/categories/jenkins/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Jenkins Node Heap Memory 사이즈 설정하기(-Xmx/-Xms 옵션)</title>
+      <link>https://healinyoon.github.io/2020/08/20200831_jenkins_node_heap_size/</link>
+      <pubDate>Mon, 31 Aug 2020 13:26:55 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/08/20200831_jenkins_node_heap_size/</guid>
+      <description>목적 Jenkins node heap memory 사이즈 변경 방법 정리 참고 자료 Java Memory Management for Java Virtual Machine (JVM) Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide CloudBees Jenkins JVM troubleshooting Jenkins 권장 사양 내용 Jenkins에서는 다양한 JAVA 옵션을 인수로 받</description>
+    </item>
     
     <item>
       <title>Jenkins Master-Slave 구성하기</title>

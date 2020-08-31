@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-        CI/CD와 Jenkins - ringu blog
+        Jenkins Node Heap Memory 사이즈 설정하기(-Xmx/-Xms 옵션) - ringu blog
       </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,33 +20,33 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="CI/CD란 CI/CD는 애플리케이션 개발 단계를 자동화하여 보다 작은 코드 단위와 짧은 주기로 Test와 Build를 수행하고 고객에게 제공하는 방법을 의미" />
+    <meta name="description" content="목적 Jenkins node heap memory 사이즈 변경 방법 정리 참고 자료 Java Memory Management for Java Virtual Machine (JVM) Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide CloudBees Jenkins JVM troubleshooting Jenkins 권장 사양 내용 Jenkins에서는 다양한 JAVA 옵션을 인수로 받" />
     <meta name="generator" content="Hugo 0.74.3 with theme pure" />
-    <title>CI/CD와 Jenkins - ringu blog</title>
+    <title>Jenkins Node Heap Memory 사이즈 설정하기(-Xmx/-Xms 옵션) - ringu blog</title>
     
     
     <link rel="stylesheet" href="https://healinyoon.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="CI/CD와 Jenkins" />
-<meta property="og:description" content="CI/CD란 CI/CD는 애플리케이션 개발 단계를 자동화하여 보다 작은 코드 단위와 짧은 주기로 Test와 Build를 수행하고 고객에게 제공하는 방법을 의미" />
+    <meta property="og:title" content="Jenkins Node Heap Memory 사이즈 설정하기(-Xmx/-Xms 옵션)" />
+<meta property="og:description" content="목적 Jenkins node heap memory 사이즈 변경 방법 정리 참고 자료 Java Memory Management for Java Virtual Machine (JVM) Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide CloudBees Jenkins JVM troubleshooting Jenkins 권장 사양 내용 Jenkins에서는 다양한 JAVA 옵션을 인수로 받" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://healinyoon.github.io/2020/08/20200827_cicd_and_jenkins/" />
-<meta property="article:published_time" content="2020-08-27T19:25:40+09:00" />
-<meta property="article:modified_time" content="2020-08-27T19:25:40+09:00" />
-<meta itemprop="name" content="CI/CD와 Jenkins">
-<meta itemprop="description" content="CI/CD란 CI/CD는 애플리케이션 개발 단계를 자동화하여 보다 작은 코드 단위와 짧은 주기로 Test와 Build를 수행하고 고객에게 제공하는 방법을 의미">
-<meta itemprop="datePublished" content="2020-08-27T19:25:40+09:00" />
-<meta itemprop="dateModified" content="2020-08-27T19:25:40+09:00" />
-<meta itemprop="wordCount" content="614">
+<meta property="og:url" content="https://healinyoon.github.io/2020/08/20200831_jenkins_node_heap_size/" />
+<meta property="article:published_time" content="2020-08-31T13:26:55+09:00" />
+<meta property="article:modified_time" content="2020-08-31T13:26:55+09:00" />
+<meta itemprop="name" content="Jenkins Node Heap Memory 사이즈 설정하기(-Xmx/-Xms 옵션)">
+<meta itemprop="description" content="목적 Jenkins node heap memory 사이즈 변경 방법 정리 참고 자료 Java Memory Management for Java Virtual Machine (JVM) Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide CloudBees Jenkins JVM troubleshooting Jenkins 권장 사양 내용 Jenkins에서는 다양한 JAVA 옵션을 인수로 받">
+<meta itemprop="datePublished" content="2020-08-31T13:26:55+09:00" />
+<meta itemprop="dateModified" content="2020-08-31T13:26:55+09:00" />
+<meta itemprop="wordCount" content="287">
 
 
 
-<meta itemprop="keywords" content="ci/cd," />
+<meta itemprop="keywords" content="ci/cd,jvm," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="CI/CD와 Jenkins"/>
-<meta name="twitter:description" content="CI/CD란 CI/CD는 애플리케이션 개발 단계를 자동화하여 보다 작은 코드 단위와 짧은 주기로 Test와 Build를 수행하고 고객에게 제공하는 방법을 의미"/>
+<meta name="twitter:title" content="Jenkins Node Heap Memory 사이즈 설정하기(-Xmx/-Xms 옵션)"/>
+<meta name="twitter:description" content="목적 Jenkins node heap memory 사이즈 변경 방법 정리 참고 자료 Java Memory Management for Java Virtual Machine (JVM) Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide CloudBees Jenkins JVM troubleshooting Jenkins 권장 사양 내용 Jenkins에서는 다양한 JAVA 옵션을 인수로 받"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -272,8 +272,8 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2020/08/20200827_cicd_and_jenkins/"
-    >CI/CD와 Jenkins</a
+    href="/2020/08/20200831_jenkins_node_heap_size/"
+    >Jenkins Node Heap Memory 사이즈 설정하기(-Xmx/-Xms 옵션)</a
   >
 </h1>
 
@@ -281,8 +281,8 @@
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://healinyoon.github.io/2020/08/20200827_cicd_and_jenkins/" class="article-date">
-  <time datetime="2020-08-27 19:25:40 &#43;0900 KST" itemprop="datePublished">2020-08-27</time>
+<a href="https://healinyoon.github.io/2020/08/20200831_jenkins_node_heap_size/" class="">
+  <time datetime="2020-08-31 13:26:55 &#43;0900 KST" itemprop="datePublished">2020-08-31</time>
 </a>
 </span>
 <span class="article-category">
@@ -292,48 +292,47 @@
   <span class="article-tag">
     <i class="icon icon-tags"></i>&nbsp;
     <a class="article-tag-link" href="/tags/ci/cd/"> ci/cd </a>
+    <a class="article-tag-link" href="/tags/jvm/"> jvm </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/08/20200827_cicd_and_jenkins/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/08/20200831_jenkins_node_heap_size/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 614words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 287words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <h1 id="cicd란">CI/CD란</h1>
-<p>CI/CD는 애플리케이션 개발 단계를 자동화하여 보다 <strong>작은 코드 단위</strong>와 <strong>짧은 주기</strong>로 Test와 Build를 수행하고 고객에게 제공하는 방법을 의미합니다.<br>
-<img src="/images/20200827_cicd_and_jenkins/jenkins_cicd01-cicd01.png" alt=""></p>
-<h3 id="cicontinuous-integration-지속적-통합">CI(Continuous Integration): 지속적 통합</h3>
-<p>개발자의 변경 사항이 정기적으로(최상의 경우 하루 여러번) <strong>빌드</strong> 및 <strong>테스트</strong> 되고 <strong>공유 리포지토리에 병합</strong>되는 프로세스입니다.</p>
-<h3 id="cdcontinous-deploy-or-ontinuous-delivery-지속적-배포">CD(Continous Deploy or ontinuous Delivery): 지속적 배포</h3>
-<p><a href="https://continuousdelivery.com/2010/08/continuous-delivery-vs-continuous-deployment/">Jez Humble의 정의</a></p>
-<p><strong>Continuous Deployment</strong> is about <strong>automating the release of a good build to the production environment</strong>. In fact, Humble thinks it might be more accurate to call it <strong>“continuous release.”</strong></p>
-<p><strong>Continuous Delivery</strong> is about <strong>1) ensuring that every good build is potentially ready for production release.</strong> At the very least, <strong>2) it’s sent to the user acceptance test (UAT) environment.</strong> <strong>3) Your business team can then decide when a successful build in UAT can be deployed to production</strong> —and they can do so at the push of a button.</p>
-<p>상황에 따라 이미 운영되고 있는 프로덕션 환경에 바로 release 하는 것은 문제가 될 수 있습니다. 이러한 경우로 임베디드 소프트웨어 등이 해당됩니다.<br>
-따라서 잠재적으로는 release 가능하지만, 프로덕션 환경에 자동으로 release 되지 않는 것이 <strong>Continuous Delivery</strong> 입니다.
-<img src="/images/20200827_cicd_and_jenkins/jenkins_cicd01-cicd03.png" alt=""></p>
-<h3 id="정리">정리</h3>
+      <h1 id="목적">목적</h1>
+<p>Jenkins node heap memory 사이즈 변경 방법 정리</p>
+<h1 id="참고-자료">참고 자료</h1>
 <ul>
-<li>CI: 지속적인 빌드 / 테스트 / 통합</li>
-<li>CD: CI의 연장선 ~ Release 준비 완료(Delivery) or 제품 출시(Deploy)</li>
+<li><a href="https://betsol.com/java-memory-management-for-java-virtual-machine-jvm/">Java Memory Management for Java Virtual Machine (JVM)</a></li>
+<li><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/ergonomics.html">Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide</a></li>
+<li><a href="https://docs.cloudbees.com/docs/admin-resources/latest/jvm-troubleshooting/#recommended-options">CloudBees Jenkins JVM troubleshooting</a></li>
+<li><a href="https://docs.cloudbees.com/docs/admin-resources/latest/jvm-troubleshooting/#suggested-specifications">Jenkins 권장 사양</a></li>
 </ul>
-<hr>
-<h1 id="jenkins-for-cicd">Jenkins for CI/CD</h1>
-<h3 id="다양한-cicd-tool">다양한 CI/CD tool</h3>
-<p>CI/CD 구현을 위한 다양한 tool이 있습니다.
-<img src="/images/20200827_cicd_and_jenkins/jenkins_cicd01-cicd02.png" alt="">
-<a href="https://landscape.cncf.io/category=continuous-integration-delivery&amp;format=card-mode&amp;grouping=category">tool에 대한 자세한 정보 참고</a></p>
-<h3 id="왜-jenkins인가">왜 Jenkins인가</h3>
-<p>Jenkins는 아래와 같은 강점을 가지고 있습니다.</p>
-<ul>
-<li>It is an open-source tool with great community support.</li>
-<li>It is easy to install.</li>
-<li>It has 1000+ plugins to ease your work. If a plugin does not exist, you can code it and share it with the community.</li>
-<li>It is free of cost.</li>
-<li>It is built with Java and hence, it is portable to all the major platforms.</li>
-</ul>
-<p>하지만 단점 역시 존재합니다. CI/CD tool 중에서 자주 사용되는 <a href="https://owin2828.github.io/devlog/2020/01/09/cicd-1.html">Jenkins vs Gitlab vs Travis 비교 글</a>을 참고하시면 Jenkins의 장단점을 이해하는데 도움이 됩니다.</p>
+<h1 id="내용">내용</h1>
+<p>Jenkins에서는 다양한 JAVA 옵션을 인수로 받을 수 있음.
+Jenkins node heap memory 사이즈를 변경하기 위한 인수는 <code>-Xmx</code>와 <code>-Xms</code>가 있음</p>
+<pre><code>-Xms&lt;size&gt;        set initial Java heap size
+-Xmx&lt;size&gt;        set maximum Java heap size
+</code></pre>
+<h3 id="예시">예시</h3>
+<h4 id="master의-etcdefaultjenkins에서-설정">master의 /etc/default/jenkins에서 설정</h4>
+<pre><code>AVA_ARGS=&quot;-Xmx256m&quot;     # default value
+JAVA_ARGS=&quot;-Xmx2048m&quot;   # 2048MB size
+</code></pre>
+<h4 id="jenkins-ui에서-slave-설정">Jenkins UI에서 slave 설정</h4>
+<p>[Jenkins 관리] &gt; [노드 관리] &gt; &lsquo;노드 선택 후 ' [설정] &gt; [고급]
+<img src="/images/20200831_jenkins_node_heap_size/args.png" alt="heap"></p>
+<h3 id="jenkins-권장-사양httpsdocscloudbeescomdocsadmin-resourceslatestjvm-troubleshootingsuggested-specifications"><a href="https://docs.cloudbees.com/docs/admin-resources/latest/jvm-troubleshooting/#suggested-specifications">Jenkins 권장 사양</a></h3>
+<p><img src="/images/20200831_jenkins_node_heap_size/heap.png" alt="heap"></p>
+<h3 id="추가">추가</h3>
+<ol>
+<li>It is recommended to define the same value for both -Xms and -Xmx so that the memory is allocated on startup rather than runtime.</li>
+<li>대/소문자는 상관 없음(예: <code>-Xmx10G</code>는 <code>-Xmx10g</code>와 동일함)</li>
+<li>Java processes 전역에 적용하고 싶으면 <code>JAVA_TOOL_OPTIONS</code> 환경 변수 사용(예: <code>export JAVA_TOOL_OPTIONS=&quot;-Xmx6g&quot;</code>)</li>
+</ol>
 
     </div>
     <div class="article-footer">
@@ -341,7 +340,7 @@
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="https://healinyoon.github.io/2020/08/20200827_cicd_and_jenkins/" title="CI/CD와 Jenkins" target="_blank" rel="external">https://healinyoon.github.io/2020/08/20200827_cicd_and_jenkins/</a>
+      <a href="https://healinyoon.github.io/2020/08/20200831_jenkins_node_heap_size/" title="Jenkins Node Heap Memory 사이즈 설정하기(-Xmx/-Xms 옵션)" target="_blank" rel="external">https://healinyoon.github.io/2020/08/20200831_jenkins_node_heap_size/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -373,14 +372,9 @@
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://healinyoon.github.io/2020/08/20200827_hugo_blog/" title="HUGO 블로그 새글 업로드하기"><i
+                <a href="https://healinyoon.github.io/2020/08/20200827_jenkins_master_slave/" title="Jenkins Master-Slave 구성하기"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
-            </li>
-            <li class="next">
-                <a href="https://healinyoon.github.io/2020/08/20200827_jenkins_master_slave/"
-                    title="Jenkins Master-Slave 구성하기"><span>Newer&nbsp;&nbsp;</span><i
-                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">
