@@ -5,28 +5,10 @@
     <link>https://healinyoon.github.io/tags/</link>
     <description>Recent content in Tags on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 28 Aug 2020 17:11:38 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2020 19:35:29 +0900</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Kubernetes Cluster 설치하기</title>
-      <link>https://healinyoon.github.io/2020/08/20200828_install_kubernetes_cluster/</link>
-      <pubDate>Fri, 28 Aug 2020 17:11:38 +0900</pubDate>
-      
-      <guid>https://healinyoon.github.io/2020/08/20200828_install_kubernetes_cluster/</guid>
-      <description>Kubernetes Cluster 설치하기 이 페이지에서는 kubeadm tool을 설치하고 이를 사용하여 kubernetes cluster를 구성 하드웨어 구성하려는 kubernetes cluster는 다음과 같다. 노드 vCPU RAM Disk Master</description>
-    </item>
-    
-    <item>
-      <title>쿠버네티스를 위한 JenkinsX 개념과 구축하기</title>
-      <link>https://healinyoon.github.io/2020/08/20200828_jenkinsx_easy_cicd_for_kubernetes/</link>
-      <pubDate>Fri, 28 Aug 2020 16:29:47 +0900</pubDate>
-      
-      <guid>https://healinyoon.github.io/2020/08/20200828_jenkinsx_easy_cicd_for_kubernetes/</guid>
-      <description>Kubernetes에서 CI/CD를 구축할 때 겪는 어려움 쿠버네티스 베이스에서 훌륭한 CI/CD 환경을 구축하기 위해서는 다음과 같은 어려움이 있습니다. Setup the cloud/kuberenetes &amp;amp;</description>
-    </item>
     
     <item>
       <title>Jenkins Master-Slave 구성하기</title>
