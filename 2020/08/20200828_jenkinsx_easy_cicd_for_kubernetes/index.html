@@ -39,7 +39,7 @@
 <meta itemprop="description" content="Kubernetes에서 CI/CD를 구축할 때 겪는 어려움 쿠버네티스 베이스에서 훌륭한 CI/CD 환경을 구축하기 위해서는 다음과 같은 어려움이 있습니다. Setup the cloud/kuberenetes &amp;">
 <meta itemprop="datePublished" content="2020-08-28T16:29:47+09:00" />
 <meta itemprop="dateModified" content="2020-08-28T16:29:47+09:00" />
-<meta itemprop="wordCount" content="314">
+<meta itemprop="wordCount" content="373">
 
 
 
@@ -309,7 +309,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/08/20200828_jenkinsx_easy_cicd_for_kubernetes/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 314words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 373words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1minutes </span>
       </div>
     </div>
@@ -366,6 +366,15 @@ brew install jx
 <h5 id="linux">Linux:</h5>
 <pre><code>curl -L https://github.com/jenkins-x/jx/releases/download/v2.1.138/jx-linux-amd64.tar.gz | tar xzv 
 sudo mv jx /usr/local/bin
+</code></pre>
+<h2 id="kubernetes--jenkinsx-시작하기">Kubernetes + JenkinsX 시작하기</h2>
+<h5 id="public-cloud를-사용하고-있는-경우">Public cloud를 사용하고 있는 경우:</h5>
+<pre><code>jx create cluster aws
+jx create cluster gke
+jx create cluster aks
+</code></pre>
+<h5 id="이미-cluster를-사용하고-있는-경우---ensure-rbac-enaled">이미 cluster를 사용하고 있는 경우 - ensure RBAC enaled:</h5>
+<pre><code>jx install
 </code></pre>
 <h1 id="kubernetes--jenkins-x-시작하기">Kubernetes + Jenkins X 시작하기</h1>
 
