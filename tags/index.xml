@@ -5,10 +5,19 @@
     <link>https://healinyoon.github.io/tags/</link>
     <description>Recent content in Tags on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 31 Aug 2020 13:26:55 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2020 13:33:15 +0900</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>20200901_k8s_pod_network</title>
+      <link>https://healinyoon.github.io/2020/09/20200901_k8s_pod_network/</link>
+      <pubDate>Tue, 01 Sep 2020 13:33:15 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/09/20200901_k8s_pod_network/</guid>
+      <description>Pod Network pod network가 헷갈려서 정리용으로 만든 페이지 공식 사이트의 설명: Installing a Pod network add-on</description>
+    </item>
     
     <item>
       <title>Jenkins Node Heap Memory 사이즈 설정하기(-Xmx/-Xms 옵션)</title>

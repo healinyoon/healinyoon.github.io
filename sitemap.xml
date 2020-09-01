@@ -3,8 +3,71 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://healinyoon.github.io/2020/09/20200901_k8s_pod_network/</loc>
+    <lastmod>2020-09-01T13:33:15+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://healinyoon.github.io/categories/</loc>
-    <lastmod>2020-08-31T13:26:55+09:00</lastmod>
+    <lastmod>2020-09-01T13:33:15+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/categories/docker/</loc>
+    <lastmod>2020-09-01T13:33:15+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/tags/k8s/</loc>
+    <lastmod>2020-09-01T13:33:15+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/categories/kubernetes/</loc>
+    <lastmod>2020-09-01T13:33:15+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/tags/msa/</loc>
+    <lastmod>2020-09-01T13:33:15+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/tags/pod-networks/</loc>
+    <lastmod>2020-09-01T13:33:15+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/posts/</loc>
+    <lastmod>2020-09-01T13:33:15+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/</loc>
+    <lastmod>2020-09-01T13:33:15+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/tags/</loc>
+    <lastmod>2020-09-01T13:33:15+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -31,56 +94,7 @@
   </url>
   
   <url>
-    <loc>https://healinyoon.github.io/posts/</loc>
-    <lastmod>2020-08-31T13:26:55+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/</loc>
-    <lastmod>2020-08-31T13:26:55+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/tags/</loc>
-    <lastmod>2020-08-31T13:26:55+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/categories/docker/</loc>
-    <lastmod>2020-08-28T17:11:38+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/tags/k8s/</loc>
-    <lastmod>2020-08-28T17:11:38+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/categories/kubernetes/</loc>
-    <lastmod>2020-08-28T17:11:38+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://healinyoon.github.io/2020/08/20200828_install_kubernetes_cluster/</loc>
-    <lastmod>2020-08-28T17:11:38+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/tags/msa/</loc>
     <lastmod>2020-08-28T17:11:38+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
