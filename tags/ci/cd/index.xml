@@ -19,6 +19,15 @@
     </item>
     
     <item>
+      <title>Kubernetes Cluster 설치하기</title>
+      <link>https://healinyoon.github.io/2020/08/20200828_install_kubernetes_cluster/</link>
+      <pubDate>Fri, 28 Aug 2020 17:11:38 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/08/20200828_install_kubernetes_cluster/</guid>
+      <description>Kubernetes Cluster 설치하기 이 페이지에서는 kubeadm tool을 설치하고 이를 사용하여 kubernetes cluster를 구축하는 방법을 정리했습니다. 구성 H/W 구성하려는 kubernetes cluster는 다</description>
+    </item>
+    
+    <item>
       <title>Jenkins Master-Slave 구성하기</title>
       <link>https://healinyoon.github.io/2020/08/20200827_jenkins_master_slave/</link>
       <pubDate>Thu, 27 Aug 2020 19:35:29 +0900</pubDate>
