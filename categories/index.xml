@@ -5,10 +5,19 @@
     <link>https://healinyoon.github.io/categories/</link>
     <description>Recent content in Categories on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 01 Sep 2020 13:33:15 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2020 17:11:38 +0900</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernetes Cluster 설치하기(ubuntu18.04)</title>
+      <link>https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/</link>
+      <pubDate>Wed, 02 Sep 2020 17:11:38 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/</guid>
+      <description>Kubernetes Cluster 설치하기 이 페이지에서는 ubuntu18.04에 kubeadm tool을 설치하고 이를 사용하여 kubernetes cluster를 구축하는 방법을 정리했습니다. 구성 H/W 구성하</description>
+    </item>
     
     <item>
       <title>쿠버네티스 POD Network</title>
@@ -26,15 +35,6 @@
       
       <guid>https://healinyoon.github.io/2020/08/20200831_jenkins_node_heap_size/</guid>
       <description>목적 Jenkins node heap memory 사이즈 변경 방법 정리 참고 자료 Java Memory Management for Java Virtual Machine (JVM) Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide CloudBees Jenkins JVM troubleshooting Jenkins 권장 사양 Jenkins Heap Memory 옵션 Jenkins에서는 다양한 JAVA 옵션을 인</description>
-    </item>
-    
-    <item>
-      <title>Kubernetes Cluster 설치하기</title>
-      <link>https://healinyoon.github.io/2020/08/20200828_install_kubernetes_cluster/</link>
-      <pubDate>Fri, 28 Aug 2020 17:11:38 +0900</pubDate>
-      
-      <guid>https://healinyoon.github.io/2020/08/20200828_install_kubernetes_cluster/</guid>
-      <description>Kubernetes Cluster 설치하기 이 페이지에서는 kubeadm tool을 설치하고 이를 사용하여 kubernetes cluster를 구축하는 방법을 정리했습니다. 구성 H/W 구성하려는 kubernetes cluster는 다</description>
     </item>
     
     <item>
