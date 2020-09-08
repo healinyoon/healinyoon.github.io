@@ -4,62 +4,76 @@
   
   <url>
     <loc>https://healinyoon.github.io/categories/</loc>
-    <lastmod>2020-09-02T17:11:38+09:00</lastmod>
+    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/categories/docker/</loc>
-    <lastmod>2020-09-02T17:11:38+09:00</lastmod>
+    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/categories/gitlab/</loc>
+    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/tags/k8s/</loc>
-    <lastmod>2020-09-02T17:11:38+09:00</lastmod>
+    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/categories/kubernetes/</loc>
-    <lastmod>2020-09-02T17:11:38+09:00</lastmod>
+    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/</loc>
-    <lastmod>2020-09-02T17:11:38+09:00</lastmod>
+    <loc>https://healinyoon.github.io/2020/09/20200908_k8s_gitlab_cicd/</loc>
+    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/tags/msa/</loc>
-    <lastmod>2020-09-02T17:11:38+09:00</lastmod>
+    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/posts/</loc>
-    <lastmod>2020-09-02T17:11:38+09:00</lastmod>
+    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/</loc>
-    <lastmod>2020-09-02T17:11:38+09:00</lastmod>
+    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/tags/</loc>
+    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/</loc>
     <lastmod>2020-09-02T17:11:38+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -96,20 +110,6 @@
   <url>
     <loc>https://healinyoon.github.io/tags/jvm/</loc>
     <lastmod>2020-08-31T13:26:55+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/categories/jenkinsx/</loc>
-    <lastmod>2020-08-28T16:29:47+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/2020/08/20200828_jenkinsx_easy_cicd_for_kubernetes/</loc>
-    <lastmod>2020-08-28T16:29:47+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
