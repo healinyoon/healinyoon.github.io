@@ -39,7 +39,7 @@
 <meta itemprop="description" content="Intro Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자. 여기서는 Kubernest 클러스터가 구축되어 있다고 전제하고 진행한다. 아직 설치가 되지 않았">
 <meta itemprop="datePublished" content="2020-10-23T10:56:19+09:00" />
 <meta itemprop="dateModified" content="2020-10-23T10:56:19+09:00" />
-<meta itemprop="wordCount" content="106">
+<meta itemprop="wordCount" content="1870">
 
 
 
@@ -298,15 +298,306 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/10/20201023_kubernetes_with_gpu/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 106words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1870words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       <h1 id="intro">Intro</h1>
 <p>Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자.
 여기서는 Kubernest 클러스터가 구축되어 있다고 전제하고 진행한다. 아직 설치가 되지 않았다면 <a href="https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/">Kubernetes Cluster 설치하기(ubuntu18.04)</a>을 참고해서 설치 후 진행해야 한다.</p>
-<h1 id="heading"></h1>
+<h1 id="1-nvidia-plugin-pod-생성">1. Nvidia Plugin Pod 생성</h1>
+<p><strong>ref)</strong></p>
+<ul>
+<li><a href="https://github.com/NVIDIA/k8s-device-plugin/tree/v1.12">Nvidia k8s-device-plugin 공식 사이트</a></li>
+<li><a href="https://github.com/NVIDIA/nvidia-docker">Nvidia docker 공식 사이트</a></li>
+</ul>
+<h2 id="11-가장-정보가-많았던-yaml으로-설치-그러나-실패">1.1 가장 정보가 많았던 YAML으로 설치, 그러나 실패</h2>
+<p>처음에 <a href="https://likefree.tistory.com/15">여기</a> 링크를 참고하여 진행했다.</p>
+<p>다만 아래와 같이 버전만 변경하여 실행했다.</p>
+<pre><code>$ kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v1.12/nvidia-device-plugin.yml
+daemonset.extensions/nvidia-device-plugin-
+daemonset-1.12 created
+</code></pre>
+<p>하지만 아래 이슈 발생해서 실패했다 ↓ ↓ ↓</p>
+<h2 id="12-이슈">1.2. 이슈</h2>
+<h3 id="121-이슈-내용">1.2.1. 이슈 내용</h3>
+<p>쿠버네티스 <code>1.15</code> 버전 이하를 설치했을 경우 문제 없겠지만, <code>1.16</code> 버전 이상을 설치했을 경우 다음과 같은 에러가 발생한다.</p>
+<pre><code>error: unable to recognize &quot;https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v1.12/nvidia-device-plugin.yml&quot;: no matches for kind &quot;DaemonSet&quot; in version &quot;extensions/v1beta1&quot;
+</code></pre>
+<p>이는 쿠버네티스 버전이 업그레이드 되면서, <code>Daemonset</code>의 <code>extensions/v1beta1</code> 버전을 더이상 지원하지 않기 때문이다.<br>
+→ 1) 따라서 버전을 <code>apps/v1</code> 으로 변경하고 <code>selector</code> object를 추가한 후<br>
+→ 2) k8s-device-plugin을 다시 설치하고<br>
+→ 3) 매니패스트 파일도 적절하게 수정해주었다.</p>
+<p><strong>ref)</strong></p>
+<ul>
+<li><a href="https://medium.com/star-systems-labs/kubectl-convert-update-api-versions-automatically-e669add17e3d">Kubectl convert 참고 자료</a></li>
+<li><a href="ttps://www.kangwoo.kr/2020/02/17/pc%EC%97%90-kubeflow-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-2%EB%B6%80-kubernetes-nvidia-device-plugin-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/">No matches 이슈 해결 자료</a></li>
+</ul>
+<blockquote>
+<p>(참고) Pod 생성 실패시 에러 정보 확인</p>
+</blockquote>
+<pre><code>$ kubectl describe pod {pod 명}
+</code></pre>
+<h3 id="122-변경한-yaml-파일을-사용하여-daemonset-pod-생성">1.2.2. 변경한 YAML 파일을 사용하여 DaemonSet Pod 생성</h3>
+<p>이제 커스터 마이징한 YAML 파일로 Pod를 생성해보자.</p>
+<blockquote>
+<p>gpu-plugin.yaml</p>
+</blockquote>
+<pre><code>apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nvidia-device-plugin-daemonset-1.12
+  namespace: kube-system
+spec:
+  updateStrategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      name: nvidia-device-plugin-ds
+  template:
+    metadata:
+      # Mark this pod as a critical add-on; when enabled, the critical add-on scheduler
+      # reserves resources for critical add-on pods so that they can be rescheduled after
+      # a failure.  This annotation works in tandem with the toleration below.
+      annotations:
+        scheduler.alpha.kubernetes.io/critical-pod: &quot;&quot;
+      labels:
+        name: nvidia-device-plugin-ds
+    spec:
+      tolerations:
+      # Allow this pod to be rescheduled while the node is in &quot;critical add-ons only&quot; mode.
+      # This, along with the annotation above marks this pod as a critical add-on.
+      - key: CriticalAddonsOnly
+        operator: Exists
+      - key: nvidia.com/gpu
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - image: nvidia/k8s-device-plugin:1.11
+        name: nvidia-device-plugin-ctr
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: [&quot;ALL&quot;]
+        volumeMounts:
+          - name: device-plugin
+            mountPath: /var/lib/kubelet/device-plugins
+      volumes:
+        - name: device-plugin
+          hostPath:
+            path: /var/lib/kubelet/device-plugins
+      nodeSelector:
+        gpus: &quot;true&quot;
+</code></pre>
+<p>위의 매니패스트 주요 사항은 다음과 같다.</p>
+<h5 id="-리소스-유형--daemonset">① 리소스 유형 = DaemonSet</h5>
+<pre><code>kind: DaemonSet
+</code></pre>
+<pre><code>따라서 기본적으로는 모든 worker 노드 하나씩 동작하게 한다.
+</code></pre>
+<h5 id="-rollingupdate">② RollingUpdate</h5>
+<p><code>spec.selector.matchLabels.name</code></p>
+<pre><code>name: nvidia-device-plugin-ds
+</code></pre>
+<p><code>spec.template.matadata.labels.name</code></p>
+<pre><code>labels:
+  name: nvidia-device-plugin-ds
+</code></pre>
+<p>name object가 <code>nvidia-device-plugin-ds</code> 인 리소스에 대하여 RollingUpdate를 설정한다.</p>
+<h5 id="-node-label-지정">③ node Label 지정</h5>
+<p><code>spec.template.spec.nodeSelector</code> 로 어느 노드의 DaemonSet으로 띄워줄 것인지 레이블링해준다.</p>
+<pre><code>nodeSelector:
+  gpus: &quot;true&quot;
+</code></pre>
+<h2 id="13-gpu-plugin-deamonset-pod-정상-동작-확인">1.3. gpu-plugin DeamonSet Pod 정상 동작 확인</h2>
+<pre><code>$ kubectl -n kube-system get pod -l name=nvidia-device-plugin-ds
+NAME                                        READY   STATUS    RESTARTS   AGE
+nvidia-device-plugin-daemonset-1.12-d7t2g   1/1     Running   0          48d
+nvidia-device-plugin-daemonset-1.12-jmcg9   1/1     Running   0          48d
+nvidia-device-plugin-daemonset-1.12-zhsqm   1/1     Running   0          4h8mubectl -n kube-system get pod -l name=nvidia-device-plugin-ds
+NAME                                        READY   STATUS    RESTARTS   AGE
+nvidia-device-plugin-daemonset-1.12-7kh27   1/1     Running   0          27m
+
+$ kubectl -n kube-system logs  -l name=nvidia-device-plugin-ds
+2020/07/01 05:02:30 Loading NVML
+2020/07/01 05:02:30 Fetching devices.
+2020/07/01 05:02:30 Starting FS watcher.
+2020/07/01 05:02:30 Starting OS watcher.
+2020/07/01 05:02:30 Starting to serve on /var/lib/kubelet/device-plugins/nvidia.sock
+2020/07/01 05:02:30 Registered device plugin with Kubelet
+</code></pre>
+<h3 id="-여기서-잠깐-">🌟🌟 여기서 잠깐! 🌟🌟</h3>
+<p>중요한 사항은 gpu를 사용하려는 Worker node가 <code>gpus: &quot;true&quot;</code> 레이블링이 되어 있어야 한다는 것이다.</p>
+<ul>
+<li>만약 GPU가 있는 node인데 해당 DeamonSet이 올라가있지 않거나</li>
+<li>신규 Worker node를 추가하려는 경우</li>
+</ul>
+<p>⇒ <code>kubectl label nodes {Worker node 명} gpus=true</code> 로 레이블링을 해주자.</p>
+<h1 id="2-gpu-개수-확인">2. GPU 개수 확인</h1>
+<p>이제 쿠버네티스가 사용 가능한 GPU 개수를 확인해보자.<br>
+master node에서 아래의 명령어를 실행하면 각 worker node에서 사용 가능한 GPU 개수가 출력된다.</p>
+<pre><code>$ kubectl get nodes &quot;-o=custom-columns=NAME:.metadata.name,GPU:.status.allocatable.nvidia\.com/gpu&quot;
+NAME            GPU
+gpu-1080ti-XX   9
+gpu-1080ti-XX   9
+</code></pre>
+<h1 id="3-pod에서-그래픽-카드-명령어-테스트">3. Pod에서 그래픽 카드 명령어 테스트</h1>
+<h2 id="31-gpu를-사용하는-pod-생성하기">3.1. GPU를 사용하는 Pod 생성하기</h2>
+<h3 id="311-yaml-파일">3.1.1. YAML 파일</h3>
+<blockquote>
+<p>gpu-k8s.yaml</p>
+</blockquote>
+<pre><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: gpu-k8s
+spec:
+  containers:
+  - name: gpu-container
+    image: nvidia/cuda:9.0-runtime
+    command:
+      - &quot;/bin/sh&quot;
+      - &quot;-c&quot;
+    args:
+      - nvidia-smi &amp;&amp; tail -f /dev/null
+    resources:
+      requests:
+        nvidia.com/gpu: 2
+      limits:
+        nvidia.com/gpu: 2
+</code></pre>
+<p><strong>ref)</strong>
+nvidia/cuda 도커 이미지 버전이 맞지 않은 이슈 발생 시 ⇒ 도커 허브에서 맞는 이미지 버전을 찾아서 사용해주면 된다.</p>
+<ul>
+<li><a href="https://hub.docker.com/r/nvidia/cuda/">Docker Hub</a></li>
+<li><a href="https://itchain.wordpress.com/2018/05/16/kubernetes-resource-request-limit/">Kubernetes Resource Request와 Limit의 이해</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/">Schedule GPUs</a></li>
+</ul>
+<h3 id="312-pod-생성-및-확인">3.1.2. Pod 생성 및 확인</h3>
+<pre><code>$ kubectl apply -f gpu-k8s.yaml
+pod/gpu-k8s created
+
+$ kubectl get pods
+NAME                                READY   STATUS    RESTARTS   AGE
+gpu-k8s                             1/1     Running   0          12s
+</code></pre>
+<h3 id="313-nvidia-smi-확인">3.1.3. nvidia-smi 확인</h3>
+<pre><code>$ kubectl logs gpu-k8s
+Thu Jul  2 06:00:24 2020
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.95.01    Driver Version: 440.95.01    CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 108...  Off  | 00000000:86:00.0 Off |                  N/A |
+| 29%   30C    P8     8W / 250W |      0MiB / 11178MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  GeForce GTX 108...  Off  | 00000000:AF:00.0 Off |                  N/A |
+| 29%   31C    P8     8W / 250W |      0MiB / 11178MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+</code></pre>
+<h2 id="32-2개의-pod를-띄워서-gpu-4개를-모두-사용하기">3.2. 2개의 Pod를 띄워서 gpu 4개를 모두 사용하기</h2>
+<p>gpu-k8s2.yaml 매니패스트 파일을 하나 더 만들어서 위와 동일하게 실행해보자.</p>
+<h3 id="321-결과-확인">3.2.1. 결과 확인</h3>
+<pre><code>$ kubectl get pods
+NAME                                READY   STATUS    RESTARTS   AGE
+gpu-k8s                             1/1     Running   0          2m44s
+gpu-k8s2                            1/1     Running   0          2
+</code></pre>
+<h3 id="322-nvidia-smi-확인">3.2.2. nvidia-smi 확인</h3>
+<pre><code>$ kubectl logs gpu-k8s2
+Thu Jul  2 06:03:06 2020
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.95.01    Driver Version: 440.95.01    CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 108...  Off  | 00000000:18:00.0 Off |                  N/A |
+| 29%   31C    P8     7W / 250W |      0MiB / 11178MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  GeForce GTX 108...  Off  | 00000000:3B:00.0 Off |                  N/A |
+| 29%   33C    P8     8W / 250W |      0MiB / 11178MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+</code></pre>
+<h2 id="33-컨테이너가-노드의-모든-gpu를-사용-가능하게-하고-싶다면">3.3. 컨테이너가 노드의 모든 GPU를 사용 가능하게 하고 싶다면</h2>
+<ul>
+<li>request와 limit 설정 부분을 없애주면 된다.</li>
+<li>특이한 점은 이미 다른 파드에 GPU를 모두 할당 해준 상태에서도 파드 생성 가능하다.</li>
+</ul>
+<h3 id="331-yaml-파일">3.3.1. YAML 파일</h3>
+<pre><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: gpu-all
+spec:
+  containers:
+  - name: gpu-container
+    image: nvidia/cuda:9.0-runtime
+    env:
+    - name: DP_DISABLE_HEALTHCHECKS
+      value: &quot;xids&quot;
+    command:
+      - &quot;/bin/sh&quot;
+      - &quot;-c&quot;
+    args:
+      - nvidia-smi &amp;&amp; tail -f /dev/null
+</code></pre>
+<h3 id="332-pod-실행">3.3.2. Pod 실행</h3>
+<pre><code>$ kubectl apply -f gpu-all.yaml
+pod/gpu-all created
+</code></pre>
+<h3 id="333-확인">3.3.3. 확인</h3>
+<pre><code>$ kubectl get pods
+NAME                                READY   STATUS    RESTARTS   AGE
+gpu-all                             1/1     Running   0          50s
+gpu-k8s                             1/1     Running   0          42m
+gpu-k8s2                            1/1     Running   0          40m
+
+$ kubectl logs gpu-all
+Thu Jul  2 06:42:25 2020
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.95.01    Driver Version: 440.95.01    CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 108...  Off  | 00000000:18:00.0 Off |                  N/A |
+| 29%   32C    P8     7W / 250W |      0MiB / 11178MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  GeForce GTX 108...  Off  | 00000000:3B:00.0 Off |                  N/A |
+| 29%   33C    P8     8W / 250W |      0MiB / 11178MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   2  GeForce GTX 108...  Off  | 00000000:86:00.0 Off |                  N/A |
+| 29%   31C    P8     8W / 250W |      0MiB / 11178MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   3  GeForce GTX 108...  Off  | 00000000:AF:00.0 Off |                  N/A |
+| 29%   31C    P8     8W / 250W |      0MiB / 11178MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+</code></pre>
 
     </div>
     <div class="article-footer">
