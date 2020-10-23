@@ -10,6 +10,69 @@
     
     
     <item>
+      <title>Kubernets(쿠버네티스) with GPU 구축하기</title>
+      <link>https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/</link>
+      <pubDate>Fri, 23 Oct 2020 10:56:19 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/</guid>
+      <description>Intro Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자. 여기서는 Kubernest 클러스터가 구축되어 있다고 전제하고 진행한다. 아직 설치가 되지 않았</description>
+    </item>
+    
+    <item>
+      <title>GPU 성능 비교하기: Host vs Container</title>
+      <link>https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/</link>
+      <pubDate>Fri, 23 Oct 2020 10:50:18 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/</guid>
+      <description>Intro 회사에서 쿠버네티스 업무를 하다가 &amp;ldquo;컨테이너 위에서도 GPU 성능이 보장되는가?&amp;ldquo;라는 질문이 나왔다. 쿠버네티스 운영 중에 자주 마주</description>
+    </item>
+    
+    <item>
+      <title>Kuberenets 특정 버전으로 설치하기</title>
+      <link>https://healinyoon.github.io/2020/10/20201009_k8s_install_specific_version/</link>
+      <pubDate>Fri, 09 Oct 2020 12:48:29 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/10/20201009_k8s_install_specific_version/</guid>
+      <description>배경 회사에서 Kubernetes를 운영하다보면 클러스터에 새로운 worker node를 추가해야하는 일이 종종 생깁니다. 문제는 apt-get 등 기본 패키지 관리 도구를 사용하</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes Cluster 설치하기(ubuntu18.04)</title>
+      <link>https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/</link>
+      <pubDate>Wed, 02 Sep 2020 17:11:38 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/</guid>
+      <description>Kubernetes Cluster 설치하기 이 페이지에서는 ubuntu18.04에 kubeadm tool을 설치하고 이를 사용하여 kubernetes cluster를 구축하는 방법을 정리했습니다. 구성 H/W 구성하</description>
+    </item>
+    
+    <item>
+      <title>쿠버네티스 POD Network</title>
+      <link>https://healinyoon.github.io/2020/09/20200901_k8s_pod_network/</link>
+      <pubDate>Tue, 01 Sep 2020 13:33:15 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/09/20200901_k8s_pod_network/</guid>
+      <description>Pod Network pod network가 헷갈려서 정리용으로 만든 페이지 공식 사이트의 설명: Installing a Pod network add-on</description>
+    </item>
+    
+    <item>
+      <title>Jenkins Node Heap Memory 사이즈 설정하기(-Xmx/-Xms 옵션)</title>
+      <link>https://healinyoon.github.io/2020/08/20200831_jenkins_node_heap_size/</link>
+      <pubDate>Mon, 31 Aug 2020 13:26:55 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/08/20200831_jenkins_node_heap_size/</guid>
+      <description>목적 Jenkins node heap memory 사이즈 변경 방법 정리 참고 자료 Java Memory Management for Java Virtual Machine (JVM) Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide CloudBees Jenkins JVM troubleshooting Jenkins 권장 사양 Jenkins Heap Memory 옵션 Jenkins에서는 다양한 JAVA 옵션을 인</description>
+    </item>
+    
+    <item>
+      <title>Jenkins Master-Slave 구성하기</title>
+      <link>https://healinyoon.github.io/2020/08/20200827_jenkins_master_slave/</link>
+      <pubDate>Thu, 27 Aug 2020 19:35:29 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/08/20200827_jenkins_master_slave/</guid>
+      <description>Jenkins Master-Slave Jenkins는 기본적으로 단일 서버로 동작합니다. 그러나 단일 서버는 다음과 같은 상황을 충족하기 충분하지 않습니다. 빌드 테스트를 위한 다양한 환경이 필</description>
+    </item>
+    
+    <item>
       <title>CI/CD와 Jenkins</title>
       <link>https://healinyoon.github.io/2020/08/20200827_cicd_and_jenkins/</link>
       <pubDate>Thu, 27 Aug 2020 19:25:40 +0900</pubDate>
