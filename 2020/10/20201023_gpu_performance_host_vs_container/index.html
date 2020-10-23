@@ -39,7 +39,7 @@
 <meta itemprop="description" content="Intro 회사에서 쿠버네티스 업무를 하다가 &ldquo;컨테이너 위에서도 GPU 성능이 보장되는가?&ldquo;라는 질문이 나왔다. 쿠버네티스 운영 중에 자주 마주">
 <meta itemprop="datePublished" content="2020-10-23T10:50:18+09:00" />
 <meta itemprop="dateModified" content="2020-10-23T10:50:18+09:00" />
-<meta itemprop="wordCount" content="1609">
+<meta itemprop="wordCount" content="1607">
 
 
 
@@ -297,7 +297,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/10/20201023_gpu_performance_host_vs_container/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1609words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1607words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4minutes </span>
       </div>
     </div>
@@ -335,18 +335,18 @@ GPU 3: Tesla T4 (UUID: GPU-c2184c80-a215-c6bb-7db1-5a9d37b66961)
 <pre><code>Version:          19.03.6
 </code></pre>
 <h1 id="3-host-설정">3. Host 설정</h1>
-<h3 id="31-가상환경-생성---homeldccaiperformtestenvperformtestenv">3.1. 가상환경 생성 - /home/ldccai/PerformTestEnv/performTestEnv</h3>
+<h3 id="31-가상환경-생성">3.1. 가상환경 생성</h3>
 <pre><code># pip3 install virtualenv
-# virtualenv /home/ldccai/PerformTestEnv/performTestEnv
+# virtualenv /home/rin_gu/PerformTestEnv/performTestEnv
 </code></pre>
 <h3 id="32-tensorflow-설치">3.2. Tensorflow 설치</h3>
-<pre><code># source /home/ldccai/PerformanceTest/performTestEnv/bin/activate
+<pre><code># source /home/rin_gu/PerformanceTest/performTestEnv/bin/activate
 # python -m pip install --upgrade pip
 # sudo -H pip install --upgrade tf-nightly-gpu
 </code></pre>
 <h3 id="33-성능-테스트-코드-실행">3.3. 성능 테스트 코드 실행</h3>
-<pre><code># source /home/ldccai/PerformanceTest/performTestEnv/bin/activate
-# cd /home/ldccai/PerformanceTest/
+<pre><code># source /home/rin_gu/PerformanceTest/performTestEnv/bin/activate
+# cd /home/rin_gu/PerformanceTest/
 # git clone https://github.com/tensorflow/benchmarks.git
 # cd benchmarks
 </code></pre>
