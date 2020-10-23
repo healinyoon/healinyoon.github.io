@@ -39,7 +39,7 @@
 <meta itemprop="description" content="배경 회사에서 Kubernetes를 운영하다보면 클러스터에 새로운 worker node를 추가해야하는 일이 종종 생깁니다. 문제는 apt-get 등 기본 패키지 관리 도구를 사용하">
 <meta itemprop="datePublished" content="2020-10-09T12:48:29+09:00" />
 <meta itemprop="dateModified" content="2020-10-09T12:48:29+09:00" />
-<meta itemprop="wordCount" content="977">
+<meta itemprop="wordCount" content="979">
 
 
 
@@ -306,7 +306,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/10/20201009_k8s_install_specific_version/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 977words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 979words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2minutes </span>
       </div>
     </div>
@@ -361,11 +361,8 @@ E: Version '1.18.8' for 'kubelet' was not found
 </code></pre>
 <h3 id="1188-00-버전으로-설치하기">1.18.8-00 버전으로 설치하기</h3>
 <p>이제 다시 설치를 진행해봅니다.</p>
-<ul>
-<li>kubeadm 설치
-원래 kubeadm만 설치해도 kubectl과 kubelet이 의존적으로 설치됩니다.<br>
-그런데 말입니다&hellip; 특이점이 발생합니다.</li>
-</ul>
+<p>원래 kubeadm만 설치해도 kubectl과 kubelet이 의존적으로 설치됩니다.<br>
+그런데 말입니다&hellip; 특이점이 발생합니다.</p>
 <pre><code># sudo apt-get install kubeadm=1.18.8-00
 Reading package lists... Done
 Building dependency tree
@@ -389,7 +386,7 @@ Setting up kubectl (1.19.2-00) ...
 Setting up kubeadm (1.18.8-00) ...
 </code></pre>
 <p>위와 같이 kubectl이 1.19.2-00 버전으로 설치가 됩니다.<br>
-kubectl을 downgrade 해주는 방법도 있지만..</p>
+이런 경우, kubectl을 downgrade 해주는 방법도 있지만..</p>
 <pre><code># apt-get install kubectl=1.18.8-00
 </code></pre>
 <p>애초에 처음부터 모두 버전을 지정해주면 됩니다.</p>
