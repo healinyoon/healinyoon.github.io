@@ -3,71 +3,78 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://healinyoon.github.io/categories/</loc>
-    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/categories/docker/</loc>
-    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/categories/gitlab/</loc>
-    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/tags/k8s/</loc>
-    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/categories/kubernetes/</loc>
-    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/2020/09/20200908_k8s_gitlab_cicd/</loc>
-    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/tags/msa/</loc>
-    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
+    <loc>https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/</loc>
+    <lastmod>2020-10-23T10:56:19+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/posts/</loc>
-    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
+    <lastmod>2020-10-23T10:56:19+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/</loc>
-    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
+    <lastmod>2020-10-23T10:56:19+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/</loc>
+    <lastmod>2020-10-23T10:50:18+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/categories/</loc>
+    <lastmod>2020-10-09T12:48:29+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/tags/k8s/</loc>
+    <lastmod>2020-10-09T12:48:29+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/2020/10/20201009_k8s_install_specific_version/</loc>
+    <lastmod>2020-10-09T12:48:29+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/categories/kubernetes/</loc>
+    <lastmod>2020-10-09T12:48:29+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/tags/msa/</loc>
+    <lastmod>2020-10-09T12:48:29+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/tags/</loc>
-    <lastmod>2020-09-08T13:02:19+09:00</lastmod>
+    <lastmod>2020-10-09T12:48:29+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/categories/docker/</loc>
+    <lastmod>2020-09-02T17:11:38+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

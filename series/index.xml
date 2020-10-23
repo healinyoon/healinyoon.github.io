@@ -10,12 +10,30 @@
     
     
     <item>
-      <title>kubernetes &#43; Gitlab로 CI/CD 구축하기</title>
-      <link>https://healinyoon.github.io/2020/09/20200908_k8s_gitlab_cicd/</link>
-      <pubDate>Tue, 08 Sep 2020 13:02:19 +0900</pubDate>
+      <title>Kubernets(쿠버네티스) with GPU 구축하기</title>
+      <link>https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/</link>
+      <pubDate>Fri, 23 Oct 2020 10:56:19 +0900</pubDate>
       
-      <guid>https://healinyoon.github.io/2020/09/20200908_k8s_gitlab_cicd/</guid>
-      <description></description>
+      <guid>https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/</guid>
+      <description>Intro Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자 여기서는 Kubernest 클러스터가 구축되어 있다고 전제하고 진행한다. 아직 설치가 되지 않았다</description>
+    </item>
+    
+    <item>
+      <title>GPU 성능 비교하기: Host vs K8S</title>
+      <link>https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/</link>
+      <pubDate>Fri, 23 Oct 2020 10:50:18 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/</guid>
+      <description>Intro 회사에서 쿠버네티스 업무를 하다가 &amp;ldquo;쿠버네티스 위에서도 GPU 성능이 보장되는가?&amp;ldquo;라는 질문이 나왔다. 쿠버네티스 운영 중에 자주 마</description>
+    </item>
+    
+    <item>
+      <title>Kuberenets 특정 버전으로 설치하기</title>
+      <link>https://healinyoon.github.io/2020/10/20201009_k8s_install_specific_version/</link>
+      <pubDate>Fri, 09 Oct 2020 12:48:29 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/10/20201009_k8s_install_specific_version/</guid>
+      <description>배경 회사에서 Kubernetes를 운영하다보면 클러스터에 새로운 worker node를 추가해야하는 일이 종종 생깁니다. 문제는 apt-get 등 기본 패키지 관리 도구를 사용하</description>
     </item>
     
     <item>
