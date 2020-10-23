@@ -16,7 +16,7 @@
       <pubDate>Fri, 23 Oct 2020 10:56:19 +0900</pubDate>
       
       <guid>https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/</guid>
-      <description>Intro Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자 여기서는 Kubernest 클러스터가 구축되어 있다고 전제하고 진행한다. 아직 설치가 되지 않았다</description>
+      <description>Intro Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자. 여기서는 Kubernest 클러스터가 구축되어 있다고 전제하고 진행한다. 아직 설치가 되지 않았</description>
     </item>
     
     <item>
