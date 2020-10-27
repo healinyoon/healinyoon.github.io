@@ -12,11 +12,11 @@
     
     <item>
       <title>Kubernets(쿠버네티스) with GPU 구축하기</title>
-      <link>https://healinyoon.github.io/2020/10/%EC%A7%84%ED%96%89%EC%A4%9120201023_kubernetes_with_gpu/</link>
+      <link>https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/</link>
       <pubDate>Fri, 23 Oct 2020 10:56:19 +0900</pubDate>
       
-      <guid>https://healinyoon.github.io/2020/10/%EC%A7%84%ED%96%89%EC%A4%9120201023_kubernetes_with_gpu/</guid>
-      <description>Intro Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자. 여기서는 Kubernest 클러스터가 구축되어 있다고 전제하고 진행한다. 아직 설치가 되지 않았</description>
+      <guid>https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/</guid>
+      <description>Intro Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자. 사전 요구 사항 아래의 내용이 완료되었다는 전제로 진행하므로, 아직 충족되지 않은</description>
     </item>
     
     <item>

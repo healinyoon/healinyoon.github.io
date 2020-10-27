@@ -20,7 +20,7 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="Intro Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자. 여기서는 Kubernest 클러스터가 구축되어 있다고 전제하고 진행한다. 아직 설치가 되지 않았" />
+    <meta name="description" content="Intro Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자. 사전 요구 사항 아래의 내용이 완료되었다는 전제로 진행하므로, 아직 충족되지 않은" />
     <meta name="generator" content="Hugo 0.74.3 with theme pure" />
     <title>Kubernets(쿠버네티스) with GPU 구축하기 - ringu blog</title>
     
@@ -30,23 +30,23 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
     <meta property="og:title" content="Kubernets(쿠버네티스) with GPU 구축하기" />
-<meta property="og:description" content="Intro Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자. 여기서는 Kubernest 클러스터가 구축되어 있다고 전제하고 진행한다. 아직 설치가 되지 않았" />
+<meta property="og:description" content="Intro Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자. 사전 요구 사항 아래의 내용이 완료되었다는 전제로 진행하므로, 아직 충족되지 않은" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/" />
 <meta property="article:published_time" content="2020-10-23T10:56:19+09:00" />
 <meta property="article:modified_time" content="2020-10-23T10:56:19+09:00" />
 <meta itemprop="name" content="Kubernets(쿠버네티스) with GPU 구축하기">
-<meta itemprop="description" content="Intro Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자. 여기서는 Kubernest 클러스터가 구축되어 있다고 전제하고 진행한다. 아직 설치가 되지 않았">
+<meta itemprop="description" content="Intro Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자. 사전 요구 사항 아래의 내용이 완료되었다는 전제로 진행하므로, 아직 충족되지 않은">
 <meta itemprop="datePublished" content="2020-10-23T10:56:19+09:00" />
 <meta itemprop="dateModified" content="2020-10-23T10:56:19+09:00" />
-<meta itemprop="wordCount" content="1870">
+<meta itemprop="wordCount" content="1919">
 
 
 
 <meta itemprop="keywords" content="docker,kubernetes," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kubernets(쿠버네티스) with GPU 구축하기"/>
-<meta name="twitter:description" content="Intro Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자. 여기서는 Kubernest 클러스터가 구축되어 있다고 전제하고 진행한다. 아직 설치가 되지 않았"/>
+<meta name="twitter:description" content="Intro Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자. 사전 요구 사항 아래의 내용이 완료되었다는 전제로 진행하므로, 아직 충족되지 않은"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -159,7 +159,9 @@
         <ul class="category-list">
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/blog/" class="category-list-link">blog</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/ci/cd/" class="category-list-link">ci/cd</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/cloud/" class="category-list-link">cloud</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/devops/" class="category-list-link">devops</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/gpu/" class="category-list-link">gpu</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/jvm/" class="category-list-link">jvm</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/msa/" class="category-list-link">msa</a><span class="category-list-count">5</span></li>
         </ul>
@@ -169,6 +171,10 @@
     <h3 class="widget-title"> Tags</h3>
     <div class="widget-body">
         <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/azure/" class="tag-list-link">azure</a><span
+                    class="tag-list-count">1</span></li>
             
             
             <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/docker/" class="tag-list-link">docker</a><span
@@ -212,7 +218,7 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/" class="title">GPU 성능 비교하기: Host vs Container</a>
+                        <a href="https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/" class="title">GPU 성능 비교하기: Host vs Container(&#43;Container에서 GPU 사용하기)</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-10-23 10:50:18 &#43;0900 KST" itemprop="datePublished">2020-10-23</time>
@@ -232,20 +238,20 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/" class="title">Kubernetes Cluster 설치하기(ubuntu18.04)</a>
+                        <a href="https://healinyoon.github.io/2020/09/20201023_azure_cli_with_virtualenv/" class="title">Azure CLI 설치하기 with virtualenv</a>
                     </p>
                     <p class="item-date">
-                        <time datetime="2020-09-02 17:11:38 &#43;0900 KST" itemprop="datePublished">2020-09-02</time>
+                        <time datetime="2020-09-15 14:53:35 &#43;0900 KST" itemprop="datePublished">2020-09-15</time>
                     </p>
                 </div>
             </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://healinyoon.github.io/2020/09/20200901_k8s_pod_network/" class="title">쿠버네티스 POD Network</a>
+                        <a href="https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/" class="title">Kubernetes Cluster 설치하기(ubuntu18.04)</a>
                     </p>
                     <p class="item-date">
-                        <time datetime="2020-09-01 13:33:15 &#43;0900 KST" itemprop="datePublished">2020-09-01</time>
+                        <time datetime="2020-09-02 17:11:38 &#43;0900 KST" itemprop="datePublished">2020-09-02</time>
                     </p>
                 </div>
             </li>
@@ -298,14 +304,19 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/10/20201023_kubernetes_with_gpu/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1870words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1919words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       <h1 id="intro">Intro</h1>
-<p>Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자. 여기서는 Kubernest 클러스터가 구축되어 있다고 전제하고 진행한다.<br>
-아직 설치가 되지 않았다면 <a href="https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/">Kubernetes Cluster 설치하기(ubuntu18.04)</a>을 참고해서 설치 후 진행해야 한다.</p>
+<p>Kubernetes에서 GPU를 사용하도록 환경을 구축하고 사용해보자.</p>
+<h3 id="사전-요구-사항">사전 요구 사항</h3>
+<p>아래의 내용이 완료되었다는 전제로 진행하므로, 아직 충족되지 않은 조건이 있다면 선행해주자.</p>
+<h4 id="1-kubernetes-cluster-구축">1. kubernetes cluster 구축</h4>
+<p>아직 구축이 되어 있지 않다면 <a href="https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/">Kubernetes Cluster 설치하기(ubuntu18.04)</a>를 참고하여 진행</p>
+<h4 id="2-nvidia-docker-설치">2. nvidia-docker 설치</h4>
+<p>아직 설치가 되어 있지 않다면 <a href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker">nvidia-docker install guide</a>를 참고하여 진행</p>
 <h1 id="1-nvidia-plugin-pod-생성">1. Nvidia Plugin Pod 생성</h1>
 <h4 id="ref">ref)</h4>
 <ul>
@@ -637,7 +648,7 @@ Thu Jul  2 06:42:25 2020
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/" title="GPU 성능 비교하기: Host vs Container"><i
+                <a href="https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/" title="GPU 성능 비교하기: Host vs Container(&#43;Container에서 GPU 사용하기)"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
             </li>
