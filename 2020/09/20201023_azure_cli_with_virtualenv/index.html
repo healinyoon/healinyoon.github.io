@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <title>
-        ringu blog</title>
+        Azure CLI 설치하기 with virtualenv - ringu blog
+      </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
@@ -19,26 +20,33 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    
+    <meta name="description" content="Azure CLI를 virtualenv 환경에서 설치하기 Host 서버에 그냥 설치하면 파이썬 버전 문제로 실행이 안될 수 있다. virtualenv 를 설치하고 az cli 를 설치하는 방법이다. $ pip install virtualenv $ mkdir azure-cli-with-python3 $ which python3 $" />
     <meta name="generator" content="Hugo 0.74.3 with theme pure" />
-    <title>ringu blog</title>
+    <title>Azure CLI 설치하기 with virtualenv - ringu blog</title>
     
-    <link rel="alternate" type="application/rss+xml" href="https://healinyoon.github.io/tags/jenkins/index.xml" title="ringu blog" />
     
     <link rel="stylesheet" href="https://healinyoon.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="jenkins" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://healinyoon.github.io/tags/jenkins/" />
-<meta property="og:updated_time" content="2020-08-31T13:26:55+09:00" />
-<meta itemprop="name" content="jenkins">
-<meta itemprop="description" content="">
+    <meta property="og:title" content="Azure CLI 설치하기 with virtualenv" />
+<meta property="og:description" content="Azure CLI를 virtualenv 환경에서 설치하기 Host 서버에 그냥 설치하면 파이썬 버전 문제로 실행이 안될 수 있다. virtualenv 를 설치하고 az cli 를 설치하는 방법이다. $ pip install virtualenv $ mkdir azure-cli-with-python3 $ which python3 $" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://healinyoon.github.io/2020/09/20201023_azure_cli_with_virtualenv/" />
+<meta property="article:published_time" content="2020-09-15T14:53:35+09:00" />
+<meta property="article:modified_time" content="2020-09-15T14:53:35+09:00" />
+<meta itemprop="name" content="Azure CLI 설치하기 with virtualenv">
+<meta itemprop="description" content="Azure CLI를 virtualenv 환경에서 설치하기 Host 서버에 그냥 설치하면 파이썬 버전 문제로 실행이 안될 수 있다. virtualenv 를 설치하고 az cli 를 설치하는 방법이다. $ pip install virtualenv $ mkdir azure-cli-with-python3 $ which python3 $">
+<meta itemprop="datePublished" content="2020-09-15T14:53:35+09:00" />
+<meta itemprop="dateModified" content="2020-09-15T14:53:35+09:00" />
+<meta itemprop="wordCount" content="116">
+
+
+
+<meta itemprop="keywords" content="azure," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="jenkins"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Azure CLI 설치하기 with virtualenv"/>
+<meta name="twitter:description" content="Azure CLI를 virtualenv 환경에서 설치하기 Host 서버에 그냥 설치하면 파이썬 버전 문제로 실행이 안될 수 있다. virtualenv 를 설치하고 az cli 를 설치하는 방법이다. $ pip install virtualenv $ mkdir azure-cli-with-python3 $ which python3 $"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -255,72 +263,134 @@
 
     
     
-<main class="main" role="main">
-    <article class="content article article-tags post-type-list" itemscope="">
-        <header class="article-header">
-            <h1 itemprop="name" class="hidden-xs">jenkins</h1>
-            <p class="text-muted hidden-xs">Total 6 tags</p>
-            <nav role="navigation" id="nav-main" class="okayNav">
-                <ul>
-                    <li><a href="https://healinyoon.github.io/tags">All</a></li>
-                    <li><a href="https://healinyoon.github.io/tags/azure/">azure</a></li>
-                    <li><a href="https://healinyoon.github.io/tags/docker/">docker</a></li>
-                    <li><a href="https://healinyoon.github.io/tags/go/">go</a></li>
-                    <li><a href="https://healinyoon.github.io/tags/hugo/">hugo</a></li>
-                    <li><a href="https://healinyoon.github.io/tags/jenkins/">jenkins</a></li>
-                    <li><a href="https://healinyoon.github.io/tags/kubernetes/">kubernetes</a></li>
-                </ul>
-            </nav>
-        </header>
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/09/20201023_azure_cli_with_virtualenv/"
+    >Azure CLI 설치하기 with virtualenv</a
+  >
+</h1>
+
+      <div class="article-meta">
         
-        <div class="article-body">
-            <div class="col-md-6"><article class="panel panel-default hover-shadow hover-grow" itemscope itemtype="http://schema.org/BlogPosting">
-    <div class="panel-body">
-        <div class="article-meta">
-            <time datetime="2020-08-31 13:26:55 &#43;0900 KST"
-                itemprop="datePublished">2020-08-31</time>
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://healinyoon.github.io/2020/09/20201023_azure_cli_with_virtualenv/" class="article-date">
+  <time datetime="2020-09-15 14:53:35 &#43;0900 KST" itemprop="datePublished">2020-09-15</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/cloud/"> cloud </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/azure/"> azure </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/09/20201023_azure_cli_with_virtualenv/#comments"
+            class="article-comment-link">Comments</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 116words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h3 id="azure-cli를-virtualenv-환경에서-설치하기">Azure CLI를 virtualenv 환경에서 설치하기</h3>
+<p>Host 서버에 그냥 설치하면 파이썬 버전 문제로 실행이 안될 수 있다.
+<code>virtualenv</code> 를 설치하고 <code>az cli</code> 를 설치하는 방법이다.</p>
+<pre><code>$ pip install virtualenv
+$ mkdir azure-cli-with-python3
+$ which python3
+$ cd azure-cli-with-python3
+$ virtualenv -p /usr/bin/python3.5.
+$ source ./bin/activate
+$ sudo apt install python3-dev
+$ pip install azure-cli
+$ python --version
+</code></pre>
+<h3 id="ref">ref)</h3>
+<ul>
+<li><a href="https://github.com/Azure/azure-cli/issues/2529">The way to configure Azure CLI to use Python 3.5 on system where the default Python version is 2.x · Issue #2529 · Azure/azure-cli</a></li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://healinyoon.github.io/2020/09/20201023_azure_cli_with_virtualenv/" title="Azure CLI 설치하기 with virtualenv" target="_blank" rel="external">https://healinyoon.github.io/2020/09/20201023_azure_cli_with_virtualenv/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/healinyoon" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://healinyoon.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/healinyoon" target="_blank"><span class="text-dark">rin gu</span><small class="ml-1x">A Developer</small></a></h3>
+        <div>Linux, Infrastructure, DevOps</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/" title="Kubernetes Cluster 설치하기(ubuntu18.04)"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://healinyoon.github.io/2020/10/20201009_k8s_install_specific_version/"
+                    title="Kuberenets 특정 버전으로 설치하기"><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
         </div>
-        <h3 class="article-title" itemprop="name">
-            <a class="article-link" href="https://healinyoon.github.io/2020/08/20200831_jenkins_node_heap_size/">Jenkins Node Heap Memory 사이즈 설정하기(-Xmx/-Xms 옵션)</a>
-        </h3>
     </div>
-    <div class="panel-footer">
-        <a href="https://healinyoon.github.io/tags/jenkins" class="label label-default mb">jenkins</a>
-    </div>
-</article>
-            </div>
-            <div class="col-md-6"><article class="panel panel-default hover-shadow hover-grow" itemscope itemtype="http://schema.org/BlogPosting">
-    <div class="panel-body">
-        <div class="article-meta">
-            <time datetime="2020-08-27 19:35:29 &#43;0900 KST"
-                itemprop="datePublished">2020-08-27</time>
-        </div>
-        <h3 class="article-title" itemprop="name">
-            <a class="article-link" href="https://healinyoon.github.io/2020/08/20200827_jenkins_master_slave/">Jenkins Master-Slave 구성하기</a>
-        </h3>
-    </div>
-    <div class="panel-footer">
-        <a href="https://healinyoon.github.io/tags/jenkins" class="label label-default mb">jenkins</a>
-    </div>
-</article>
-            </div>
-            <div class="col-md-6"><article class="panel panel-default hover-shadow hover-grow" itemscope itemtype="http://schema.org/BlogPosting">
-    <div class="panel-body">
-        <div class="article-meta">
-            <time datetime="2020-08-27 19:25:40 &#43;0900 KST"
-                itemprop="datePublished">2020-08-27</time>
-        </div>
-        <h3 class="article-title" itemprop="name">
-            <a class="article-link" href="https://healinyoon.github.io/2020/08/20200827_cicd_and_jenkins/">CI/CD와 Jenkins</a>
-        </h3>
-    </div>
-    <div class="panel-footer">
-        <a href="https://healinyoon.github.io/tags/jenkins" class="label label-default mb">jenkins</a>
-    </div>
-</article>
-            </div>
-        </div>
-    </article>
+</nav>
+
 </main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
 <ul class="social-links">
     <li><a href="https://github.com/healinyoon" target="_blank" title="github" data-toggle=tooltip data-placement=top >
@@ -395,6 +465,7 @@
         hasInnerContainers: true,
     });
 </script>
+
 
   </body>
 </html>
