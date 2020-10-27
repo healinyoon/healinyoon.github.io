@@ -20,11 +20,11 @@
     </item>
     
     <item>
-      <title>GPU 성능 비교하기: Host vs Container(&#43; Container에서 GPU 사용하기)</title>
-      <link>https://healinyoon.github.io/2020/10/%EC%A7%84%ED%96%89%EC%A4%9120201023_gpu_performance_host_vs_container/</link>
+      <title>GPU 성능 비교하기: Host vs Container(&#43;Container에서 GPU 사용하기)</title>
+      <link>https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/</link>
       <pubDate>Fri, 23 Oct 2020 10:50:18 +0900</pubDate>
       
-      <guid>https://healinyoon.github.io/2020/10/%EC%A7%84%ED%96%89%EC%A4%9120201023_gpu_performance_host_vs_container/</guid>
+      <guid>https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/</guid>
       <description>Intro 회사에서 쿠버네티스 업무를 하다가 &amp;ldquo;컨테이너 위에서도 GPU 성능이 보장되는가?&amp;ldquo;라는 질문이 나왔다. 쿠버네티스 운영 중에 자주 마주</description>
     </item>
     

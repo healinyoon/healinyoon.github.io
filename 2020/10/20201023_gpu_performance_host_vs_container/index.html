@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-        GPU 성능 비교하기: Host vs Container - ringu blog
+        GPU 성능 비교하기: Host vs Container(&#43;Container에서 GPU 사용하기) - ringu blog
       </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -22,30 +22,30 @@
     
     <meta name="description" content="Intro 회사에서 쿠버네티스 업무를 하다가 &amp;ldquo;컨테이너 위에서도 GPU 성능이 보장되는가?&amp;ldquo;라는 질문이 나왔다. 쿠버네티스 운영 중에 자주 마주" />
     <meta name="generator" content="Hugo 0.74.3 with theme pure" />
-    <title>GPU 성능 비교하기: Host vs Container - ringu blog</title>
+    <title>GPU 성능 비교하기: Host vs Container(&#43;Container에서 GPU 사용하기) - ringu blog</title>
     
     
     <link rel="stylesheet" href="https://healinyoon.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="GPU 성능 비교하기: Host vs Container" />
+    <meta property="og:title" content="GPU 성능 비교하기: Host vs Container(&#43;Container에서 GPU 사용하기)" />
 <meta property="og:description" content="Intro 회사에서 쿠버네티스 업무를 하다가 &ldquo;컨테이너 위에서도 GPU 성능이 보장되는가?&ldquo;라는 질문이 나왔다. 쿠버네티스 운영 중에 자주 마주" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/" />
 <meta property="article:published_time" content="2020-10-23T10:50:18+09:00" />
 <meta property="article:modified_time" content="2020-10-23T10:50:18+09:00" />
-<meta itemprop="name" content="GPU 성능 비교하기: Host vs Container">
+<meta itemprop="name" content="GPU 성능 비교하기: Host vs Container(&#43;Container에서 GPU 사용하기)">
 <meta itemprop="description" content="Intro 회사에서 쿠버네티스 업무를 하다가 &ldquo;컨테이너 위에서도 GPU 성능이 보장되는가?&ldquo;라는 질문이 나왔다. 쿠버네티스 운영 중에 자주 마주">
 <meta itemprop="datePublished" content="2020-10-23T10:50:18+09:00" />
 <meta itemprop="dateModified" content="2020-10-23T10:50:18+09:00" />
-<meta itemprop="wordCount" content="1607">
+<meta itemprop="wordCount" content="1567">
 
 
 
 <meta itemprop="keywords" content="docker," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="GPU 성능 비교하기: Host vs Container"/>
+<meta name="twitter:title" content="GPU 성능 비교하기: Host vs Container(&#43;Container에서 GPU 사용하기)"/>
 <meta name="twitter:description" content="Intro 회사에서 쿠버네티스 업무를 하다가 &ldquo;컨테이너 위에서도 GPU 성능이 보장되는가?&ldquo;라는 질문이 나왔다. 쿠버네티스 운영 중에 자주 마주"/>
 
     <!--[if lte IE 9]>
@@ -202,7 +202,7 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/" class="title">Kubernets(쿠버네티스) with GPU 구축하기</a>
+                        <a href="https://healinyoon.github.io/2020/10/%EC%A7%84%ED%96%89%EC%A4%9120201023_kubernetes_with_gpu/" class="title">Kubernets(쿠버네티스) with GPU 구축하기</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-10-23 10:56:19 &#43;0900 KST" itemprop="datePublished">2020-10-23</time>
@@ -212,7 +212,7 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/" class="title">GPU 성능 비교하기: Host vs Container</a>
+                        <a href="https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/" class="title">GPU 성능 비교하기: Host vs Container(&#43;Container에서 GPU 사용하기)</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-10-23 10:50:18 &#43;0900 KST" itemprop="datePublished">2020-10-23</time>
@@ -242,7 +242,7 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://healinyoon.github.io/2020/09/20200901_k8s_pod_network/" class="title">쿠버네티스 POD Network</a>
+                        <a href="https://healinyoon.github.io/2020/09/%EB%AF%B8%EC%99%8420200901_k8s_pod_network/" class="title">쿠버네티스 POD Network</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-09-01 13:33:15 &#43;0900 KST" itemprop="datePublished">2020-09-01</time>
@@ -274,7 +274,7 @@
   <a
     class="article-title"
     href="/2020/10/20201023_gpu_performance_host_vs_container/"
-    >GPU 성능 비교하기: Host vs Container</a
+    >GPU 성능 비교하기: Host vs Container(&#43;Container에서 GPU 사용하기)</a
   >
 </h1>
 
@@ -297,7 +297,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/10/20201023_gpu_performance_host_vs_container/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1607words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1567words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4minutes </span>
       </div>
     </div>
@@ -305,60 +305,40 @@
       <h1 id="intro">Intro</h1>
 <p>회사에서 쿠버네티스 업무를 하다가 &ldquo;컨테이너 위에서도 GPU 성능이 보장되는가?&ldquo;라는 질문이 나왔다.
 쿠버네티스 운영 중에 자주 마주하는 질문이므로, 이번 기회에 정리를 해보려고 한다.</p>
-<h3 id="-목차-">[ 목차 ]</h3>
-<ol>
-<li>Infra workstation 정보</li>
-<li>T4 정보</li>
-<li>T4 -  Host 설정</li>
-<li>T4 -  Container 설정</li>
-<li>T4 -  Host vs Container 성능 비교</li>
-<li>상세 - Host</li>
-<li>상세 - Container</li>
-</ol>
-<h3 id="-요약-">[ 요약 ]</h3>
-<h4 id="결론">결론</h4>
+<h1 id="1-host-vs-container-gpu-성능-테스트-요약">1. Host vs Container GPU 성능 테스트 요약</h1>
+<h3 id="11-결론">1.1. 결론</h3>
 <p>GPU on Host VS Container를 비교하였을 때 속도의 성능 차이가 없었음</p>
-<h4 id="상세-내용">상세 내용</h4>
+<h3 id="12-상세-내용">1.2. 상세 내용</h3>
 <ul>
 <li>GPU Performance on Host VS Container 비교시 정확도에는 차이가(모델이 같으므로) 없으므로, 속도만 비교하였다.</li>
 <li>GPU를 1개 사용하였을 경우와 2개 사용하였을 경우를 나누어 비교하였다.</li>
 <li>동일한 조건에 대해 테스트 케이스(횟수)를 총 2회씩 수행하였다.</li>
 </ul>
-<h1 id="1-정보-확인">1. 정보 확인</h1>
-<h3 id="21-gpu-현황">2.1. GPU 현황</h3>
-<pre><code>GPU 0: Tesla T4 (UUID: GPU-f881729c-c452-b42b-fab6-ab0647359a66)
-GPU 1: Tesla T4 (UUID: GPU-9e53cd27-5256-0904-95f3-0e6b7b9cce1d)
-GPU 2: Tesla T4 (UUID: GPU-5491ddfe-3d4f-283c-800c-fbd7f99fd87f)
-GPU 3: Tesla T4 (UUID: GPU-c2184c80-a215-c6bb-7db1-5a9d37b66961)
-</code></pre>
-<h3 id="22-도커-버전">2.2. 도커 버전</h3>
-<pre><code>Version:          19.03.6
-</code></pre>
-<h1 id="3-host-설정">3. Host 설정</h1>
-<h3 id="31-가상환경-생성">3.1. 가상환경 생성</h3>
+<h1 id="2-gpu-성능-비교를-위한-host-환경-설정">2. GPU 성능 비교를 위한 Host 환경 설정</h1>
+<h3 id="21-가상환경-생성">2.1. 가상환경 생성</h3>
 <pre><code># pip3 install virtualenv
 # virtualenv /home/rin_gu/PerformTestEnv/performTestEnv
 </code></pre>
-<h3 id="32-tensorflow-설치">3.2. Tensorflow 설치</h3>
+<h3 id="22-tensorflow-설치">2.2. Tensorflow 설치</h3>
 <pre><code># source /home/rin_gu/PerformanceTest/performTestEnv/bin/activate
 # python -m pip install --upgrade pip
 # sudo -H pip install --upgrade tf-nightly-gpu
 </code></pre>
-<h3 id="33-성능-테스트-코드-실행">3.3. 성능 테스트 코드 실행</h3>
+<h3 id="23-성능-테스트-코드-실행">2.3. 성능 테스트 코드 실행</h3>
 <pre><code># source /home/rin_gu/PerformanceTest/performTestEnv/bin/activate
 # cd /home/rin_gu/PerformanceTest/
 # git clone https://github.com/tensorflow/benchmarks.git
 # cd benchmarks
 </code></pre>
-<h1 id="4-container-설정">4. Container 설정</h1>
-<h3 id="41-컨테이너-이미지-다운로드">4.1. 컨테이너 이미지 다운로드</h3>
+<h1 id="3-gpu-성능-비교를-위한-container-환경-설정">3. GPU 성능 비교를 위한 Container 환경 설정</h1>
+<h3 id="31-컨테이너-이미지-다운로드">3.1. 컨테이너 이미지 다운로드</h3>
 <pre><code>root@ubuntu:~# docker pull tensorflow/tensorflow:nightly-gpu
 </code></pre>
-<h3 id="42-컨테이너-run-with-gpu">4.2. 컨테이너 run with GPU</h3>
+<h3 id="32-컨테이너-run-with-gpu">3.2. 컨테이너 run with GPU</h3>
 <pre><code>root@ubuntu:~# docker container run -d --gpus all -it tensorflow/tensorflow:nightly-gpu
 94515f052adbddf25bb9c66e5d5d7ee6a6010cfc74c6936f3b01bdf764202488
 </code></pre>
-<h3 id="43-컨테이너-접속">4.3. 컨테이너 접속</h3>
+<h3 id="33-컨테이너-접속">3.3. 컨테이너 접속</h3>
 <pre><code>root@ubuntu:~# docker exec -it 94515f052adb /bin/bash
 &quot;docker exec&quot; requires at least 2 arguments.
 See 'docker exec --help'.
@@ -382,7 +362,7 @@ To avoid this, run the container by specifying your user's userid:
 
 $ docker run -u $(id -u):$(id -g) args...
 </code></pre>
-<h3 id="44-파이썬-버전-확인">4.4. 파이썬 버전 확인</h3>
+<h3 id="34-파이썬-버전-확인">3.4. 파이썬 버전 확인</h3>
 <pre><code>root@282efcfdc3c8:/# python
 Python 3.6.9 (default, Apr 18 2020, 01:56:04)
 [GCC 8.4.0] on linux
@@ -392,12 +372,12 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 &gt;&gt;&gt; tf.__version__
 '2.3.0-dev20200621'
 </code></pre>
-<h3 id="45--git-설치--리포지토리-다운로드">4.5.  git 설치 / 리포지토리 다운로드</h3>
+<h3 id="35-git-설치--리포지토리-다운로드">3.5. git 설치 / 리포지토리 다운로드</h3>
 <pre><code>root@94515f052adb:/# apt-get install git
 root@94515f052adb:/# git clone https://github.com/tensorflow/benchmarks.git
 </code></pre>
-<h1 id="5-t4---host-vs-container-성능-비교">5. T4 - Host vs Container 성능 비교</h1>
-<h3 id="51-gpu-1개-사용">5.1. GPU 1개 사용</h3>
+<h1 id="4-host-vs-container-성능-비교">4. Host vs Container 성능 비교</h1>
+<h3 id="41-gpu-1개-사용">4.1. GPU 1개 사용</h3>
 <pre><code>(performTestEnv) # CUDA_VISIBLE_DEVICES={GPU 디바이스} python tf_cnn_benchmarks.py --num_gpus=1 --batch_size={배치사이즈} --model={모델명} --variable_update=parameter_server
 </code></pre>
 <table>
@@ -424,7 +404,7 @@ root@94515f052adb:/# git clone https://github.com/tensorflow/benchmarks.git
 </tr>
 </tbody>
 </table>
-<h3 id="52-gpu-2개-사용">5.2. GPU 2개 사용</h3>
+<h3 id="42-gpu-2개-사용">4.2. GPU 2개 사용</h3>
 <pre><code>(performTestEnv) # CUDA_VISIBLE_DEVICES={GPU 디바이스1, GPU 디바이스2} python tf_cnn_benchmarks.py --num_gpus=2 --batch_size={배치사이즈} --model={모델명} --variable_update=parameter_server
 </code></pre>
 <table>
@@ -451,10 +431,91 @@ root@94515f052adb:/# git clone https://github.com/tensorflow/benchmarks.git
 </tr>
 </tbody>
 </table>
-<h1 id="6-상세---host">6. 상세 - Host</h1>
+<h1 id="5-gpu-성능-측정-상세---host">5. GPU 성능 측정 상세 - Host</h1>
+<h3 id="51-테스트-1">5.1. 테스트 1</h3>
+<h4 id="511-조건">5.1.1. 조건</h4>
+<pre><code>(performTestEnv) # CUDA_VISIBLE_DEVICES=3 python tf_cnn_benchmarks.py --num_gpus=1 --batch_size=64 --model=resnet50 --variable_update=parameter_server
+
+(중략)
+
+Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13968 MB memory) -&gt; physical GPU (device: 0, name: Tesla T4, pci bus id: 0000:d8:00.0, compute capability: 7.5)
+TensorFlow:  2.3
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  64 global
+             64 per device
+Num batches: 100
+Num epochs:  0.00
+Devices:     ['/gpu:0'] // GPU 1개 사용
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   parameter_server
+</code></pre>
+<h4 id="512-결과">5.1.2. 결과</h4>
+<pre><code>Done warm up
+Step	Img/sec	total_loss
+1	images/sec: 127.9 +/- 0.0 (jitter = 0.0)	7.608
+10	images/sec: 126.4 +/- 0.2 (jitter = 0.4)	7.849
+20	images/sec: 126.3 +/- 0.1 (jitter = 0.5)	8.013
+30	images/sec: 126.2 +/- 0.1 (jitter = 0.7)	7.940
+40	images/sec: 126.0 +/- 0.1 (jitter = 0.7)	8.137
+50	images/sec: 125.8 +/- 0.1 (jitter = 0.6)	8.052
+60	images/sec: 125.6 +/- 0.1 (jitter = 0.7)	7.782
+70	images/sec: 125.4 +/- 0.1 (jitter = 0.9)	7.856
+80	images/sec: 125.3 +/- 0.1 (jitter = 1.0)	8.011
+90	images/sec: 125.1 +/- 0.1 (jitter = 1.2)	7.843
+100	images/sec: 124.8 +/- 0.1 (jitter = 1.4)	8.090
+----------------------------------------------------------------
+total images/sec: 124.77
+----------------------------------------------------------------
+</code></pre>
+<h3 id="52-테스트-2">5.2. 테스트 2</h3>
+<h4 id="521-조건">5.2.1. 조건</h4>
+<pre><code>(performTestEnv) # CUDA_VISIBLE_DEVICES=2,3 python tf_cnn_benchmarks.py --num_gpus=2 --batch_size=64 --model=resnet50 --variable_update=parameter_server
+
+(중량)
+
+Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 13968 MB memory) -&gt; physical GPU (device: 1, name: Tesla T4, pci bus id: 0000:d8:00.0, compute capability: 7.5)
+TensorFlow:  2.3
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  128 global
+             64 per device
+Num batches: 100
+Num epochs:  0.01
+Devices:     ['/gpu:0', '/gpu:1'] // GPU 2개 사용
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   parameter_server
+</code></pre>
+<h4 id="522-결과">5.2.2. 결과</h4>
+<pre><code>Done warm up
+Step	Img/sec	total_loss
+1	images/sec: 246.2 +/- 0.0 (jitter = 0.0)	7.749
+10	images/sec: 244.9 +/- 0.6 (jitter = 1.7)	7.892
+20	images/sec: 244.3 +/- 0.4 (jitter = 2.6)	7.968
+30	images/sec: 244.5 +/- 0.4 (jitter = 2.3)	7.934
+40	images/sec: 244.2 +/- 0.3 (jitter = 2.6)	8.016
+50	images/sec: 243.8 +/- 0.3 (jitter = 2.6)	7.922
+60	images/sec: 243.6 +/- 0.3 (jitter = 2.0)	7.872
+70	images/sec: 243.5 +/- 0.2 (jitter = 1.9)	7.837
+80	images/sec: 243.3 +/- 0.2 (jitter = 1.8)	7.850
+90	images/sec: 243.0 +/- 0.2 (jitter = 2.1)	7.859
+100	images/sec: 242.7 +/- 0.2 (jitter = 2.2)	7.946
+----------------------------------------------------------------
+total images/sec: 242.60
+----------------------------------------------------------------
+</code></pre>
+<h1 id="6-gpu-성능-측정-상세---container">6. GPU 성능 측정 상세 - Container</h1>
 <h3 id="61-테스트-1">6.1. 테스트 1</h3>
 <h4 id="611-조건">6.1.1. 조건</h4>
-<pre><code>(performTestEnv) # CUDA_VISIBLE_DEVICES=3 python tf_cnn_benchmarks.py --num_gpus=1 --batch_size=64 --model=resnet50 --variable_update=parameter_server
+<pre><code>root@94515f052adb:# CUDA_VISIBLE_DEVICES=3 python tf_cnn_benchmarks.py --num_gpus=1 --batch_size=64 --model=resnet50 --variable_update=parameter_server
 
 (중략)
 
@@ -477,87 +538,6 @@ Variables:   parameter_server
 <h4 id="612-결과">6.1.2. 결과</h4>
 <pre><code>Done warm up
 Step	Img/sec	total_loss
-1	images/sec: 127.9 +/- 0.0 (jitter = 0.0)	7.608
-10	images/sec: 126.4 +/- 0.2 (jitter = 0.4)	7.849
-20	images/sec: 126.3 +/- 0.1 (jitter = 0.5)	8.013
-30	images/sec: 126.2 +/- 0.1 (jitter = 0.7)	7.940
-40	images/sec: 126.0 +/- 0.1 (jitter = 0.7)	8.137
-50	images/sec: 125.8 +/- 0.1 (jitter = 0.6)	8.052
-60	images/sec: 125.6 +/- 0.1 (jitter = 0.7)	7.782
-70	images/sec: 125.4 +/- 0.1 (jitter = 0.9)	7.856
-80	images/sec: 125.3 +/- 0.1 (jitter = 1.0)	8.011
-90	images/sec: 125.1 +/- 0.1 (jitter = 1.2)	7.843
-100	images/sec: 124.8 +/- 0.1 (jitter = 1.4)	8.090
-----------------------------------------------------------------
-total images/sec: 124.77
-----------------------------------------------------------------
-</code></pre>
-<h3 id="62-테스트-2">6.2. 테스트 2</h3>
-<h4 id="621-조건">6.2.1. 조건</h4>
-<pre><code>(performTestEnv) # CUDA_VISIBLE_DEVICES=2,3 python tf_cnn_benchmarks.py --num_gpus=2 --batch_size=64 --model=resnet50 --variable_update=parameter_server
-
-(중량)
-
-Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 13968 MB memory) -&gt; physical GPU (device: 1, name: Tesla T4, pci bus id: 0000:d8:00.0, compute capability: 7.5)
-TensorFlow:  2.3
-Model:       resnet50
-Dataset:     imagenet (synthetic)
-Mode:        training
-SingleSess:  False
-Batch size:  128 global
-             64 per device
-Num batches: 100
-Num epochs:  0.01
-Devices:     ['/gpu:0', '/gpu:1'] // GPU 2개 사용
-NUMA bind:   False
-Data format: NCHW
-Optimizer:   sgd
-Variables:   parameter_server
-</code></pre>
-<h4 id="622-결과">6.2.2. 결과</h4>
-<pre><code>Done warm up
-Step	Img/sec	total_loss
-1	images/sec: 246.2 +/- 0.0 (jitter = 0.0)	7.749
-10	images/sec: 244.9 +/- 0.6 (jitter = 1.7)	7.892
-20	images/sec: 244.3 +/- 0.4 (jitter = 2.6)	7.968
-30	images/sec: 244.5 +/- 0.4 (jitter = 2.3)	7.934
-40	images/sec: 244.2 +/- 0.3 (jitter = 2.6)	8.016
-50	images/sec: 243.8 +/- 0.3 (jitter = 2.6)	7.922
-60	images/sec: 243.6 +/- 0.3 (jitter = 2.0)	7.872
-70	images/sec: 243.5 +/- 0.2 (jitter = 1.9)	7.837
-80	images/sec: 243.3 +/- 0.2 (jitter = 1.8)	7.850
-90	images/sec: 243.0 +/- 0.2 (jitter = 2.1)	7.859
-100	images/sec: 242.7 +/- 0.2 (jitter = 2.2)	7.946
-----------------------------------------------------------------
-total images/sec: 242.60
-----------------------------------------------------------------
-</code></pre>
-<h1 id="7-상세---container">7. 상세 - Container</h1>
-<h3 id="71-테스트-1">7.1. 테스트 1</h3>
-<h4 id="711-조건">7.1.1. 조건</h4>
-<pre><code>root@94515f052adb:# CUDA_VISIBLE_DEVICES=3 python tf_cnn_benchmarks.py --num_gpus=1 --batch_size=64 --model=resnet50 --variable_update=parameter_server
-
-(중략)
-
-Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13968 MB memory) -&gt; physical GPU (device: 0, name: Tesla T4, pci bus id: 0000:d8:00.0, compute capability: 7.5)
-TensorFlow:  2.3
-Model:       resnet50
-Dataset:     imagenet (synthetic)
-Mode:        training
-SingleSess:  False
-Batch size:  64 global
-             64 per device
-Num batches: 100
-Num epochs:  0.00
-Devices:     ['/gpu:0'] // GPU 1개 사용
-NUMA bind:   False
-Data format: NCHW
-Optimizer:   sgd
-Variables:   parameter_server
-</code></pre>
-<h4 id="712-결과">7.1.2. 결과</h4>
-<pre><code>Done warm up
-Step	Img/sec	total_loss
 1	images/sec: 129.2 +/- 0.0 (jitter = 0.0)	7.608
 10	images/sec: 128.7 +/- 0.4 (jitter = 0.9)	7.849
 20	images/sec: 128.4 +/- 0.2 (jitter = 1.1)	8.013
@@ -573,8 +553,8 @@ Step	Img/sec	total_loss
 total images/sec: 126.95
 ----------------------------------------------------------------
 </code></pre>
-<h3 id="72-테스트-2">7.2. 테스트 2</h3>
-<h4 id="721-조건">7.2.1. 조건</h4>
+<h3 id="62-테스트-2">6.2. 테스트 2</h3>
+<h4 id="621-조건">6.2.1. 조건</h4>
 <pre><code>root@94515f052adb:# CUDA_VISIBLE_DEVICES=2,3 python tf_cnn_benchmarks.py --num_gpus=2 --batch_size=64 --model=resnet50 --variable_update=parameter_server
 
 (중략)
@@ -595,7 +575,7 @@ Data format: NCHW
 Optimizer:   sgd
 Variables:   parameter_server
 </code></pre>
-<h4 id="722-결과">7.2.2. 결과</h4>
+<h4 id="622-결과">6.2.2. 결과</h4>
 <pre><code>Done warm up
 Step	Img/sec	total_loss
 1	images/sec: 240.6 +/- 0.0 (jitter = 0.0)	7.749
@@ -620,7 +600,7 @@ total images/sec: 240.64
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/" title="GPU 성능 비교하기: Host vs Container" target="_blank" rel="external">https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/</a>
+      <a href="https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/" title="GPU 성능 비교하기: Host vs Container(&#43;Container에서 GPU 사용하기)" target="_blank" rel="external">https://healinyoon.github.io/2020/10/20201023_gpu_performance_host_vs_container/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -657,7 +637,7 @@ total images/sec: 240.64
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
             </li>
             <li class="next">
-                <a href="https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/"
+                <a href="https://healinyoon.github.io/2020/10/%EC%A7%84%ED%96%89%EC%A4%9120201023_kubernetes_with_gpu/"
                     title="Kubernets(쿠버네티스) with GPU 구축하기"><span>Newer&nbsp;&nbsp;</span><i
                         class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
