@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-        HUGO 블로그 새글 업로드하기 - ringu blog
+        20190602_shell_script - ringu blog
       </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,33 +20,33 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="HUGO 글 생성하기 $ hugo new {파일명} HUGO 블로그 빌드 $ hugo -t {테마명} Git push $ cd public $ git add . $ git commit -m &amp;quot;{commit 메세지}&amp;quot; $ git push origin master $ cd .. $ git add . $ git commit -m &amp;quot;{commit 메" />
+    <meta name="description" content="Intro 이번 포스트에서는 쉘 스크립트에 대해 알아보고, 사용 방법을 다룬다. 전반적으로 &amp;ldquo;이것이 우분투 리눅스다&amp;rdquo; 책을 참고하였고, 공부" />
     <meta name="generator" content="Hugo 0.74.3 with theme pure" />
-    <title>HUGO 블로그 새글 업로드하기 - ringu blog</title>
+    <title>20190602_shell_script - ringu blog</title>
     
     
     <link rel="stylesheet" href="https://healinyoon.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="HUGO 블로그 새글 업로드하기" />
-<meta property="og:description" content="HUGO 글 생성하기 $ hugo new {파일명} HUGO 블로그 빌드 $ hugo -t {테마명} Git push $ cd public $ git add . $ git commit -m &quot;{commit 메세지}&quot; $ git push origin master $ cd .. $ git add . $ git commit -m &quot;{commit 메" />
+    <meta property="og:title" content="20190602_shell_script" />
+<meta property="og:description" content="Intro 이번 포스트에서는 쉘 스크립트에 대해 알아보고, 사용 방법을 다룬다. 전반적으로 &ldquo;이것이 우분투 리눅스다&rdquo; 책을 참고하였고, 공부" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://healinyoon.github.io/2020/08/20200827_hugo_blog/" />
-<meta property="article:published_time" content="2020-08-27T19:13:30+09:00" />
-<meta property="article:modified_time" content="2020-08-27T19:13:30+09:00" />
-<meta itemprop="name" content="HUGO 블로그 새글 업로드하기">
-<meta itemprop="description" content="HUGO 글 생성하기 $ hugo new {파일명} HUGO 블로그 빌드 $ hugo -t {테마명} Git push $ cd public $ git add . $ git commit -m &quot;{commit 메세지}&quot; $ git push origin master $ cd .. $ git add . $ git commit -m &quot;{commit 메">
-<meta itemprop="datePublished" content="2020-08-27T19:13:30+09:00" />
-<meta itemprop="dateModified" content="2020-08-27T19:13:30+09:00" />
-<meta itemprop="wordCount" content="84">
+<meta property="og:url" content="https://healinyoon.github.io/2019/06/20190602_shell_script/" />
+<meta property="article:published_time" content="2019-06-02T18:35:16+09:00" />
+<meta property="article:modified_time" content="2019-06-02T18:35:16+09:00" />
+<meta itemprop="name" content="20190602_shell_script">
+<meta itemprop="description" content="Intro 이번 포스트에서는 쉘 스크립트에 대해 알아보고, 사용 방법을 다룬다. 전반적으로 &ldquo;이것이 우분투 리눅스다&rdquo; 책을 참고하였고, 공부">
+<meta itemprop="datePublished" content="2019-06-02T18:35:16+09:00" />
+<meta itemprop="dateModified" content="2019-06-02T18:35:16+09:00" />
+<meta itemprop="wordCount" content="2576">
 
 
 
-<meta itemprop="keywords" content="go,hugo," />
+<meta itemprop="keywords" content="shell," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="HUGO 블로그 새글 업로드하기"/>
-<meta name="twitter:description" content="HUGO 글 생성하기 $ hugo new {파일명} HUGO 블로그 빌드 $ hugo -t {테마명} Git push $ cd public $ git add . $ git commit -m &quot;{commit 메세지}&quot; $ git push origin master $ cd .. $ git add . $ git commit -m &quot;{commit 메"/>
+<meta name="twitter:title" content="20190602_shell_script"/>
+<meta name="twitter:description" content="Intro 이번 포스트에서는 쉘 스크립트에 대해 알아보고, 사용 방법을 다룬다. 전반적으로 &ldquo;이것이 우분투 리눅스다&rdquo; 책을 참고하였고, 공부"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -285,8 +285,8 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2020/08/20200827_hugo_blog/"
-    >HUGO 블로그 새글 업로드하기</a
+    href="/2019/06/20190602_shell_script/"
+    >20190602_shell_script</a
   >
 </h1>
 
@@ -294,43 +294,415 @@
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://healinyoon.github.io/2020/08/20200827_hugo_blog/" class="article-date">
-  <time datetime="2020-08-27 19:13:30 &#43;0900 KST" itemprop="datePublished">2020-08-27</time>
+<a href="https://healinyoon.github.io/2019/06/20190602_shell_script/" class="article-date">
+  <time datetime="2019-06-02 18:35:16 &#43;0900 KST" itemprop="datePublished">2019-06-02</time>
 </a>
 </span>
 <span class="article-category">
   <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/blog/"> blog </a>
+  <a class="article-category-link" href="/categories/linux/"> linux </a>
+  <a class="article-category-link" href="/categories/programming/"> programming </a>
 </span>  
   <span class="article-tag">
     <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/go/"> go </a>
-    <a class="article-tag-link" href="/tags/hugo/"> hugo </a>
+    <a class="article-tag-link" href="/tags/shell/"> shell </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/08/20200827_hugo_blog/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2019/06/20190602_shell_script/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 84words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2576words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 6minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <h1 id="hugo-글-생성하기">HUGO 글 생성하기</h1>
-<pre><code>$ hugo new {파일명}
+      <h1 id="intro">Intro</h1>
+<p>이번 포스트에서는 쉘 스크립트에 대해 알아보고, 사용 방법을 다룬다. 전반적으로 &ldquo;이것이 우분투 리눅스다&rdquo; 책을 참고하였고, 공부한 내용을 정리하였다.</p>
+<hr>
+<h1 id="1-쉘shell-이란">1. 쉘(shell) 이란?</h1>
+<p>쉘은 사용자가 입력한 명령을 해석해서 커널에 전달하거나, 커널의 처리 결과를 사용자에게 전달하는 역할을 한다.</p>
+<h3 id="1-1-쉘-명령문-형식">1-1. 쉘 명령문 형식</h3>
+<p>쉘 명령문의 형식은 다음과 같다.</p>
+<pre><code>{프롬프트} {명령어} {옵션} {인자}
+
+ex) # cd ~
+ex) # ls -al
+ex) # rm -rf testdir
+ex) # cat test.txt
 </code></pre>
-<h1 id="hugo-블로그-빌드">HUGO 블로그 빌드</h1>
-<pre><code>$ hugo -t {테마명}
+<h3 id="1-2-쉘-환경변수">1-2. 쉘 환경변수</h3>
+<p>쉘은 다양한 환경변수 값을 설정할 수 있는데, 리눅스의 주요 환경변수 목록은 아래와 같다.</p>
+<table>
+<thead>
+<tr>
+<th>환경변수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HOME</td>
+<td>현재 사용자의 홈디렉토리</td>
+</tr>
+<tr>
+<td>PATH</td>
+<td>실행 파일을 찾는 디렉토리 경로</td>
+</tr>
+<tr>
+<td>LANG</td>
+<td>기본 지원 언어</td>
+</tr>
+<tr>
+<td>PWD</td>
+<td>사용자의 현재 작업 디렉토리</td>
+</tr>
+<tr>
+<td>TERM</td>
+<td>로그인 터미널 타입</td>
+</tr>
+<tr>
+<td>SHELL</td>
+<td>로그인시 사용하는 쉘</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>현재 사용자의 이름</td>
+</tr>
+<tr>
+<td>DISPLAY</td>
+<td>X 디스플레이 이름</td>
+</tr>
+<tr>
+<td>HOSTNAME</td>
+<td>호스트 이름</td>
+</tr>
+<tr>
+<td>USERNAME</td>
+<td>현재 사용자 이름</td>
+</tr>
+<tr>
+<td>OSTYPE</td>
+<td>운영체제 타입</td>
+</tr>
+</tbody>
+</table>
+<p>현재 설정된 환경 변수는 <code>echo ${환경변수 이름}</code> 명령어를 통해 확인할 수 있다.</p>
+<pre><code>ex) echo $HOME
+ex) echo $HOSTNAME
 </code></pre>
-<h1 id="git-push">Git push</h1>
-<pre><code>$ cd public
-$ git add .
-$ git commit -m &quot;{commit 메세지}&quot;
-$ git push origin master
-$ cd ..
-$ git add .
-$ git commit -m &quot;{commit 메세지}&quot;
-$ git push origin master
+<p>환경변수 설정 값을 변경하려면 <code>export {환경변수}={값}</code> 명령어를 실행하면 된다. 그 외의 환경변수는 <code>printenv</code> 명령어로 확인할 수 있다. 단, 일부 환경변수는 <code>printenv</code> 명령을 실행해도 출력되지 않는다.</p>
+<hr>
+<h1 id="2-쉘-스크립트-사용해보기">2. 쉘 스크립트 사용해보기</h1>
+<p>쉘 스크립트도 일반적인 프로그래밍 언어와 비슷하게 변수, 반복문, 제어문 등을 사용할 수 있다.</p>
+<h3 id="2-1-쉘-스크립트-작성하기">2-1. 쉘 스크립트 작성하기</h3>
+<p>아래와 같이 간단한 쉘 스크립트를 작성하고 script.sh으로 저장해보자.</p>
+<pre><code>#!/bin/sh
+echo &quot;User Name: &quot; $USER
+echo &quot;User Home Directory: &quot; $HOME
+exit 0
 </code></pre>
+<p>위의 코드를 간단히 설명하면 다음과 같다.</p>
+<ul>
+<li>1행: bash를 사용하겠다는 의미로, 쉘 스크립트 작성시 첫 행에 반드시 입력해야한다.</li>
+<li>2, 3행: echo 명령은 화면에 출력하는 명령이며, 먼저 문자를 출력하고 ${환경변수}에 해당하는 값을 출력한다.</li>
+<li>4행: 종료 코드를 반환하며, 0은 쉘 스크립트 실행 성공을 의미한다.</li>
+</ul>
+<h3 id="2-2-쉘-스크립트-실행하기">2-2. 쉘 스크립트 실행하기</h3>
+<p>쉘 스크립트를 실행하는 방법에는 크게 두 가지가 있다.</p>
+<p><em>1) sh 명령으로 실행</em></p>
+<pre><code>sh {실행파일 이름}
+ex) sh script.sh
+
+[실행 결과]
+User Name:  rin_gu
+User Home Directory:  /home/rin_gu
+</code></pre>
+<p><em>2) 파일 권한을 실행 가능하게 변경하고 실행</em></p>
+<pre><code># chmod +x {실행파일 이름}
+# ./{실행파일 경로}
+
+ex)
+# chmod +x script.sh
+# ./script.sh
+
+[실행 결과]
+User Name:  rin_gu
+User Home Directory:  /home/rin_gu
+</code></pre>
+<h3 id="3-변수">3. 변수</h3>
+<p>쉘 스크립트 변수 사용시 주의해야할 특징은 다음과 같다.</p>
+<ul>
+<li>변수를 사용하기 전에 미리 선언하지 않으며, 처음 변수에 값이 할당되면 자동으로 변수가 생성된다.</li>
+<li>변수에 넣는 모든 값을 &lsquo;문자열&rsquo;로 취급한다.</li>
+<li>변수 이름의 대소문자를 구분한다.</li>
+<li>변수를 대입할 때 &lsquo;=&rsquo; 좌우에 공백이 없어야 한다.</li>
+</ul>
+<p><img src="/assets/images/2019-06-02-Shell1/1.png" alt="Shell1">{: width=&quot;900&rdquo; height=&quot;700&rdquo;}</p>
+<h3 id="3-1-변수의-입출력">3-1. 변수의 입출력</h3>
+<p>&lsquo;$&rsquo; 라는 문자가 들어간 글자를 출력하려면 &lsquo;&lsquo;로 묶어주거나 앞에 &lsquo;\&lsquo;를 붙여줘야 한다.</p>
+<pre><code>#!/bin/sh
+var=&quot;Hi Shell&quot;
+echo $var
+
+echo '$var'
+echo \$var
+exit 0
+
+[실행 결과]
+Hi Shell
+$var
+$var
+</code></pre>
+<p>변수의 입력과 출력은 다음과 같이 사용할 수 있다.</p>
+<pre><code>#!/bin/sh
+echo &quot;값을 입력하세요: &quot;
+read var
+
+echo &quot;입력된 값은 &quot; $var &quot;입니다.&quot;
+exit 0
+
+[실행 결과]
+값을 입력하세요:
+shell script study
+입력된 값은  shell script study 입니다.
+</code></pre>
+<h3 id="3-2-숫자-계산">3-2. 숫자 계산</h3>
+<p>변수에 넣은 값은 모두 문자열이 되므로, shell script에서 연산을 하기 위해서는 expr 키워드를 사용해야한다.
+shell script에서 숫자 계산을 하기 위한 규칙은 다음과 같다.</p>
+<ul>
+<li>수식과 함께 역따옴표로 묶어줘야 한다.</li>
+<li>수식에 괄호를 사용하기 위해서는 그 앞에 역슬래시를 붙여줘야 한다.</li>
+<li>곱하기 기호를 사용할 때도 그 앞에 역슬래시를 붙여줘야 한다.</li>
+</ul>
+<pre><code>#!/bin/sh
+n1=10
+n2=$n1+20
+echo $n2
+
+n3=`expr $n1 + 20`
+echo $n3
+
+n4=`expr \( $n1 + 20 \) / 10 \* 2`
+echo $n4
+
+exit 0
+
+[실행 결과]
+10+20
+30 // ※ 각 단어를 띄어쓰기해야하는 것에 주의
+6
+</code></pre>
+<h3 id="3-3-파라미터-변수">3-3. 파라미터 변수</h3>
+<p>파라미터 변수는 $0, $1, $2 등의 형태를 가지며, 아래와 같이 매칭된다.</p>
+<table>
+<thead>
+<tr>
+<th>명령어</th>
+<th>파라미터 1</th>
+<th>파라미터 2</th>
+<th>파라미터 n&hellip;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$0</td>
+<td>$1</td>
+<td>$2</td>
+<td>$n&hellip;</td>
+</tr>
+</tbody>
+</table>
+<p>예를 들면 다음과 같다.</p>
+<table>
+<thead>
+<tr>
+<th>./script</th>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$0</td>
+<td>$1</td>
+<td>$2</td>
+</tr>
+</tbody>
+</table>
+<pre><code>#!/bin/sh
+echo &quot;실행파일 이름: &lt;$0&gt;&quot;
+echo &quot;첫 번째 파라미터: &lt;$1&gt;.&quot;
+echo &quot;두 번째 파라미터: &lt;$2&gt;.&quot;
+echo &quot;전체 파라미터는 &lt;$*&gt;이다.&quot;
+exit 0
+
+[실행 결과]
+실행파일 이름: &lt;./script.sh&gt;
+첫 번째 파라미터: &lt;1&gt;.
+두 번째 파라미터: &lt;2&gt;.
+전체 파라미터는 &lt;1 2&gt;이다.
+</code></pre>
+<h1 id="4-if문">4. if문</h1>
+<p>if문의 기본 사용법과 조건 연산자를 알아보자.</p>
+<h3 id="4-1-if문-기본-문법">4-1. if문 기본 문법</h3>
+<p>if문의 기본 문법은 다음과 같다.</p>
+<pre><code>if [ 조건 ]
+then
+  참일 경우 실행
+fi
+</code></pre>
+<p>이때 주의할 점은 [ 조건 ] 에서 각 단어에 모두 공백이 있어야 한다.</p>
+<pre><code>#!/bin/sh
+if [ &quot;rin_gu&quot; = &quot;rin_gu&quot; ]
+then
+  echo &quot;참 입니다.&quot;
+fi
+exit 0
+
+[실행 결과]
+참 입니다.
+</code></pre>
+<h3 id="4-2-if-else문">4-2. if-else문</h3>
+<p>if-else문의 기본 문법은 다음과 같다.</p>
+<pre><code>if [ 조건 ]
+then
+  참일 경우 실행
+else문
+  거짓인 경우 실행
+fi
+</code></pre>
+<pre><code>#!/bin/sh
+if [ &quot;rin_gu&quot; = &quot;shell script&quot; ]
+then
+  echo &quot;참 입니다.&quot;
+else
+  echo &quot;거짓 입니다.&quot;
+fi
+exit 0
+
+[실행 결과]
+거짓 입니다.
+</code></pre>
+<h3 id="4-3-조건문에-사용되는-비교-연산자">4-3. 조건문에 사용되는 비교 연산자</h3>
+<p>조건문에 사용디는 비교 연산자에는 문자열 비교 연산자와 산술 비교 연산자가 있다.</p>
+<p><strong>문자열 비교 연산자</strong></p>
+<table>
+<thead>
+<tr>
+<th>문자열 비교</th>
+<th>내용</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>같으면 참</td>
+<td>&ldquo;문자열&rdquo; = &ldquo;문자열&rdquo;</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>같지 않으면 참</td>
+<td>&ldquo;문자열&rdquo; != &ldquo;문자열&rdquo;</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>문자열이 NULL 값이 아니면 참</td>
+<td>-n &ldquo;문자열&rdquo;</td>
+</tr>
+<tr>
+<td>-z</td>
+<td>문자열이 NULL 값이면 참</td>
+<td>-z &ldquo;문자열&rdquo;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>산술 비교 연산자</strong></p>
+<table>
+<thead>
+<tr>
+<th>산술 비교</th>
+<th>내용</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-eq</td>
+<td>두 수식이 같으면 참</td>
+<td>수식 -eq 수식</td>
+</tr>
+<tr>
+<td>-ne</td>
+<td>두 수식이 같지 않으면 참</td>
+<td>수식 -ne 수식</td>
+</tr>
+<tr>
+<td>-gt</td>
+<td>왼쪽 수식이 크면 참</td>
+<td>수식 -gt 수식</td>
+</tr>
+<tr>
+<td>-ge</td>
+<td>왼쪽 수식이 크거나 같으면 참</td>
+<td>수식 -ge 수식</td>
+</tr>
+<tr>
+<td>-lt</td>
+<td>왼쪽 수식이 작으면 참</td>
+<td>수식 -lt 수식</td>
+</tr>
+<tr>
+<td>-le</td>
+<td>왼쪽 수식이 작거나 같으면 참</td>
+<td>수식 -le 수식</td>
+</tr>
+<tr>
+<td>!</td>
+<td>수식이 거짓이라면 참</td>
+<td>!수식</td>
+</tr>
+</tbody>
+</table>
+<pre><code>#!/bin/sh
+if [ 1024 -eq 2024 ]
+then
+  echo &quot;1024과 2024는 같다.&quot;
+else
+  echo &quot;1024과 2024는 다르다.&quot;
+fi
+exit 0
+
+[실행 결과]
+1024과 2024는 다르다.
+</code></pre>
+<h3 id="4-4-조건문에-사용되는-파일과-관련된-연산자">4-4. 조건문에 사용되는 파일과 관련된 연산자</h3>
+<p>if문에서 파일을 처리하는 조건 연산자는 다음과 같다.</p>
+<p>파일 조건 | 내용 | 예시
+&mdash; | &mdash;
+-d | 파일이 디렉토리면 참 | -d 파일명
+-e | 파일이 존재하면 참 | -e 파일명
+-f | 파일이 일반 파일이면 참 | -f 파일명
+-g | 파일에 set-group-id가 설정되면 참 | -g 파일명
+-r | 파일이 읽기 가능하면 참 | -r 파일명
+-s | 파일 크기가 0이 아니면 참 | -s 파일명
+-u | 파일에 set-user-id가 설정되면 참 | -u 파일명
+-w | 파일이 쓰기 가능하면 참 | -w 파일명
+-x | 파일이 실행 가능하면 참 | -x 파일명</p>
+<hr>
+<h1 id="5-case문">5. case문</h1>
+<p>case문의 기본 사용법을 알아보자</p>
+<h3 id="5-1-case문-기본-문법">5-1. case문 기본 문법</h3>
+<p>case문의 기본 문법은 다음과 같다.</p>
+<pre><code>case [ 변수 ] in
+  변수값1)
+    변수와 변수값1이 일치할 경우 실행
+  변수값2)
+    변수와 변수값2가 일치할 경우 실행
+  ...
+esac
+</code></pre>
+<h3 id="5-2-case-문-사용해보기">5-2. case 문 사용해보기</h3>
+<p>(작성중)</p>
 
     </div>
     <div class="article-footer">
@@ -338,7 +710,7 @@ $ git push origin master
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="https://healinyoon.github.io/2020/08/20200827_hugo_blog/" title="HUGO 블로그 새글 업로드하기" target="_blank" rel="external">https://healinyoon.github.io/2020/08/20200827_hugo_blog/</a>
+      <a href="https://healinyoon.github.io/2019/06/20190602_shell_script/" title="20190602_shell_script" target="_blank" rel="external">https://healinyoon.github.io/2019/06/20190602_shell_script/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -370,13 +742,13 @@ $ git push origin master
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://healinyoon.github.io/about/" title="About"><i
+                <a href="https://healinyoon.github.io/2019/06/20190611_docker_install/" title="Docker 설치하기(CentOS)"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
             </li>
             <li class="next">
-                <a href="https://healinyoon.github.io/2020/08/20200827_cicd_and_jenkins/"
-                    title="CI/CD와 Jenkins"><span>Newer&nbsp;&nbsp;</span><i
+                <a href="https://healinyoon.github.io/about/"
+                    title="About"><span>Newer&nbsp;&nbsp;</span><i
                         class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             

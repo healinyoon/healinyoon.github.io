@@ -192,6 +192,34 @@
   </url>
   
   <url>
+    <loc>https://healinyoon.github.io/2019/06/20190602_shell_script/</loc>
+    <lastmod>2019-06-02T18:35:16+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/categories/linux/</loc>
+    <lastmod>2019-06-02T18:35:16+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/categories/programming/</loc>
+    <lastmod>2019-06-02T18:35:16+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/tags/shell/</loc>
+    <lastmod>2019-06-02T18:35:16+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://healinyoon.github.io/2019/06/20190611_docker_install/</loc>
     <lastmod>2019-06-01T23:52:44+09:00</lastmod>
     <changefreq>monthly</changefreq>
