@@ -39,7 +39,7 @@
 <meta itemprop="description" content="Intro 이번 장에서는 Helm Chart를 더 잘 활용하기 위한 방법을 살펴본다. Helm Chart 기본 명령어 사용 방법 helm search: Chart 검색 Helm은 강력한 검색 명령어를 제공한다. 아래의 두 명">
 <meta itemprop="datePublished" content="2020-11-03T12:54:49+09:00" />
 <meta itemprop="dateModified" content="2020-11-03T12:54:49+09:00" />
-<meta itemprop="wordCount" content="1102">
+<meta itemprop="wordCount" content="1529">
 
 
 
@@ -314,8 +314,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/11/20201103_helm_02/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1102words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 3minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1529words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -411,7 +411,58 @@ statefulset.apps/my-mariadb-master   0/1     44m
 statefulset.apps/my-mariadb-slave    0/1     44m
 </code></pre>
 <h1 id="설치-전-chart-커스터마이징하는-방법">설치 전 Chart 커스터마이징하는 방법</h1>
-<p>여</p>
+<p>Chart의 기본 구성 옵션만 사용하여, 대부분의 경우 선호하는 구성을 사용하기 위한 chart 커스터마이징 방법을 살펴보자.
+Chart에 어떤 옵션이 구성 가능한지 보기 위해 <code>helm show values</code> 명령어를 사용한다.</p>
+<pre><code>$ helm show values stable/mariadb
+## Global Docker image parameters
+## Please, note that this will override the image parameters, including dependencies, configured to use the global value
+## Current available global Docker image parameters: imageRegistry and imagePullSecrets
+##
+# global:
+#   imageRegistry: myRegistryName
+#   imagePullSecrets:
+#     - myRegistryKeySecretName
+#   storageClass: myStorageClass
+
+## Use an alternate scheduler, e.g. &quot;stork&quot;.
+## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
+##
+# schedulerName:
+
+## Bitnami MariaDB image
+## ref: https://hub.docker.com/r/bitnami/mariadb/tags/
+##
+image:
+  registry: docker.io
+  repository: bitnami/mariadb
+  tag: 10.3.22-debian-10-r27
+  ## Specify a imagePullPolicy
+  ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
+  ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
+  ##
+  pullPolicy: IfNotPresent
+  ## Optionally specify an array of imagePullSecrets.
+  ## Secrets must be manually created in the namespace.
+  ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+  ##
+  # pullSecrets:
+  #   - myRegistryKeySecretName
+
+  ## Set to true if you would like to see extra information on logs
+  ## It turns BASH and NAMI debugging in minideb
+  ## ref:  https://github.com/bitnami/minideb-extras/#turn-on-bash-debugging
+  debug: false
+
+(중략)
+
+</code></pre>
+<p>YAML 형식의 파일에 있는 설정들을 override하여 패키지 설치시 함께 반영할 수 있다. 이때, 설치시 override할 설정 목록을 전달하는 방법은 두 가지 방법이 있다.</p>
+<ol>
+<li><code>--values(또는 -f)</code>: override할 YAML 파일을 지정한다. 여러 번 지정할 수 있지만 가장 오른쪽에 있는 파일이 우선시된다.</li>
+<li><code>--set</code>: 명령줄 상에서 override를 직접 지정한다.</li>
+</ol>
+<p>둘 중 우선 순위는 <code>--values</code>가 더 높다.</p>
+<p><a href="https://helm.sh/ko/docs/intro/using_helm/">https://helm.sh/ko/docs/intro/using_helm/</a> 여기서 이어서 계속</p>
 <h1 id="출처">출처</h1>
 <ul>
 <li><a href="https://helm.sh/ko/docs/intro/using_helm/">https://helm.sh/ko/docs/intro/using_helm/</a></li>
