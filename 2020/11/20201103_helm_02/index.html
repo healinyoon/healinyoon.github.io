@@ -39,7 +39,7 @@
 <meta itemprop="description" content="Intro 이번 장에서는 Helm Chart를 더 잘 활용하기 위한 방법을 살펴본다. Helm Chart 기본 명령어 사용 방법 helm search: Chart 검색 Helm은 강력한 검색 명령어를 제공한다. 아래의 두 명">
 <meta itemprop="datePublished" content="2020-11-03T12:54:49+09:00" />
 <meta itemprop="dateModified" content="2020-11-03T12:54:49+09:00" />
-<meta itemprop="wordCount" content="1094">
+<meta itemprop="wordCount" content="1096">
 
 
 
@@ -314,7 +314,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/11/20201103_helm_02/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1094words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1096words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 3minutes </span>
       </div>
     </div>
@@ -328,16 +328,20 @@
 <li><code>helm search hub</code>: 여러 저장소에있는 helm chart를 포괄하는 <code>[helm hub](https://artifacthub.io/)</code>에서 검색한다.</li>
 <li><code>helm search repo</code>: <code>helm repo add</code>를 사용하여 local helm client에 추가한 저장소에서 검색한다. 검색은 local data 상에서 이루어지며, 퍼블릭 네트워크 접속이 필요하지 않다.</li>
 </ol>
-<h4 id="helm-search-hub-사용-예시"><code>helm search hub</code> 사용 예시</h4>
-<p><code>helm search hub</code> 명령어를 사용하면 공개적으로 사용 가능한 chart를 찾아볼 수 있다.</p>
+<ul>
+<li><code>helm search hub</code> 사용 예시
+<code>helm search hub</code> 명령어를 사용하면 공개적으로 사용 가능한 chart를 찾아볼 수 있다.</li>
+</ul>
 <pre><code>$ helm search hub wordpress
 URL                                               	CHART VERSION	APP VERSION	DESCRIPTION
 https://hub.helm.sh/charts/bitnami/wordpress      	9.9.1        	5.5.3      	Web publishing platform for building blogs and ...
 https://hub.helm.sh/charts/seccurecodebox/old-w...	2.1.0        	4.0        	Insecure &amp; Outdated Wordpress Instance: Never e...
 https://hub.helm.sh/charts/presslabs/wordpress-...	0.10.5       	0.10.5     	Presslabs WordPress Operator Helm Chart
 </code></pre>
-<h4 id="helm-search-repo-사용-예시"><code>helm search repo</code> 사용 예시</h4>
-<p><code>helm search repo</code> 명령어를 사용하면 기존에 추가된 저장소에서 사용 가능한 chart를 찾아볼 수 있다.</p>
+<ul>
+<li><code>helm search repo</code> 사용 예시
+<code>helm search repo</code> 명령어를 사용하면 기존에 추가된 저장소에서 사용 가능한 chart를 찾아볼 수 있다.</li>
+</ul>
 <pre><code>$ helm search repo wordpress
 NAME            	CHART VERSION	APP VERSION	DESCRIPTION
 stable/wordpress	9.0.3        	5.3.2
@@ -400,7 +404,7 @@ mychart-b9488ff5c-b6xzz  1/1    Running  0         4m2s
 NAME     TYPE       CLUSTER-IP      EXTERNAL-IP  PORT(S)  AGE
 mychart  ClusterIP  10.110.150.104  &lt;none&gt;       80/TCP   4m2s
 </code></pre>
-<p>원인을 찾아보니, <strong>The main reason for this is that by doing this in Helm, it leads to code duplication (we basically end up copying kubectl code), possible bugs, and maintenance overhead in the Helm codebase. So I think it would be better to keep it out<a href="https://github.com/helm/helm/issues/5952">상세 내용 확인하기</a>.</strong> 라고 논의되고 있다. 해결하기 위한 노력(<a href="https://github.com/helm/helm/pull/7728">참고</a>)이 이루어지고 있지만, 아직까지는 지원되지 않는다.</p>
+<p>원인을 찾아보니, <strong>The main reason for this is that by doing this in Helm, it leads to code duplication (we basically end up copying kubectl code), possible bugs, and maintenance overhead in the Helm codebase. So I think it would be better to keep it out</strong>(<a href="https://github.com/helm/helm/issues/5952">상세 내용 확인하기</a>). 라고 논의되고 있다. 해결하기 위한 노력(<a href="https://github.com/helm/helm/pull/7728">참고</a>)이 이루어지고 있지만, 아직까지는 지원되지 않는다.</p>
 <p>아쉽지만 <code>kubectl get all</code> 명령어로 조회하자.</p>
 <pre><code>$ kubectl get all | grep my-mariadb
 pod/my-mariadb-master-0   0/1     Pending   0          44m
