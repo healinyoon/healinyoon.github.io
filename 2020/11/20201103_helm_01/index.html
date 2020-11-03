@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-        HUGO 블로그 새글 업로드하기 - ringu blog
+        Helm 설치 및 사용 방법 - ringu blog
       </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,33 +20,33 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="HUGO 글 생성하기 $ hugo new {파일명} HUGO 블로그 빌드 $ hugo -t {테마명} Git push $ cd public $ git add . $ git commit -m &amp;quot;{commit 메세지}&amp;quot; $ git push origin master $ cd .. $ git add . $ git commit -m &amp;quot;{commit 메" />
+    <meta name="description" content="Helm 이란? Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 배포를 가능하게 하는 tool이라고 보면" />
     <meta name="generator" content="Hugo 0.74.3 with theme pure" />
-    <title>HUGO 블로그 새글 업로드하기 - ringu blog</title>
+    <title>Helm 설치 및 사용 방법 - ringu blog</title>
     
     
     <link rel="stylesheet" href="https://healinyoon.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="HUGO 블로그 새글 업로드하기" />
-<meta property="og:description" content="HUGO 글 생성하기 $ hugo new {파일명} HUGO 블로그 빌드 $ hugo -t {테마명} Git push $ cd public $ git add . $ git commit -m &quot;{commit 메세지}&quot; $ git push origin master $ cd .. $ git add . $ git commit -m &quot;{commit 메" />
+    <meta property="og:title" content="Helm 설치 및 사용 방법" />
+<meta property="og:description" content="Helm 이란? Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 배포를 가능하게 하는 tool이라고 보면" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://healinyoon.github.io/2020/08/20200827_hugo_blog/" />
-<meta property="article:published_time" content="2020-08-27T19:13:30+09:00" />
-<meta property="article:modified_time" content="2020-08-27T19:13:30+09:00" />
-<meta itemprop="name" content="HUGO 블로그 새글 업로드하기">
-<meta itemprop="description" content="HUGO 글 생성하기 $ hugo new {파일명} HUGO 블로그 빌드 $ hugo -t {테마명} Git push $ cd public $ git add . $ git commit -m &quot;{commit 메세지}&quot; $ git push origin master $ cd .. $ git add . $ git commit -m &quot;{commit 메">
-<meta itemprop="datePublished" content="2020-08-27T19:13:30+09:00" />
-<meta itemprop="dateModified" content="2020-08-27T19:13:30+09:00" />
-<meta itemprop="wordCount" content="84">
+<meta property="og:url" content="https://healinyoon.github.io/2020/11/20201103_helm_01/" />
+<meta property="article:published_time" content="2020-11-03T11:25:09+09:00" />
+<meta property="article:modified_time" content="2020-11-03T11:25:09+09:00" />
+<meta itemprop="name" content="Helm 설치 및 사용 방법">
+<meta itemprop="description" content="Helm 이란? Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 배포를 가능하게 하는 tool이라고 보면">
+<meta itemprop="datePublished" content="2020-11-03T11:25:09+09:00" />
+<meta itemprop="dateModified" content="2020-11-03T11:25:09+09:00" />
+<meta itemprop="wordCount" content="1836">
 
 
 
-<meta itemprop="keywords" content="go,hugo," />
+<meta itemprop="keywords" content="kubernetes,helm," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="HUGO 블로그 새글 업로드하기"/>
-<meta name="twitter:description" content="HUGO 글 생성하기 $ hugo new {파일명} HUGO 블로그 빌드 $ hugo -t {테마명} Git push $ cd public $ git add . $ git commit -m &quot;{commit 메세지}&quot; $ git push origin master $ cd .. $ git add . $ git commit -m &quot;{commit 메"/>
+<meta name="twitter:title" content="Helm 설치 및 사용 방법"/>
+<meta name="twitter:description" content="Helm 이란? Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 배포를 가능하게 하는 tool이라고 보면"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -289,8 +289,8 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2020/08/20200827_hugo_blog/"
-    >HUGO 블로그 새글 업로드하기</a
+    href="/2020/11/20201103_helm_01/"
+    >Helm 설치 및 사용 방법</a
   >
 </h1>
 
@@ -298,43 +298,232 @@
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://healinyoon.github.io/2020/08/20200827_hugo_blog/" class="article-date">
-  <time datetime="2020-08-27 19:13:30 &#43;0900 KST" itemprop="datePublished">2020-08-27</time>
+<a href="https://healinyoon.github.io/2020/11/20201103_helm_01/" class="article-date">
+  <time datetime="2020-11-03 11:25:09 &#43;0900 KST" itemprop="datePublished">2020-11-03</time>
 </a>
 </span>
 <span class="article-category">
   <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/blog/"> blog </a>
+  <a class="article-category-link" href="/categories/msa/"> msa </a>
 </span>  
   <span class="article-tag">
     <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/go/"> go </a>
-    <a class="article-tag-link" href="/tags/hugo/"> hugo </a>
+    <a class="article-tag-link" href="/tags/kubernetes/"> kubernetes </a>
+    <a class="article-tag-link" href="/tags/helm/"> helm </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/08/20200827_hugo_blog/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/11/20201103_helm_01/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 84words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1836words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <h1 id="hugo-글-생성하기">HUGO 글 생성하기</h1>
-<pre><code>$ hugo new {파일명}
+      <h1 id="helm-이란">Helm 이란?</h1>
+<p>Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 배포를 가능하게 하는 tool이라고 보면 된다.</p>
+<h3 id="helm의-필요성">Helm의 필요성</h3>
+<p>Kubernetest에 하나의 애플리케이션을 배포하기 위해서는 간단하게 Pod만 배포해서는 사용하기 어려운 경우가 많다. 외부 서비스를 위한 Service, Pod 관리를 위한 Deployment등 추가적인 리소스 배포가 필요하기 때문이다.<br>
+이를 위해 Helm은 애플리케이션 컨테이너 배포는 물론이고, 이에 필요한 Kubernetes 리소스를 모두 패키지 형태로 배포해주는 역할을 한다.</p>
+<h3 id="helm의-구성도">Helm의 구성도</h3>
+<p><img src="/images/helm.png" alt=""><br>
+이미지 출처: <a href="https://tech.osci.kr/2019/11/23/86027123/">https://tech.osci.kr/2019/11/23/86027123/</a></p>
+<ul>
+<li>Helm Chart: 템플릿화된 Kubernetes 리소스 설치 스크립트(yaml)</li>
+<li>Helm Chart Repository: Helm Chart의 모든 메터데이터가 저장된 저장소</li>
+<li>Helm Client: Helm Server 모듈과 통신</li>
+<li>Helm Server(Tiller): Helm Client의 요청을 처리하여 Kubernetes에 Chart를 설치하고 릴리즈를 관리</li>
+</ul>
+<h1 id="helm-설치하기">Helm 설치하기</h1>
+<ul>
+<li><a href="https://helm.sh/ko/docs/intro/install/">Helm 공식 설치 문서</a></li>
+</ul>
+<h3 id="helm-설치">Helm 설치</h3>
+<p>Helm을 설치하는 다양한 방법이 있으나, 여기서는 Helm에서 제공하는 최신 버전을 자동으로 가져와서 설치하는 스크립트를 사용한다.</p>
+<pre><code>$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 </code></pre>
-<h1 id="hugo-블로그-빌드">HUGO 블로그 빌드</h1>
-<pre><code>$ hugo -t {테마명}
+<pre><code>$ chmod 700 get_helm.sh
 </code></pre>
-<h1 id="git-push">Git push</h1>
-<pre><code>$ cd public
-$ git add .
-$ git commit -m &quot;{commit 메세지}&quot;
-$ git push origin master
-$ cd ..
-$ git add .
-$ git commit -m &quot;{commit 메세지}&quot;
-$ git push origin master
+<pre><code>$ ./get_helm.sh
+Downloading https://get.helm.sh/helm-v3.4.0-linux-amd64.tar.gz
+Verifying checksum... Done.
+Preparing to install helm into /usr/local/bin
+helm installed into /usr/local/bin/helm
 </code></pre>
+<h3 id="helm-chart-repository-초기화">Helm Chart Repository 초기화</h3>
+<p>Helm이 준비되면 Chart Repository를 추가할 수 있다.
+현재 repository를 조회해보면 다음과 같이 아무것도 없다고 출력된다.</p>
+<pre><code>$ helm repo list
+Error: no repositories to show
+</code></pre>
+<p>다양한 저장소를 추가할 수 있지만 가장 기본인 <code>Helm official stable charts</code>를 추가하였다.</p>
+<pre><code>$ helm repo add stable https://charts.helm.sh/stable
+&quot;stable&quot; has been added to your repositories
+
+$ helm repo list
+NAME  	URL
+stable	https://charts.helm.sh/stable
+</code></pre>
+<p>stable에서 제공하는 chart 리스트를 조회할 수 있다.</p>
+<pre><code>$ helm search repo stable
+NAME                                 	CHART VERSION	APP VERSION            	DESCRIPTION
+stable/acs-engine-autoscaler         	2.2.2        	2.1.1                  	DEPRECATED Scales worker nodes within agent pools
+stable/aerospike                     	0.3.3        	v4.5.0.5               	A Helm chart for Aerospike in Kubernetes
+stable/airflow                       	7.13.2       	1.10.12                	Airflow is a platform to programmatically autho...
+stable/ambassador                    	5.3.2        	0.86.1                 	DEPRECATED A Helm chart for Datawire Ambassador
+
+(중략)
+</code></pre>
+<h3 id="helm-chart-repository-업데이트">Helm Chart Repository 업데이트</h3>
+<p>Repository로 부터 최신 Chart를 다운로드 하기 위해서는 애플리케이션 배포 이전에 repository를 업데이트해주는 것이 좋다.</p>
+<pre><code>$ helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the &quot;stable&quot; chart repository
+Update Complete. ⎈Happy Helming!⎈
+</code></pre>
+<h1 id="helm-chart-사용해보기">Helm Chart 사용해보기</h1>
+<h3 id="helm-chart-확인">Helm Chart 확인</h3>
+<p>Helm Chart를 찾아 배포하는 여러 가지 방법이 있지만, 시작하기 가장 좋은 방법은 위에서 구성한 official stable chart 중 하나를 사용하여 배포하는 것이다.</p>
+<p>여기서는 <code>mysql</code>을 예시로 배포해본다.</p>
+<p>설치하려는 MySQL chart의 간단한 정보는 다음 명령어를 통해 확인 가능하다.</p>
+<pre><code>$ helm show chart stable/mysql
+apiVersion: v1
+appVersion: 5.7.30
+description: Fast, reliable, scalable, and easy to use open-source relational database
+  system.
+home: https://www.mysql.com/
+icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png
+keywords:
+- mysql
+- database
+- sql
+maintainers:
+- email: o.with@sportradar.com
+  name: olemarkus
+- email: viglesias@google.com
+  name: viglesiasce
+name: mysql
+sources:
+- https://github.com/kubernetes/charts
+- https://github.com/docker-library/mysql
+version: 1.6.7
+</code></pre>
+<p>만약 해당 chart에 대한 모든 정보를 확인하고 싶다면 다음 명령어를 사용하자(상당히 많은 정보가 출력된다).</p>
+<pre><code>$ helm show all stable/mysql
+</code></pre>
+<h3 id="helm-chart를-이용하여-애플리케이션-배포">Helm Chart를 이용하여 애플리케이션 배포</h3>
+<p>이제 helm chart를 이용하여 MySQL 애플리케이션을 배포해보자.</p>
+<pre><code>$ helm install stable/mysql --generate-name
+NAME: mysql-1604311201
+LAST DEPLOYED: Mon Nov  2 10:00:04 2020
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+MySQL can be accessed via port 3306 on the following DNS name from within your cluster:
+mysql-1604311201.default.svc.cluster.local
+
+To get your root password run:
+
+    MYSQL_ROOT_PASSWORD=$(kubectl get secret --namespace default mysql-1604311201 -o jsonpath=&quot;{.data.mysql-root-password}&quot; | base64 --decode; echo)
+
+To connect to your database:
+
+1. Run an Ubuntu pod that you can use as a client:
+
+    kubectl run -i --tty ubuntu --image=ubuntu:16.04 --restart=Never -- bash -il
+
+2. Install the mysql client:
+
+    $ apt-get update &amp;&amp; apt-get install mysql-client -y
+
+3. Connect using the mysql cli, then provide your password:
+    $ mysql -h mysql-1604311201 -p
+
+To connect to your database directly from outside the K8s cluster:
+    MYSQL_HOST=127.0.0.1
+    MYSQL_PORT=3306
+
+    # Execute the following command to route the connection:
+    kubectl port-forward svc/mysql-1604311201 3306
+
+    mysql -h ${MYSQL_HOST} -P${MYSQL_PORT} -u root -p${MYSQL_ROOT_PASSWORD}
+</code></pre>
+<p>위의 예에서 <code>stable/mysql</code> chart가 배포되었고, 이름은 <code>mysql-1604311201</code>인 것을 확인할 수 있다.</p>
+<p>Helm chart로 배포한 애플리케이션을 조회해보자.</p>
+<pre><code>$ helm ls
+NAME            	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART      	APP VERSION
+mysql-1604311201	default  	1       	2020-11-02 10:00:04.300938829 +0000 UTC	deployed	mysql-1.6.7	5.7.30
+</code></pre>
+<p>당연히 <code>kubectl</code>로도 조회가 가능하다.</p>
+<pre><code>$ kubectl get all
+NAME                                    READY   STATUS    RESTARTS   AGE
+pod/mysql-1604311201-654cf77476-w58m7   0/1     Pending   0          35m
+
+NAME                       TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/kubernetes         ClusterIP   10.96.0.1        &lt;none&gt;        443/TCP    55d
+service/mysql-1604311201   ClusterIP   10.111.137.120   &lt;none&gt;        3306/TCP   35m
+
+NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/mysql-1604311201   0/1     1            0           35m
+
+NAME                                          DESIRED   CURRENT   READY   AGE
+replicaset.apps/mysql-1604311201-654cf77476   1         1         0       35m
+</code></pre>
+<p>애플리케이션 배포를 위해 필요한 모든 kubernetes 리소스가 함께 배포된 것을 볼 수 있다.</p>
+<p>이렇게 Helm chart를 사용하여 배포를 하게 되면 <code>새로운 releade</code>가 된것이다. 즉 하나의 Helm chart로 여러번의 배포를 할 수 있는데, 이때 각각의 배포는 덮어씌어지는 것이 아니라 독립적으로 관리되고 업그레이드된다.</p>
+<p>그렇다면 실제로 그렇게 동작하는지 테스트해보자. 위와 동일한 방식으로 mysql을 하나 더 배포한다.</p>
+<pre><code>$ helm install stable/mysql --generate-name
+NAME: mysql-1604313417
+LAST DEPLOYED: Mon Nov  2 10:37:00 2020
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+MySQL can be accessed via port 3306 on the following DNS name from within your cluster:
+mysql-1604313417.default.svc.cluster.local
+</code></pre>
+<p><code>helm ls</code>로 조회해보면 새로운 release가 생성되었음을 확인할 수 있고</p>
+<pre><code>$ helm ls
+NAME            	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART      	APP VERSION
+mysql-1604311201	default  	1       	2020-11-02 10:00:04.300938829 +0000 UTC	deployed	mysql-1.6.7	5.7.30
+mysql-1604313417	default  	1       	2020-11-02 10:37:00.578674443 +0000 UTC	deployed	mysql-1.6.7	5.7.30
+</code></pre>
+<p><code>kubectl get all</code>로 조회해도 마찬가지로 독립적인 애플리케이션이 배포되었음을 알 수 있다.</p>
+<pre><code>$ kubectl get all
+NAME                                    READY   STATUS    RESTARTS   AGE
+pod/mysql-1604311201-654cf77476-w58m7   0/1     Pending   0          39m
+pod/mysql-1604313417-9685cfbd6-srxtl    0/1     Pending   0          2m53s
+
+NAME                       TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/kubernetes         ClusterIP   10.96.0.1        &lt;none&gt;        443/TCP    55d
+service/mysql-1604311201   ClusterIP   10.111.137.120   &lt;none&gt;        3306/TCP   39m
+service/mysql-1604313417   ClusterIP   10.104.229.201   &lt;none&gt;        3306/TCP   2m53s
+
+NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/mysql-1604311201   0/1     1            0           39m
+deployment.apps/mysql-1604313417   0/1     1            0           2m53s
+
+NAME                                          DESIRED   CURRENT   READY   AGE
+replicaset.apps/mysql-1604311201-654cf77476   1         1         0       39m
+replicaset.apps/mysql-1604313417-9685cfbd6    1         1         0       2m53s
+</code></pre>
+<h3 id="helm-chart를-이용하여-배포한-애플리케이션-제거">Helm Chart를 이용하여 배포한 애플리케이션 제거</h3>
+<p>Helm chart를 이용하여 배포한 애플리케이션을 제거하는 방법은 아주 간단하다.</p>
+<pre><code>$ helm uninstall mysql-1604311201
+release &quot;mysql-1604311201&quot; uninstalled
+
+$ helm uninstall mysql-1604313417
+release &quot;mysql-1604313417&quot; uninstalled
+
+$ helm ls
+NAME	NAMESPACE	REVISION	UPDATED	STATUS	CHART	APP VERSION
+</code></pre>
+<h1 id="출처">출처</h1>
+<ul>
+<li><a href="https://bcho.tistory.com/1335">https://bcho.tistory.com/1335</a></li>
+<li><a href="https://helm.sh/docs/intro/install/">https://helm.sh/docs/intro/install/</a></li>
+<li><a href="https://docs.helm.sh/docs/intro/quickstart/">https://docs.helm.sh/docs/intro/quickstart/</a></li>
+</ul>
 
     </div>
     <div class="article-footer">
@@ -342,7 +531,7 @@ $ git push origin master
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="https://healinyoon.github.io/2020/08/20200827_hugo_blog/" title="HUGO 블로그 새글 업로드하기" target="_blank" rel="external">https://healinyoon.github.io/2020/08/20200827_hugo_blog/</a>
+      <a href="https://healinyoon.github.io/2020/11/20201103_helm_01/" title="Helm 설치 및 사용 방법" target="_blank" rel="external">https://healinyoon.github.io/2020/11/20201103_helm_01/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -374,14 +563,9 @@ $ git push origin master
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://healinyoon.github.io/about/" title="About"><i
+                <a href="https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/" title="Kubernets(쿠버네티스) with GPU 구축하기"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
-            </li>
-            <li class="next">
-                <a href="https://healinyoon.github.io/2020/08/20200827_cicd_and_jenkins/"
-                    title="CI/CD와 Jenkins"><span>Newer&nbsp;&nbsp;</span><i
-                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>go on ringu blog</title>
-    <link>https://healinyoon.github.io/tags/go/</link>
-    <description>Recent content in go on ringu blog</description>
+    <title>helm on ringu blog</title>
+    <link>https://healinyoon.github.io/tags/helm/</link>
+    <description>Recent content in helm on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 27 Aug 2020 19:13:30 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2020 11:25:09 +0900</lastBuildDate>
     
-        <atom:link href="https://healinyoon.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://healinyoon.github.io/tags/helm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
