@@ -4,55 +4,62 @@
   
   <url>
     <loc>https://healinyoon.github.io/categories/</loc>
-    <lastmod>2020-11-03T11:25:09+09:00</lastmod>
+    <lastmod>2020-11-03T12:54:49+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/tags/helm/</loc>
-    <lastmod>2020-11-03T11:25:09+09:00</lastmod>
+    <lastmod>2020-11-03T12:54:49+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://healinyoon.github.io/2020/11/20201103_helm_01/</loc>
-    <lastmod>2020-11-03T11:25:09+09:00</lastmod>
+    <loc>https://healinyoon.github.io/2020/11/20201103_helm_02/</loc>
+    <lastmod>2020-11-03T12:54:49+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/tags/kubernetes/</loc>
-    <lastmod>2020-11-03T11:25:09+09:00</lastmod>
+    <lastmod>2020-11-03T12:54:49+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/categories/msa/</loc>
-    <lastmod>2020-11-03T11:25:09+09:00</lastmod>
+    <lastmod>2020-11-03T12:54:49+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/posts/</loc>
-    <lastmod>2020-11-03T11:25:09+09:00</lastmod>
+    <lastmod>2020-11-03T12:54:49+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/</loc>
-    <lastmod>2020-11-03T11:25:09+09:00</lastmod>
+    <lastmod>2020-11-03T12:54:49+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/tags/</loc>
+    <lastmod>2020-11-03T12:54:49+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/2020/11/20201103_helm_01/</loc>
     <lastmod>2020-11-03T11:25:09+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

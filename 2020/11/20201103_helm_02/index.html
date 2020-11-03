@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <title>
-        ringu blog</title>
+        Helm(2) - Helm Chart 사용 방법 - ringu blog
+      </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
@@ -19,26 +20,33 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    
+    <meta name="description" content="Intro 이번 장에서는 Helm Chart를 더 잘 활용하기 위한 방법을 살펴본다. Helm Chart 기본 명령어 사용 방법 helm search: Chart 검색 Helm은 강력한 검색 명령어를 제공한다. 아래의 두 명" />
     <meta name="generator" content="Hugo 0.74.3 with theme pure" />
-    <title>ringu blog</title>
+    <title>Helm(2) - Helm Chart 사용 방법 - ringu blog</title>
     
-    <link rel="alternate" type="application/rss+xml" href="https://healinyoon.github.io/categories/linux/index.xml" title="ringu blog" />
     
     <link rel="stylesheet" href="https://healinyoon.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="linux" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://healinyoon.github.io/categories/linux/" />
-<meta property="og:updated_time" content="2019-06-02T18:35:16+09:00" />
-<meta itemprop="name" content="linux">
-<meta itemprop="description" content="">
+    <meta property="og:title" content="Helm(2) - Helm Chart 사용 방법" />
+<meta property="og:description" content="Intro 이번 장에서는 Helm Chart를 더 잘 활용하기 위한 방법을 살펴본다. Helm Chart 기본 명령어 사용 방법 helm search: Chart 검색 Helm은 강력한 검색 명령어를 제공한다. 아래의 두 명" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://healinyoon.github.io/2020/11/20201103_helm_02/" />
+<meta property="article:published_time" content="2020-11-03T12:54:49+09:00" />
+<meta property="article:modified_time" content="2020-11-03T12:54:49+09:00" />
+<meta itemprop="name" content="Helm(2) - Helm Chart 사용 방법">
+<meta itemprop="description" content="Intro 이번 장에서는 Helm Chart를 더 잘 활용하기 위한 방법을 살펴본다. Helm Chart 기본 명령어 사용 방법 helm search: Chart 검색 Helm은 강력한 검색 명령어를 제공한다. 아래의 두 명">
+<meta itemprop="datePublished" content="2020-11-03T12:54:49+09:00" />
+<meta itemprop="dateModified" content="2020-11-03T12:54:49+09:00" />
+<meta itemprop="wordCount" content="1094">
+
+
+
+<meta itemprop="keywords" content="kubernetes,helm," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="linux"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Helm(2) - Helm Chart 사용 방법"/>
+<meta name="twitter:description" content="Intro 이번 장에서는 Helm Chart를 더 잘 활용하기 위한 방법을 살펴본다. Helm Chart 기본 명령어 사용 방법 helm search: Chart 검색 Helm은 강력한 검색 명령어를 제공한다. 아래의 두 명"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -265,50 +273,210 @@
 
     
     
-<main class="main" role="main">
-    <article class="article article-categories article-type-list" itemscope="">
-        <header class="article-header">
-            <h1 itemprop="name" class="hidden-xs">linux</h1>
-            <p class="text-muted hidden-xs">Total 9 categories</p>
-            <nav role="navigation" id="nav-main" class="okayNav">
-                <ul>
-                    <li><a href="/categories/">All</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/blog/">blog</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/ci/cd/">ci/cd</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/cloud/">cloud</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/devops/">devops</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/gpu/">gpu</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/jvm/">jvm</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/linux/">linux</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/msa/">msa</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/programming/">programming</a></li>
-                </ul>
-            </nav>
-        </header>
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/11/20201103_helm_02/"
+    >Helm(2) - Helm Chart 사용 방법</a
+  >
+</h1>
+
+      <div class="article-meta">
         
-        <div class="article-body">
-            <div class="panel panel-default b-no">
-                <div class="panel-heading" role="tab">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" href="#collapsee206a54e97690cce50cc872dd70ee896" aria-expanded="true">
-                            <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>linux
-                        </a>
-                        <small class="text-muted">(Total1 articles)</small>
-                    </h4>
-                </div>
-                <div id="collapsee206a54e97690cce50cc872dd70ee896" class="panel-collapse collapse in" role="tabpanel"
-                    aria-labelledby="headinge206a54e97690cce50cc872dd70ee896">
-                    <div class="panel-body">
-                        <div class="collection"><a href="https://healinyoon.github.io/2019/06/20190602_shell_script/" class="collection-item" itemprop="url" target="_blank">
-    <time datetime="2019-06-02 18:35:16 &#43;0900 KST" itemprop="datePublished" style="margin-right: 5px;">2019-06-02
-    </time>Shell Scripts 사용하기
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://healinyoon.github.io/2020/11/20201103_helm_02/" class="article-date">
+  <time datetime="2020-11-03 12:54:49 &#43;0900 KST" itemprop="datePublished">2020-11-03</time>
 </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/msa/"> msa </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/kubernetes/"> kubernetes </a>
+    <a class="article-tag-link" href="/tags/helm/"> helm </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/11/20201103_helm_02/#comments"
+            class="article-comment-link">Comments</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1094words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 3minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="intro">Intro</h1>
+<p>이번 장에서는 Helm Chart를 더 잘 활용하기 위한 방법을 살펴본다.</p>
+<h1 id="helm-chart-기본-명령어-사용-방법">Helm Chart 기본 명령어 사용 방법</h1>
+<h3 id="helm-search-chart-검색"><code>helm search</code>: Chart 검색</h3>
+<p>Helm은 강력한 검색 명령어를 제공한다. 아래의 두 명령어는 서로 다른 유형의 Repository Source로부터 검색하는데 사용할 수 있다.</p>
+<ol>
+<li><code>helm search hub</code>: 여러 저장소에있는 helm chart를 포괄하는 <code>[helm hub](https://artifacthub.io/)</code>에서 검색한다.</li>
+<li><code>helm search repo</code>: <code>helm repo add</code>를 사용하여 local helm client에 추가한 저장소에서 검색한다. 검색은 local data 상에서 이루어지며, 퍼블릭 네트워크 접속이 필요하지 않다.</li>
+</ol>
+<h4 id="helm-search-hub-사용-예시"><code>helm search hub</code> 사용 예시</h4>
+<p><code>helm search hub</code> 명령어를 사용하면 공개적으로 사용 가능한 chart를 찾아볼 수 있다.</p>
+<pre><code>$ helm search hub wordpress
+URL                                               	CHART VERSION	APP VERSION	DESCRIPTION
+https://hub.helm.sh/charts/bitnami/wordpress      	9.9.1        	5.5.3      	Web publishing platform for building blogs and ...
+https://hub.helm.sh/charts/seccurecodebox/old-w...	2.1.0        	4.0        	Insecure &amp; Outdated Wordpress Instance: Never e...
+https://hub.helm.sh/charts/presslabs/wordpress-...	0.10.5       	0.10.5     	Presslabs WordPress Operator Helm Chart
+</code></pre>
+<h4 id="helm-search-repo-사용-예시"><code>helm search repo</code> 사용 예시</h4>
+<p><code>helm search repo</code> 명령어를 사용하면 기존에 추가된 저장소에서 사용 가능한 chart를 찾아볼 수 있다.</p>
+<pre><code>$ helm search repo wordpress
+NAME            	CHART VERSION	APP VERSION	DESCRIPTION
+stable/wordpress	9.0.3        	5.3.2
+</code></pre>
+<blockquote>
+<p>(참고) <code>helm search</code>는 fuzzy string matcing 알고리즘을 사용하기 때문에 검색시 <strong>단어</strong> 또는 <strong>구문의 일부분</strong>만 입력해도 된다.</p>
+</blockquote>
+<pre><code>$ helm search repo word
+NAME            	CHART VERSION	APP VERSION	DESCRIPTION
+stable/wordpress	9.0.3        	5.3.2      	DEPRECATED Web publishing platform for building...
+
+$ helm search repo wordp
+NAME            	CHART VERSION	APP VERSION	DESCRIPTION
+stable/wordpress	9.0.3        	5.3.2      	DEPRECATED Web publishing platform for building...
+</code></pre>
+<h3 id="helm-install-chart-패키지-설치"><code>helm install</code>: Chart 패키지 설치</h3>
+<p>사용하려는 Chart를 찾은 후에는 <code>helm install {사용자 지정 release name} {chart name}</code> 명령어를 사용하여 설치해준다.</p>
+<pre><code>$ helm install my-mariadb stable/mariadb
+WARNING: This chart is deprecated
+NAME: my-mariadb
+LAST DEPLOYED: Tue Nov  3 05:07:12 2020
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+This Helm chart is deprecated
+
+(중략)
+</code></pre>
+<p>Chart를 설치하면 새로운 relase 인스턴스가 생성되는 것을 알아두자. 위의 명령어에서 release의 이름은 <code>my-mariadb</code>이다. 만약 별도의 사용자 지정 release name 없이 helm이 자동으로 생성해주는 이름을 그대로 사용하려면 <code>--generate-name</code> 옵션을 사용하면 된다.</p>
+<p>Helm은 release시 설치되는 모든 리소스가 running 상태로 변할 때까지 기다리지 않는다. 따라서 release의 리소스 상태 추척을 계속하거나, 구성 정보를 확인하고 싶을 때는 <code>helm status</code> 명령어를 사용하자.</p>
+<pre><code>$ helm status my-mariadb
+NAME: my-mariadb
+LAST DEPLOYED: Tue Nov  3 05:40:42 2020
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+This Helm chart is deprecated
+</code></pre>
+<p>그런데.. <code>helm status</code> 명령어를 사용해도 각 리소스 상태가 출력되지 않는다. 원래 Helm version2에서는 아래와 같이 출력되는데, version3에서 부터 리소스 출력이 사라졌다.</p>
+<blockquote>
+<p>(Helm version2에서의 <code>helm status</code> 출력 예시)</p>
+</blockquote>
+<pre><code>$ helm status mychart
+LAST DEPLOYED: Fri Jun 28 11:16:50 2019
+NAMESPACE: default
+STATUS: DEPLOYED
+
+RESOURCES:
+==&gt; v1/Deployment
+NAME     READY  UP-TO-DATE  AVAILABLE  AGE
+mychart  1/1    1           1          4m2s
+
+==&gt; v1/Pod(related)
+NAME                     READY  STATUS   RESTARTS  AGE
+mychart-b9488ff5c-b6xzz  1/1    Running  0         4m2s
+
+==&gt; v1/Service
+NAME     TYPE       CLUSTER-IP      EXTERNAL-IP  PORT(S)  AGE
+mychart  ClusterIP  10.110.150.104  &lt;none&gt;       80/TCP   4m2s
+</code></pre>
+<p>원인을 찾아보니, <strong>The main reason for this is that by doing this in Helm, it leads to code duplication (we basically end up copying kubectl code), possible bugs, and maintenance overhead in the Helm codebase. So I think it would be better to keep it out<a href="https://github.com/helm/helm/issues/5952">상세 내용 확인하기</a>.</strong> 라고 논의되고 있다. 해결하기 위한 노력(<a href="https://github.com/helm/helm/pull/7728">참고</a>)이 이루어지고 있지만, 아직까지는 지원되지 않는다.</p>
+<p>아쉽지만 <code>kubectl get all</code> 명령어로 조회하자.</p>
+<pre><code>$ kubectl get all | grep my-mariadb
+pod/my-mariadb-master-0   0/1     Pending   0          44m
+pod/my-mariadb-slave-0    0/1     Pending   0          44m
+service/my-mariadb         ClusterIP   10.104.91.81   &lt;none&gt;        3306/TCP   44m
+service/my-mariadb-slave   ClusterIP   10.105.42.35   &lt;none&gt;        3306/TCP   44m
+statefulset.apps/my-mariadb-master   0/1     44m
+statefulset.apps/my-mariadb-slave    0/1     44m
+</code></pre>
+<h1 id="설치-전-chart-커스터마이징하는-방법">설치 전 Chart 커스터마이징하는 방법</h1>
+<p>여</p>
+<h1 id="출처">출처</h1>
+<ul>
+<li><a href="https://helm.sh/ko/docs/intro/using_helm/">https://helm.sh/ko/docs/intro/using_helm/</a></li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://healinyoon.github.io/2020/11/20201103_helm_02/" title="Helm(2) - Helm Chart 사용 방법" target="_blank" rel="external">https://healinyoon.github.io/2020/11/20201103_helm_02/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/healinyoon" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://healinyoon.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/healinyoon" target="_blank"><span class="text-dark">rin gu</span><small class="ml-1x">A Developer</small></a></h3>
+        <div>Linux, Infrastructure, DevOps</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://healinyoon.github.io/2020/11/20201103_helm_01/" title="Helm(1) - Helm 설치 및 사용 방법"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
         </div>
-    </article>
+    </div>
+</nav>
+
 </main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
 <ul class="social-links">
     <li><a href="https://github.com/healinyoon" target="_blank" title="github" data-toggle=tooltip data-placement=top >
@@ -383,6 +551,7 @@
         hasInnerContainers: true,
     });
 </script>
+
 
   </body>
 </html>

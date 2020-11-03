@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-        Helm 설치 및 사용 방법 - ringu blog
+        Helm(1) - Helm 설치 및 사용 방법 - ringu blog
       </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,33 +20,33 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="Helm 이란? Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 배포를 가능하게 하는 tool이라고 보면" />
+    <meta name="description" content="Helm 이란? Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 설치를 가능하게 하는 tool이라고 보면" />
     <meta name="generator" content="Hugo 0.74.3 with theme pure" />
-    <title>Helm 설치 및 사용 방법 - ringu blog</title>
+    <title>Helm(1) - Helm 설치 및 사용 방법 - ringu blog</title>
     
     
     <link rel="stylesheet" href="https://healinyoon.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="Helm 설치 및 사용 방법" />
-<meta property="og:description" content="Helm 이란? Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 배포를 가능하게 하는 tool이라고 보면" />
+    <meta property="og:title" content="Helm(1) - Helm 설치 및 사용 방법" />
+<meta property="og:description" content="Helm 이란? Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 설치를 가능하게 하는 tool이라고 보면" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://healinyoon.github.io/2020/11/20201103_helm_01/" />
 <meta property="article:published_time" content="2020-11-03T11:25:09+09:00" />
 <meta property="article:modified_time" content="2020-11-03T11:25:09+09:00" />
-<meta itemprop="name" content="Helm 설치 및 사용 방법">
-<meta itemprop="description" content="Helm 이란? Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 배포를 가능하게 하는 tool이라고 보면">
+<meta itemprop="name" content="Helm(1) - Helm 설치 및 사용 방법">
+<meta itemprop="description" content="Helm 이란? Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 설치를 가능하게 하는 tool이라고 보면">
 <meta itemprop="datePublished" content="2020-11-03T11:25:09+09:00" />
 <meta itemprop="dateModified" content="2020-11-03T11:25:09+09:00" />
-<meta itemprop="wordCount" content="1836">
+<meta itemprop="wordCount" content="1968">
 
 
 
 <meta itemprop="keywords" content="kubernetes,helm," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Helm 설치 및 사용 방법"/>
-<meta name="twitter:description" content="Helm 이란? Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 배포를 가능하게 하는 tool이라고 보면"/>
+<meta name="twitter:title" content="Helm(1) - Helm 설치 및 사용 방법"/>
+<meta name="twitter:description" content="Helm 이란? Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 설치를 가능하게 하는 tool이라고 보면"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -164,7 +164,7 @@
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/gpu/" class="category-list-link">gpu</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/jvm/" class="category-list-link">jvm</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/msa/" class="category-list-link">msa</a><span class="category-list-count">6</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/msa/" class="category-list-link">msa</a><span class="category-list-count">7</span></li>
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/programming/" class="category-list-link">programming</a><span class="category-list-count">1</span></li>
         </ul>
     </div>
@@ -188,7 +188,7 @@
             
             
             <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/helm/" class="tag-list-link">helm</a><span
-                    class="tag-list-count">1</span></li>
+                    class="tag-list-count">2</span></li>
             
             
             <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/hugo/" class="tag-list-link">hugo</a><span
@@ -200,7 +200,7 @@
             
             
             <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/kubernetes/" class="tag-list-link">kubernetes</a><span
-                    class="tag-list-count">5</span></li>
+                    class="tag-list-count">6</span></li>
             
             
             <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/shell/" class="tag-list-link">shell</a><span
@@ -218,7 +218,17 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://healinyoon.github.io/2020/11/20201103_helm_01/" class="title">Helm 설치 및 사용 방법</a>
+                        <a href="https://healinyoon.github.io/2020/11/20201103_helm_02/" class="title">Helm(2) - Helm Chart 사용 방법</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-03 12:54:49 &#43;0900 KST" itemprop="datePublished">2020-11-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://healinyoon.github.io/2020/11/20201103_helm_01/" class="title">Helm(1) - Helm 설치 및 사용 방법</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-11-03 11:25:09 &#43;0900 KST" itemprop="datePublished">2020-11-03</time>
@@ -255,16 +265,6 @@
                     </p>
                 </div>
             </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://healinyoon.github.io/2020/09/20201023_azure_cli_with_virtualenv/" class="title">Azure CLI 설치하기 with virtualenv</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-09-15 14:53:35 &#43;0900 KST" itemprop="datePublished">2020-09-15</time>
-                    </p>
-                </div>
-            </li>
         </ul>
     </div>
 </div>
@@ -290,7 +290,7 @@
   <a
     class="article-title"
     href="/2020/11/20201103_helm_01/"
-    >Helm 설치 및 사용 방법</a
+    >Helm(1) - Helm 설치 및 사용 방법</a
   >
 </h1>
 
@@ -314,25 +314,29 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/11/20201103_helm_01/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1836words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1968words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       <h1 id="helm-이란">Helm 이란?</h1>
-<p>Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 배포를 가능하게 하는 tool이라고 보면 된다.</p>
+<p>Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 설치를 가능하게 하는 tool이라고 보면 된다.</p>
 <h3 id="helm의-필요성">Helm의 필요성</h3>
 <p>Kubernetest에 하나의 애플리케이션을 배포하기 위해서는 간단하게 Pod만 배포해서는 사용하기 어려운 경우가 많다. 외부 서비스를 위한 Service, Pod 관리를 위한 Deployment등 추가적인 리소스 배포가 필요하기 때문이다.<br>
 이를 위해 Helm은 애플리케이션 컨테이너 배포는 물론이고, 이에 필요한 Kubernetes 리소스를 모두 패키지 형태로 배포해주는 역할을 한다.</p>
 <h3 id="helm의-구성도">Helm의 구성도</h3>
 <p><img src="/images/20201102_helm/helm.png" alt=""></p>
 <p>이미지 출처: <a href="https://tech.osci.kr/2019/11/23/86027123/">https://tech.osci.kr/2019/11/23/86027123/</a></p>
-<ul>
-<li>Helm Chart: 템플릿화된 Kubernetes 리소스 설치 스크립트(yaml)</li>
-<li>Helm Chart Repository: Helm Chart의 모든 메터데이터가 저장된 저장소</li>
-<li>Helm Client: Helm Server 모듈과 통신</li>
-<li>Helm Server(Tiller): Helm Client의 요청을 처리하여 Kubernetes에 Chart를 설치하고 릴리즈를 관리</li>
-</ul>
+<h4 id="helm-chart">Helm Chart</h4>
+<p>Helm 패키지이다. 이 패키지에는 Kubernetest 클러스터 내에서 애플리케이션을 동작시키기 위해 필요한 모든 리소스 정의가 포함되어 있다.</p>
+<h4 id="helm-chart-repository">Helm Chart Repository</h4>
+<p>Helm Chart를 저장하고 공유하는 저장소이다.</p>
+<h4 id="release">Release</h4>
+<p>Kubernetes 클러스터에서 구동되는 Chart의 인스턴스이다. 일반적으로 하나의 Chart는 동일한 클러스터 내에 여러번 설치될 수 있다. 설치할 때마다 새로운 Release가 생성된다.</p>
+<h4 id="helm-client">Helm Client</h4>
+<p>Helm Server 모듈과 통신하는 역할을 한다.</p>
+<h4 id="helm-servertiller">Helm Server(Tiller)</h4>
+<p>Helm Client의 요청을 처리하여 Kubernetes에 Chart를 설치하고 릴리즈를 관리한다.</p>
 <h1 id="helm-설치하기">Helm 설치하기</h1>
 <ul>
 <li><a href="https://helm.sh/ko/docs/intro/install/">Helm 공식 설치 문서</a></li>
@@ -374,16 +378,16 @@ stable/ambassador                    	5.3.2        	0.86.1                 	DEPR
 (중략)
 </code></pre>
 <h3 id="helm-chart-repository-업데이트">Helm Chart Repository 업데이트</h3>
-<p>Repository로 부터 최신 Chart를 다운로드 하기 위해서는 애플리케이션 배포 이전에 repository를 업데이트해주는 것이 좋다.</p>
+<p>Repository로 부터 최신 Chart를 다운로드 하기 위해서는 애플리케이션 설치 이전에 repository를 업데이트해주는 것이 좋다.</p>
 <pre><code>$ helm repo update
 Hang tight while we grab the latest from your chart repositories...
 ...Successfully got an update from the &quot;stable&quot; chart repository
 Update Complete. ⎈Happy Helming!⎈
 </code></pre>
-<h1 id="helm-chart-사용해보기">Helm Chart 사용해보기</h1>
+<h1 id="helm-chart-repository-사용해보기">Helm Chart Repository 사용해보기</h1>
 <h3 id="helm-chart-확인">Helm Chart 확인</h3>
-<p>Helm Chart를 찾아 배포하는 여러 가지 방법이 있지만, 시작하기 가장 좋은 방법은 위에서 구성한 official stable chart 중 하나를 사용하여 배포하는 것이다.</p>
-<p>여기서는 <code>mysql</code>을 예시로 배포해본다.</p>
+<p>Helm Chart를 찾아 애플리케이션을 설치하는 여러 가지 방법이 있지만, 시작하기 가장 좋은 방법은 위에서 구성한 official stable chart 중 하나를 사용하여 설치하는 것이다.</p>
+<p>여기서는 <code>mysql</code>을 예시로 설치해본다.</p>
 <p>설치하려는 MySQL chart의 간단한 정보는 다음 명령어를 통해 확인 가능하다.</p>
 <pre><code>$ helm show chart stable/mysql
 apiVersion: v1
@@ -410,8 +414,8 @@ version: 1.6.7
 <p>만약 해당 chart에 대한 모든 정보를 확인하고 싶다면 다음 명령어를 사용하자(상당히 많은 정보가 출력된다).</p>
 <pre><code>$ helm show all stable/mysql
 </code></pre>
-<h3 id="helm-chart를-이용하여-애플리케이션-배포">Helm Chart를 이용하여 애플리케이션 배포</h3>
-<p>이제 helm chart를 이용하여 MySQL 애플리케이션을 배포해보자.</p>
+<h3 id="helm-chart를-이용하여-애플리케이션-설치">Helm Chart를 이용하여 애플리케이션 설치</h3>
+<p>이제 helm chart를 이용하여 MySQL 애플리케이션을 설치해보자.</p>
 <pre><code>$ helm install stable/mysql --generate-name
 NAME: mysql-1604311201
 LAST DEPLOYED: Mon Nov  2 10:00:04 2020
@@ -448,8 +452,8 @@ To connect to your database directly from outside the K8s cluster:
 
     mysql -h ${MYSQL_HOST} -P${MYSQL_PORT} -u root -p${MYSQL_ROOT_PASSWORD}
 </code></pre>
-<p>위의 예에서 <code>stable/mysql</code> chart가 배포되었고, 이름은 <code>mysql-1604311201</code>인 것을 확인할 수 있다.</p>
-<p>Helm chart로 배포한 애플리케이션을 조회해보자.</p>
+<p>위의 예에서 <code>stable/mysql</code> chart가 설치되었고, 이름은 <code>mysql-1604311201</code>인 것을 확인할 수 있다.</p>
+<p>Helm chart로 설치한 애플리케이션을 조회해보자.</p>
 <pre><code>$ helm ls
 NAME            	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART      	APP VERSION
 mysql-1604311201	default  	1       	2020-11-02 10:00:04.300938829 +0000 UTC	deployed	mysql-1.6.7	5.7.30
@@ -469,9 +473,9 @@ deployment.apps/mysql-1604311201   0/1     1            0           35m
 NAME                                          DESIRED   CURRENT   READY   AGE
 replicaset.apps/mysql-1604311201-654cf77476   1         1         0       35m
 </code></pre>
-<p>애플리케이션 배포를 위해 필요한 모든 kubernetes 리소스가 함께 배포된 것을 볼 수 있다.</p>
-<p>이렇게 Helm chart를 사용하여 배포를 하게 되면 <code>새로운 releade</code>가 된것이다. 즉 하나의 Helm chart로 여러번의 배포를 할 수 있는데, 이때 각각의 배포는 덮어씌어지는 것이 아니라 독립적으로 관리되고 업그레이드된다.</p>
-<p>그렇다면 실제로 그렇게 동작하는지 테스트해보자. 위와 동일한 방식으로 mysql을 하나 더 배포한다.</p>
+<p>애플리케이션 설치를 위해 필요한 모든 kubernetes 리소스가 함께 설치된 것을 볼 수 있다.</p>
+<p>이렇게 Helm chart를 사용하여 설치를 하게 되면 <code>새로운 release</code>가 된것이다. 즉 하나의 Helm chart로 여러번의 설치를 할 수 있는데, 이때 각각의 설치는 덮어씌어지는 것이 아니라 독립적으로 관리되고 업그레이드된다.</p>
+<p>그렇다면 실제로 그렇게 동작하는지 테스트해보자. 위와 동일한 방식으로 mysql을 하나 더 설치한다.</p>
 <pre><code>$ helm install stable/mysql --generate-name
 NAME: mysql-1604313417
 LAST DEPLOYED: Mon Nov  2 10:37:00 2020
@@ -488,7 +492,7 @@ NAME            	NAMESPACE	REVISION	UPDATED                                	STAT
 mysql-1604311201	default  	1       	2020-11-02 10:00:04.300938829 +0000 UTC	deployed	mysql-1.6.7	5.7.30
 mysql-1604313417	default  	1       	2020-11-02 10:37:00.578674443 +0000 UTC	deployed	mysql-1.6.7	5.7.30
 </code></pre>
-<p><code>kubectl get all</code>로 조회해도 마찬가지로 독립적인 애플리케이션이 배포되었음을 알 수 있다.</p>
+<p><code>kubectl get all</code>로 조회해도 마찬가지로 독립적인 애플리케이션이 설치되었음을 알 수 있다.</p>
 <pre><code>$ kubectl get all
 NAME                                    READY   STATUS    RESTARTS   AGE
 pod/mysql-1604311201-654cf77476-w58m7   0/1     Pending   0          39m
@@ -507,8 +511,8 @@ NAME                                          DESIRED   CURRENT   READY   AGE
 replicaset.apps/mysql-1604311201-654cf77476   1         1         0       39m
 replicaset.apps/mysql-1604313417-9685cfbd6    1         1         0       2m53s
 </code></pre>
-<h3 id="helm-chart를-이용하여-배포한-애플리케이션-제거">Helm Chart를 이용하여 배포한 애플리케이션 제거</h3>
-<p>Helm chart를 이용하여 배포한 애플리케이션을 제거하는 방법은 아주 간단하다.</p>
+<h3 id="helm-chart를-이용하여-설치한-애플리케이션-제거">Helm Chart를 이용하여 설치한 애플리케이션 제거</h3>
+<p>Helm chart를 이용하여 설치한 애플리케이션을 제거하는 방법은 아주 간단하다.</p>
 <pre><code>$ helm uninstall mysql-1604311201
 release &quot;mysql-1604311201&quot; uninstalled
 
@@ -523,6 +527,7 @@ NAME	NAMESPACE	REVISION	UPDATED	STATUS	CHART	APP VERSION
 <li><a href="https://bcho.tistory.com/1335">https://bcho.tistory.com/1335</a></li>
 <li><a href="https://helm.sh/docs/intro/install/">https://helm.sh/docs/intro/install/</a></li>
 <li><a href="https://docs.helm.sh/docs/intro/quickstart/">https://docs.helm.sh/docs/intro/quickstart/</a></li>
+<li><a href="https://tech.osci.kr/2019/11/23/86027123/">https://tech.osci.kr/2019/11/23/86027123/</a></li>
 </ul>
 
     </div>
@@ -531,7 +536,7 @@ NAME	NAMESPACE	REVISION	UPDATED	STATUS	CHART	APP VERSION
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="https://healinyoon.github.io/2020/11/20201103_helm_01/" title="Helm 설치 및 사용 방법" target="_blank" rel="external">https://healinyoon.github.io/2020/11/20201103_helm_01/</a>
+      <a href="https://healinyoon.github.io/2020/11/20201103_helm_01/" title="Helm(1) - Helm 설치 및 사용 방법" target="_blank" rel="external">https://healinyoon.github.io/2020/11/20201103_helm_01/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -566,6 +571,11 @@ NAME	NAMESPACE	REVISION	UPDATED	STATUS	CHART	APP VERSION
                 <a href="https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/" title="Kubernets(쿠버네티스) with GPU 구축하기"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://healinyoon.github.io/2020/11/20201103_helm_02/"
+                    title="Helm(2) - Helm Chart 사용 방법"><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">
