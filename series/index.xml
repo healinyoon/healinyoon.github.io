@@ -10,24 +10,6 @@
     
     
     <item>
-      <title>Helm(2) - Helm Chart 사용 방법</title>
-      <link>https://healinyoon.github.io/2020/11/20201103_helm_02/</link>
-      <pubDate>Tue, 03 Nov 2020 12:54:49 +0900</pubDate>
-      
-      <guid>https://healinyoon.github.io/2020/11/20201103_helm_02/</guid>
-      <description>Intro 이번 장에서는 Helm Chart를 더 잘 활용하기 위한 방법을 살펴본다. Helm Chart 기본 명령어 사용 방법 helm search: Chart 검색 Helm은 강력한 검색 명령어를 제공한다. 아래의 두 명</description>
-    </item>
-    
-    <item>
-      <title>Helm(1) - Helm 설치 및 사용 방법</title>
-      <link>https://healinyoon.github.io/2020/11/20201103_helm_01/</link>
-      <pubDate>Tue, 03 Nov 2020 11:25:09 +0900</pubDate>
-      
-      <guid>https://healinyoon.github.io/2020/11/20201103_helm_01/</guid>
-      <description>Helm 이란? Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 설치를 가능하게 하는 tool이라고 보면</description>
-    </item>
-    
-    <item>
       <title>Kubernets(쿠버네티스) with GPU 구축하기</title>
       <link>https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/</link>
       <pubDate>Fri, 23 Oct 2020 10:56:19 +0900</pubDate>
