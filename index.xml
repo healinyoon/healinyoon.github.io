@@ -11,12 +11,12 @@
     
     
     <item>
-      <title>Kubernetest 신규 node join 하기</title>
-      <link>https://healinyoon.github.io/2020/11/20201113_kubernetes_node_join/</link>
+      <title>java(openjdk) 설치 및 환경 변수 설정</title>
+      <link>https://healinyoon.github.io/2020/11/20201113_install_java/</link>
       <pubDate>Fri, 13 Nov 2020 14:16:05 +0900</pubDate>
       
-      <guid>https://healinyoon.github.io/2020/11/20201113_kubernetes_node_join/</guid>
-      <description>환경 설정 hostname 설정 설정 $ hostnamectl set-hostname {hostname} hostname 적용 확인을 위해 터미널 종료 후 재접속 $ exit 기본 apt 패키지 설치 apt-get update # sudo apt-get update -y apt-get upgrade # sudo apt-get upgrade -y wget curl vim git</description>
+      <guid>https://healinyoon.github.io/2020/11/20201113_install_java/</guid>
+      <description>jdk8 설치 버전 확인 $ java -version repository 업데이트 $ sudo apt-get update openjdk 설치 $ sudo apt-get install openjdk-8-jdk 설치 확인 $ java -version openjdk version &amp;quot;1.8.0_275&amp;quot; OpenJDK Runtime Environment (build 1.8.0_275-8u275-b01-0ubuntu1~18.04-b01) OpenJDK 64-Bit Server VM (build 25.275-b01, mixed mode) 환경 변수 설정 javac 설치 경로 확인 # javac -version javac 1.8.0_275 # which</description>
     </item>
     
     <item>
