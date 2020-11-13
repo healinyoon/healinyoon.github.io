@@ -4,55 +4,62 @@
   
   <url>
     <loc>https://healinyoon.github.io/categories/</loc>
-    <lastmod>2020-10-23T10:56:19+09:00</lastmod>
+    <lastmod>2020-11-13T14:16:05+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/tags/docker/</loc>
-    <lastmod>2020-10-23T10:56:19+09:00</lastmod>
+    <lastmod>2020-11-13T14:16:05+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/tags/kubernetes/</loc>
-    <lastmod>2020-10-23T10:56:19+09:00</lastmod>
+    <lastmod>2020-11-13T14:16:05+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/</loc>
-    <lastmod>2020-10-23T10:56:19+09:00</lastmod>
+    <loc>https://healinyoon.github.io/2020/11/20201113_kubernetes_node_join/</loc>
+    <lastmod>2020-11-13T14:16:05+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/categories/msa/</loc>
-    <lastmod>2020-10-23T10:56:19+09:00</lastmod>
+    <lastmod>2020-11-13T14:16:05+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/posts/</loc>
-    <lastmod>2020-10-23T10:56:19+09:00</lastmod>
+    <lastmod>2020-11-13T14:16:05+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/</loc>
-    <lastmod>2020-10-23T10:56:19+09:00</lastmod>
+    <lastmod>2020-11-13T14:16:05+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/tags/</loc>
+    <lastmod>2020-11-13T14:16:05+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/2020/10/20201023_kubernetes_with_gpu/</loc>
     <lastmod>2020-10-23T10:56:19+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

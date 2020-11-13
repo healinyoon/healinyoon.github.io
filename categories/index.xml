@@ -5,10 +5,19 @@
     <link>https://healinyoon.github.io/categories/</link>
     <description>Recent content in Categories on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 23 Oct 2020 10:56:19 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2020 14:16:05 +0900</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernetest 신규 node join 하기</title>
+      <link>https://healinyoon.github.io/2020/11/20201113_kubernetes_node_join/</link>
+      <pubDate>Fri, 13 Nov 2020 14:16:05 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/11/20201113_kubernetes_node_join/</guid>
+      <description>환경 설정 hostname 설정 설정 $ hostnamectl set-hostname {hostname} hostname 적용 확인을 위해 터미널 종료 후 재접속 $ exit 기본 apt 패키지 설치 apt-get update # sudo apt-get update -y apt-get upgrade # sudo apt-get upgrade -y wget curl vim git</description>
+    </item>
     
     <item>
       <title>Kubernets(쿠버네티스) with GPU 구축하기</title>
