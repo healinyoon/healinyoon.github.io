@@ -39,7 +39,7 @@
 <meta itemprop="description" content="The Docker platform Docker는 어플리케이션을 패키징하고 실행할 수 있는 Container라는 격리된 환경을 제공한다. Container는 hypervisor">
 <meta itemprop="datePublished" content="2020-11-25T13:06:23+09:00" />
 <meta itemprop="dateModified" content="2020-11-25T13:06:23+09:00" />
-<meta itemprop="wordCount" content="1441">
+<meta itemprop="wordCount" content="1903">
 
 
 
@@ -317,8 +317,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/11/20201125_docker_overview/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1441words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 3minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1903words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -363,10 +363,24 @@
 <li><code>exit</code> 명령을 사용하여 container를 빠져나오면 container가 중지되지만 제거되지는 않는다. 다시 시작하거나 제거할 수 있다.</li>
 </ol>
 <h1 id="container-technology">Container technology</h1>
+<p>Docker는 Go 프로그래밍 언어로 작성되었으며, Linux 커널의 여러 기능을 활용하도록 제공한다.</p>
+<h3 id="namespace">Namespace</h3>
+<p>Linux는 격리된 작업 공간을 제공하기 위해 <code>namespace</code> 라는 기능을 커널에 내장하고 있다. 현재 Docker Engine은 Linux에서 다음과 같은 namespace를 사용한다.</p>
+<ol>
+<li>mnt(MNT; 파일 시스템 마운트): host 파일 시스템에 구애받지 않고 독립적으로 파일 시스템을 mount or unmount 가능하다.</li>
+<li>pid(PID; 프로세스 ID): 독립적인 프로세스 공간 할당</li>
+<li>net(NET; 네트워킹): namespace간의 네트워크 충돌 방지(중복 port 바인딩 등)</li>
+<li>ipc(IPC; 프로세스간 통신): 프로세스간의 독립적인 통신 통로 할당</li>
+<li>uts(UTS; Unix Timesharing System): 독립적인 hostname 할당</li>
+</ol>
+<h4 id="pid-namespace-밖의-공간regular-namespace에서도-독립적인-프로세스-확인-가능">PID namespace 밖의 공간(regular namespace)에서도 독립적인 프로세스 확인 가능</h4>
+<p>즉 namespace 기능은 같은 공간을 공유하되, <strong>좀 더 제한된 공간</strong>을 할당하는 원리이다. namespace를 통해 독립적인 공간을 할당한 후에는 <code>nsenter</code>(namespace enter)라는 명령어를 통해 이미 실행 중인 프로세스의 namespace 공간에 접근할 수 있다.</p>
+<p><code>nsenter</code>는 docker의 <code>exec</code>와 비슷한 역할을 한다. 다만 <code>nsenter</code>는 <code>exce</code>와 다르게 cgroups에 들어가지 않기 때문에 리소스 제한의 영향을 받지 않는다.</p>
 <h1 id="참고">참고</h1>
 <ul>
 <li><a href="https://docs.docker.com/get-started/overview/">https://docs.docker.com/get-started/overview/</a></li>
 <li><a href="https://velog.io/@labyu/docker-3">https://velog.io/@labyu/docker-3</a></li>
+<li><a href="https://tech.ssut.me/what-even-is-a-container/">https://tech.ssut.me/what-even-is-a-container/</a></li>
 </ul>
 
     </div>
