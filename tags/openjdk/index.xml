@@ -16,7 +16,7 @@
       <pubDate>Wed, 25 Nov 2020 15:12:04 +0900</pubDate>
       
       <guid>https://healinyoon.github.io/2020/11/20201125_docker_image_layer/</guid>
-      <description>Docker Image의 핵심 기술: Layer Docker container를 만들기 위한 템플릿이다. registry에 존재하는 image를 가져와 사용할 수도 있고, image</description>
+      <description>Docker image는 container를 만들기 위한 템플릿이다. registry에 존재하는 image를 가져와 사용할 수도 있고, image를 만들고 실행하</description>
     </item>
     
     <item>
