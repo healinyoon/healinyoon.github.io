@@ -398,9 +398,9 @@ Status: Downloaded newer image for nginx:latest
 docker.io/library/nginx:latest
 </code></pre>
 <ul>
-<li>Image 정보 확인
-Image의 정보는 <code>docker inspect {image}</code> 명령어로 확인할 수 있다.</li>
+<li>Image 정보 확인</li>
 </ul>
+<p>Image의 정보는 <code>docker inspect {image}</code> 명령어로 확인할 수 있다.</p>
 <pre><code># docker inspect nginx
 [
     {
@@ -466,9 +466,9 @@ WARNING: No swap limit support
 </code></pre>
 <h3 id="layer-디렉토리">Layer 디렉토리</h3>
 <ul>
-<li>디렉토리 구조
-Image layer 정보를 확인하기 위한 디렉토리만 살펴보면 다음과 같다.</li>
+<li>디렉토리 구조</li>
 </ul>
+<p>Image layer 정보를 확인하기 위한 디렉토리만 살펴보면 다음과 같다.</p>
 <pre><code>/var/lib/docker# tree docker
 .
 docker
@@ -482,9 +482,9 @@ docker
 │   ├── 014997dffd51a7e9a1418e7f888097c360c592ddb791c0973b35b9935a1eea9d
 </code></pre>
 <ul>
-<li>각 디렉토리별 용량
-위의 각 경로의 데이터 용량을 조회해보면 다음과 같다. 실제로 docker 데이터가 저장되는 root 경로인 <code>/var/lib/docker</code> 디렉토리 데이터 용량과 <code>/var/lib/docker/overlay2</code> 디렉토리 데이터 용량이 가장 근접한 것을 볼 수 있다(즉 실질적인 image layer 데이터가 여기에 저장된다는 것).</li>
+<li>각 디렉토리별 용량</li>
 </ul>
+<p>위의 각 경로의 데이터 용량을 조회해보면 다음과 같다. 실제로 docker 데이터가 저장되는 root 경로인 <code>/var/lib/docker</code> 디렉토리 데이터 용량과 <code>/var/lib/docker/overlay2</code> 디렉토리 데이터 용량이 가장 근접한 것을 볼 수 있다(즉 실질적인 image layer 데이터가 여기에 저장된다는 것).</p>
 <pre><code># du -sh /var/lib/docker
 9.1G    /var/lib/docker
 
