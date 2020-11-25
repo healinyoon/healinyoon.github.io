@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-        Kubernetes Cluster 설치하기(ubuntu18.04) - ringu blog
+        Docker Image의 핵심 기술: Layer - ringu blog
       </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,33 +20,33 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="Kubernetes Cluster 설치하기 이 페이지에서는 ubuntu18.04에 kubeadm tool을 설치하고 이를 사용하여 kubernetes cluster를 구축하는 방법을 정리했습니다. 구성 H/W 구성하" />
+    <meta name="description" content="Docker Image의 핵심 기술: Layer Docker container를 만들기 위한 템플릿이다. registry에 존재하는 image를 가져와 사용할 수도 있고, image" />
     <meta name="generator" content="Hugo 0.74.3 with theme pure" />
-    <title>Kubernetes Cluster 설치하기(ubuntu18.04) - ringu blog</title>
+    <title>Docker Image의 핵심 기술: Layer - ringu blog</title>
     
     
     <link rel="stylesheet" href="https://healinyoon.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="Kubernetes Cluster 설치하기(ubuntu18.04)" />
-<meta property="og:description" content="Kubernetes Cluster 설치하기 이 페이지에서는 ubuntu18.04에 kubeadm tool을 설치하고 이를 사용하여 kubernetes cluster를 구축하는 방법을 정리했습니다. 구성 H/W 구성하" />
+    <meta property="og:title" content="Docker Image의 핵심 기술: Layer" />
+<meta property="og:description" content="Docker Image의 핵심 기술: Layer Docker container를 만들기 위한 템플릿이다. registry에 존재하는 image를 가져와 사용할 수도 있고, image" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/" />
-<meta property="article:published_time" content="2020-09-02T17:11:38+09:00" />
-<meta property="article:modified_time" content="2020-09-02T17:11:38+09:00" />
-<meta itemprop="name" content="Kubernetes Cluster 설치하기(ubuntu18.04)">
-<meta itemprop="description" content="Kubernetes Cluster 설치하기 이 페이지에서는 ubuntu18.04에 kubeadm tool을 설치하고 이를 사용하여 kubernetes cluster를 구축하는 방법을 정리했습니다. 구성 H/W 구성하">
-<meta itemprop="datePublished" content="2020-09-02T17:11:38+09:00" />
-<meta itemprop="dateModified" content="2020-09-02T17:11:38+09:00" />
-<meta itemprop="wordCount" content="1234">
+<meta property="og:url" content="https://healinyoon.github.io/2020/11/20201125_docker_image_layer/" />
+<meta property="article:published_time" content="2020-11-25T15:12:04+09:00" />
+<meta property="article:modified_time" content="2020-11-25T15:12:04+09:00" />
+<meta itemprop="name" content="Docker Image의 핵심 기술: Layer">
+<meta itemprop="description" content="Docker Image의 핵심 기술: Layer Docker container를 만들기 위한 템플릿이다. registry에 존재하는 image를 가져와 사용할 수도 있고, image">
+<meta itemprop="datePublished" content="2020-11-25T15:12:04+09:00" />
+<meta itemprop="dateModified" content="2020-11-25T15:12:04+09:00" />
+<meta itemprop="wordCount" content="928">
 
 
 
-<meta itemprop="keywords" content="docker,kubernetes," />
+<meta itemprop="keywords" content="docker," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Kubernetes Cluster 설치하기(ubuntu18.04)"/>
-<meta name="twitter:description" content="Kubernetes Cluster 설치하기 이 페이지에서는 ubuntu18.04에 kubeadm tool을 설치하고 이를 사용하여 kubernetes cluster를 구축하는 방법을 정리했습니다. 구성 H/W 구성하"/>
+<meta name="twitter:title" content="Docker Image의 핵심 기술: Layer"/>
+<meta name="twitter:description" content="Docker Image의 핵심 기술: Layer Docker container를 만들기 위한 템플릿이다. registry에 존재하는 image를 가져와 사용할 수도 있고, image"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -293,8 +293,8 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2020/09/20200828_install_kubernetes_cluster_ubuntu/"
-    >Kubernetes Cluster 설치하기(ubuntu18.04)</a
+    href="/2020/11/20201125_docker_image_layer/"
+    >Docker Image의 핵심 기술: Layer</a
   >
 </h1>
 
@@ -302,8 +302,8 @@
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/" class="article-date">
-  <time datetime="2020-09-02 17:11:38 &#43;0900 KST" itemprop="datePublished">2020-09-02</time>
+<a href="https://healinyoon.github.io/2020/11/20201125_docker_image_layer/" class="article-date">
+  <time datetime="2020-11-25 15:12:04 &#43;0900 KST" itemprop="datePublished">2020-11-25</time>
 </a>
 </span>
 <span class="article-category">
@@ -313,183 +313,79 @@
   <span class="article-tag">
     <i class="icon icon-tags"></i>&nbsp;
     <a class="article-tag-link" href="/tags/docker/"> docker </a>
-    <a class="article-tag-link" href="/tags/kubernetes/"> kubernetes </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/09/20200828_install_kubernetes_cluster_ubuntu/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/11/20201125_docker_image_layer/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1234words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 3minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 928words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <h1 id="kubernetes-cluster-설치하기">Kubernetes Cluster 설치하기</h1>
-<p>이 페이지에서는 ubuntu18.04에 <code>kubeadm</code> tool을 설치하고 이를 사용하여 kubernetes cluster를 구축하는 방법을 정리했습니다.</p>
-<h1 id="구성">구성</h1>
-<h3 id="hw">H/W</h3>
-<p>구성하려는 kubernetes cluster는 다음과 같습니다.</p>
-<table>
-<thead>
-<tr>
-<th>노드</th>
-<th>vCPU</th>
-<th>RAM</th>
-<th>Disk</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>master01</td>
-<td>2</td>
-<td>8GiB</td>
-<td></td>
-</tr>
-<tr>
-<td>worker01</td>
-<td>2</td>
-<td>8GiB</td>
-<td></td>
-</tr>
-<tr>
-<td>worker02</td>
-<td>2</td>
-<td>8GiB</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="required-ports">Required ports</h3>
-<p><strong>1) Control-plane node(s)</strong></p>
-<p><img src="/images/20200828_install_kubernetes_cluster/1.png" alt=""></p>
-<p><strong>2) Worker node(s)</strong></p>
-<p><img src="/images/20200828_install_kubernetes_cluster/2.png" alt=""></p>
-<h1 id="docker-설치모든-node">Docker 설치(모든 node)</h1>
-<pre><code># curl -fsSL https://get.docker.com/ | sudo sh
-# systemctl start docker
-# systemctl enable docker
+      <h1 id="docker-image의-핵심-기술-layer">Docker Image의 핵심 기술: Layer</h1>
+<p>Docker container를 만들기 위한 템플릿이다. registry에 존재하는 image를 가져와 사용할 수도 있고, image를 만들고 실행하는데 필요한 단계를 정의하는 <code>Dockerfile</code>를 작성하여 고유한 image를 빌드할 수도 있다. Dockerfile의 각 단계에 정의된 명령어는 image에 layer를 만든다.</p>
+<h3 id="image-layer">Image Layer</h3>
+<p>앞서 설명한 바와 같이 image는 Dockerfile로 빌드된다. Dockerfile은 다음과 같이 단계별로 구성된다.</p>
+<pre><code>// step1
+FROM alpine:3.10
+
+// step2
+ENTRYPOINT [&quot;echo&quot;, &quot;hello&quot;]
 </code></pre>
-<h1 id="kubernetes--클러스터-구성">Kubernetes  클러스터 구성</h1>
-<p><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/">쿠버네티스 공식 사이트 kubeam 설치</a></p>
-<p>모든 노드에 아래의 패키지를 설치한다.</p>
+<p>Dockerfile을 빌드하면 각 단계별로 image가 생성되는 것을 확인할 수 있다. 즉 Dockerfile을 빌드하면 Dockerfile의 단계별로 image layer가 생성되며, 이들이 계층적으로 하나씩 쌓이며 image를 이루게 된다.</p>
+<pre><code>$ sudo docker build --tag echo:1.0 .
+Sending build context to Docker daemon  7.168kB
+FROM alpine:3.10
+Step 1/2 : FROM alpine:3.10
+3.10: Pulling from library/alpine
+21c83c524219: Already exists
+Digest: sha256:f0e9534a598e501320957059cb2a23774b4d4072e37c7b2cf7e95b241f019e35
+Status: Downloaded newer image for alpine:3.10
+ ---&gt; be4e4bea2c2e
+Step 2/2 : ENTRYPOINT [&quot;echo&quot;, &quot;hello&quot;]`
+ ---&gt; Running in 2dbb42b167e8
+FROM ubuntu:18:04
+Removing intermediate container 2dbb42b167e8
+ ---&gt; 75b05f96c44d
+Successfully built 75b05f96c44d
+Successfully tagged echo:1.0
+</code></pre>
+<p><img src="/images/20201125_docker_image_layer/img-layer.png" alt=""></p>
+<h3 id="container-layer">Container Layer</h3>
+<p>Image를 빌드한 후 <code>docker container run</code> 명령을 수행하면 아래와 같이 가장 마지막에 <strong>container layer</strong>를 생성한다(이 container layer는 container를 삭제하면 같이 삭제 된다).</p>
+<p><img src="/images/20201125_docker_image_layer/container-layer.png" alt=""></p>
+<p>그런데 실제로 container를 사용할 때는 하나의 파일 시스템으로 보이는데, 이렇게 계층적으로 나눠진 image들이 어떻게 하나의 파일 시스템으로 보이는 것일까? 바로 Union FS 덕분이다.</p>
+<h3 id="union-fs">Union FS</h3>
+<h3 id="union-mount">Union Mount</h3>
+<p>Union Mount는 복수의 파일 시스템을 하나의 파일 시스템으로 마운트하는 기능으로 두 파일 시스템에서 동일한 파일이 있다면 나중에 마운트 된 파일 시스템의 파일을 Overlay한다. 하위 파일에 대한 쓰기 작업은 CoW(Copy on Write) 전략에  따라 복사본을 생성하여 수행하므로 원본 파일 시스템은 변하지 않는 것이 특징이다.</p>
+<p><img src="/images/20201125_docker_image_layer/unionfs.png" alt=""></p>
+<h3 id="docker-image-union-file-system">Docker Image: Union File System</h3>
+<p>Docker image는 Union File System 기반으로 동작한다. Union File Systme의 특성에 따라 하위 layer는 읽기 전용이며, CoW 전략에 의해 쓰기 작업은 상위 레이어로 복사해서 이루어지기 때문에 하나의 image로 부터 복수의 container가 실행 가능한 것이다.</p>
 <ul>
-<li>kubeadm: 클러스터를 부트스트랩하는 명령(쿠버네티스 관리)</li>
-<li>kubelet: 클러스터의 모든 시스템에서 실행되는 구성 요소로, 포트 및 컨테이너 시작과 같은 작업을 수행(쿠버네티스 서비스)</li>
-<li>kubectl: 클러스터와 통신하기 위한 command line util(쿠버네티스 클라이언트 프로그램, 클러스터 구성과는 전혀 상관 없음)</li>
+<li>
+<p>Container Layer</p>
+<ul>
+<li>Write layer</li>
+<li>각 container마다 최 상단 layer에 생성되어, container마다 자신만의 상태를 가질 수 있게 해준다.</li>
+<li>container가 생성된 후 모든 변경 작업은 여기서 이루어진다.</li>
+<li>R/W 속도가 느리다.</li>
 </ul>
-<h3 id="1-kubernetes-리포지토리-구성모든-node">1) Kubernetes 리포지토리 구성(모든 node)</h3>
-<pre><code># sudo apt-get update &amp;&amp; sudo apt-get install -y apt-transport-https curl
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-</code></pre>
-<h3 id="2-kubeadm-kubelet-kubectl-설치모든-node">2) Kubeadm, Kubelet, Kubectl 설치(모든 node)</h3>
-<pre><code># cat &lt;&lt;EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
-deb https://apt.kubernetes.io/ kubernetes-xenial main
-EOF
-
-sudo apt-get update
-sudo apt-get install -y kubelet kubeadm kubectl
-
-// 패키지가 자동으로 업그레이드 되지 않도록 설정
-sudo apt-mark hold kubelet kubeadm kubectl
-
-// 데몬 재시작
-systemctl daemon-reload
-systemctl restart kubelet
-</code></pre>
-<h3 id="3-hostname-등록모든-node">3) hostname 등록(모든 node)</h3>
-<p>이때 주의할 점은 hostname에 알파벳 소문자와 숫자, &lsquo;-&rsquo; 기호만 가능하다.</p>
-<pre><code># sudo hostnamectl set-hostname master01
-
-또는
-
-# sudo hostnamectl set-hostname worker01
-</code></pre>
-<h3 id="4-etchosts-파일-수정모든-node">4) /etc/hosts 파일 수정(모든 node)</h3>
-<pre><code># vi /etc/hosts
-
-아래에 추가
-{IP} master01
-{IP} worker01
-{IP} worker02
-</code></pre>
-<h3 id="5-iptables-설정모든-node">5) Iptables 설정(모든 node)</h3>
-<p>브릿지 되어있는 IPv4 트래픽을 iptables 체인으로 전달될 수 있도록 한다.</p>
-<pre><code># cat &lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf
-net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
-EOF
-# sudo sysctl --system
-</code></pre>
-<h3 id="6-스왑-기능-비활성화모든-node">6) 스왑 기능 비활성화(모든 node)</h3>
-<pre><code>swap 끄기
-# sudo swapoff -a
-
-재부팅 후에도 swap 설정 유지 
-# sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
-</code></pre>
-<h3 id="7-마스터-노드-초기화">7) 마스터 노드 초기화</h3>
-<pre><code># kubeadm init
-</code></pre>
-<p><code>kubeadm init</code> 명령어 실행시 아래와 같이 출력된다.</p>
-<pre><code>To start using your cluster, you need to run the following as a regular user:
-
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
-You should now deploy a pod network to the cluster.
-Run &quot;kubectl apply -f [podnetwork].yaml&quot; with one of the options listed at:
-  https://kubernetes.io/docs/concepts/cluster-administration/addons/
-
-Then you can join any number of worker nodes by running the following on each as root:
-
-kubeadm join 10.1.11.4:6443 --token xxxxxxxxxxxxxxxxxxxxxxx \
-    --discovery-token-ca-cert-hash sha256:e184c470296359bc4a35bc57624b03d8c4b3eb2bd46f413f3a68a86f182c9844
-</code></pre>
-<p>master node에서 아래 명령어를 수행하고</p>
-<pre><code>$ mkdir -p $HOME/.kube
-$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
-</code></pre>
-<p>worker node에서 아래의 명령어를 수행하여 master node와 join한다.</p>
-<pre><code>kubeadm join 10.1.11.4:6443 --token xxxxxxxxxxxxxxxxxxxxxxx \
-    --discovery-token-ca-cert-hash sha256:e184c470296359bc4a35bc57624b03d8c4b3eb2bd46f413f3a68a86f182c9844
-</code></pre>
-<p>master node에서 <code>kubectl get nodes</code> 명령어를 입력하면 다음과 같이 출력된다.</p>
-<pre><code># kubectl get nodes
-NAME                  STATUS     ROLES    AGE   VERSION
-healin-k8s-master01   NotReady   master   10m   v1.19.0
-healin-k8s-worker01   NotReady   &lt;none&gt;   30s   v1.19.0
-healin-k8s-worker02   NotReady   &lt;none&gt;   29s   v1.19.0
-</code></pre>
-<h3 id="8-네트워크-애플리케이션-설치">8) 네트워크 애플리케이션 설치</h3>
-<p>pod 네트워크 애플리케이션을 설치해야 클러스터 내의 node간 통신이 가능하다.<br>
-사용 가능한 네트워크 옵션은 <a href="https://kubernetes.io/docs/concepts/cluster-administration/networking/#how-to-implement-the-kubernetes-networking-model">여기</a>에서 확인할 수 있다.<br>
-다음 명령을 master node에서 수행하여 weave pod 네트워크 애플리케이션을 설치한다.</p>
-<pre><code>kubectl apply -f &quot;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')&quot;
-
-이런 오류 발생시
-The connection to the server localhost:8080 was refused - did you specify the right host or port?
-
-export KUBECONFIG=/etc/kubernetes/admin.conf
-을 적용해보자
-</code></pre>
-<p>master node에서 <code>kubectl get nodes</code> 명령어를 잠시 후 다시 입력하면 다음과 같이 <code>STATUS</code>가 <strong>NotReady</strong> =&gt; <strong>Ready</strong>로 변경된 것을 확인할 수 있다.</p>
-<pre><code># kubectl get nodes
-NAME                  STATUS   ROLES    AGE     VERSION
-healin-k8s-master01   Ready    master   17m     v1.19.0
-healin-k8s-worker01   Ready    &lt;none&gt;   7m42s   v1.19.0
-healin-k8s-worker02   Ready    &lt;none&gt;   7m41s   v1.19.0
-</code></pre>
-<h3 id="9-master-node를-worker-node로도-사용하고-싶다면">9) master node를 worker node로도 사용하고 싶다면,</h3>
-<p>쿠버네티스 클러스터의  control-plane 노드는 보안상의 이유로 격리되어 있다(기본값).</p>
-<p>master node에서는 pod 가 스케줄링 되지 않으므로, 1대의 머신으로만 쿠버네티스 클러스터를 구축할 경우 격리 해제해야 한다.</p>
-<pre><code>$ kubectl taint nodes –all node-role.kubernetes.io/master-
-</code></pre>
-<p>Control plane node isolation에 대한 자세한 내용은 아래 경로를 참고한다.</p>
-<p><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/">* 쿠버네티스 공식 문서 - Control plane node isolation</a></p>
-<p><a href="https://17billion.github.io/kubernetes/2019/04/24/kubernetes_control_plane_working.html">* Kubernetes Control-Plane Node에 Pod 띄울수 있는 방법 (Taints)</a></p>
+</li>
+<li>
+<p>Image Layer</p>
+<ul>
+<li>Read only layer</li>
+<li>다른 container와 공유 가능하다.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/20201125_docker_image_layer/layers.jpeg" alt=""></p>
 <h1 id="참고">참고</h1>
-<p><a href="https://medium.com/finda-tech/overview-8d169b2a54ff">쿠버네티스(kubernetes) 설치 및 환경 구성하기</a></p>
+<ul>
+<li><a href="https://docs.docker.com/get-started/overview/">https://docs.docker.com/get-started/overview/</a></li>
+<li><a href="https://nirsa.tistory.com/63">https://nirsa.tistory.com/63</a></li>
+<li><a href="https://devaom.tistory.com/5">https://devaom.tistory.com/5</a></li>
+</ul>
 
     </div>
     <div class="article-footer">
@@ -497,7 +393,7 @@ healin-k8s-worker02   Ready    &lt;none&gt;   7m41s   v1.19.0
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/" title="Kubernetes Cluster 설치하기(ubuntu18.04)" target="_blank" rel="external">https://healinyoon.github.io/2020/09/20200828_install_kubernetes_cluster_ubuntu/</a>
+      <a href="https://healinyoon.github.io/2020/11/20201125_docker_image_layer/" title="Docker Image의 핵심 기술: Layer" target="_blank" rel="external">https://healinyoon.github.io/2020/11/20201125_docker_image_layer/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -529,14 +425,9 @@ healin-k8s-worker02   Ready    &lt;none&gt;   7m41s   v1.19.0
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://healinyoon.github.io/2020/09/%EB%AF%B8%EC%99%8420200901_k8s_pod_network/" title="쿠버네티스 POD Network"><i
+                <a href="https://healinyoon.github.io/2020/11/20201125_docker_overview/" title="Docker 개요"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
-            </li>
-            <li class="next">
-                <a href="https://healinyoon.github.io/2020/09/20201023_azure_cli_with_virtualenv/"
-                    title="Azure CLI 설치하기 with virtualenv"><span>Newer&nbsp;&nbsp;</span><i
-                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">

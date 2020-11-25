@@ -5,10 +5,28 @@
     <link>https://healinyoon.github.io/categories/msa/</link>
     <description>Recent content in msa on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 23 Oct 2020 10:56:19 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2020 15:12:04 +0900</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/categories/msa/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker Image의 핵심 기술: Layer</title>
+      <link>https://healinyoon.github.io/2020/11/20201125_docker_image_layer/</link>
+      <pubDate>Wed, 25 Nov 2020 15:12:04 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/11/20201125_docker_image_layer/</guid>
+      <description>Docker Image의 핵심 기술: Layer Docker container를 만들기 위한 템플릿이다. registry에 존재하는 image를 가져와 사용할 수도 있고, image</description>
+    </item>
+    
+    <item>
+      <title>Docker 개요</title>
+      <link>https://healinyoon.github.io/2020/11/20201125_docker_overview/</link>
+      <pubDate>Wed, 25 Nov 2020 13:06:23 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/11/20201125_docker_overview/</guid>
+      <description>The Docker platform Docker는 어플리케이션을 패키징하고 실행할 수 있는 Container라는 격리된 환경을 제공한다. Container는 hypervisor</description>
+    </item>
     
     <item>
       <title>java(openjdk) 설치 및 환경 변수 설정</title>
