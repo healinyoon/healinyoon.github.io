@@ -39,7 +39,7 @@
 <meta itemprop="description" content="Docker Image의 핵심 기술: Layer Docker container를 만들기 위한 템플릿이다. registry에 존재하는 image를 가져와 사용할 수도 있고, image">
 <meta itemprop="datePublished" content="2020-11-25T15:12:04+09:00" />
 <meta itemprop="dateModified" content="2020-11-25T15:12:04+09:00" />
-<meta itemprop="wordCount" content="930">
+<meta itemprop="wordCount" content="928">
 
 
 
@@ -317,15 +317,14 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/11/20201125_docker_image_layer/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 930words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 928words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       <h1 id="docker-image의-핵심-기술-layer">Docker Image의 핵심 기술: Layer</h1>
 <p>Docker container를 만들기 위한 템플릿이다. registry에 존재하는 image를 가져와 사용할 수도 있고, image를 만들고 실행하는데 필요한 단계를 정의하는 <code>Dockerfile</code>를 작성하여 고유한 image를 빌드할 수도 있다. Dockerfile의 각 단계에 정의된 명령어는 image에 layer를 만든다.</p>
-<h2 id="image-layer">Image Layer</h2>
-<h3 id="image-layer-1">Image Layer</h3>
+<h3 id="image-layer">Image Layer</h3>
 <p>앞서 설명한 바와 같이 image는 Dockerfile로 빌드된다. Dockerfile은 다음과 같이 단계별로 구성된다.</p>
 <pre><code>// step1
 FROM alpine:3.10
