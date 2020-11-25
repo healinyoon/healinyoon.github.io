@@ -39,7 +39,7 @@
 <meta itemprop="description" content="Docker image는 container를 만들기 위한 템플릿이다. registry에 존재하는 image를 가져와 사용할 수도 있고, image를 만들고 실행하">
 <meta itemprop="datePublished" content="2020-11-25T15:12:04+09:00" />
 <meta itemprop="dateModified" content="2020-11-25T15:12:04+09:00" />
-<meta itemprop="wordCount" content="997">
+<meta itemprop="wordCount" content="1586">
 
 
 
@@ -317,8 +317,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/11/20201125_docker_image_layer/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 997words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1586words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -379,6 +379,124 @@ Successfully tagged echo:1.0
 </li>
 </ul>
 <p><img src="/images/20201125_docker_image_layer/layers.jpeg" alt=""></p>
+<h1 id="image-layer-디렉토리-파악하기">Image Layer 디렉토리 파악하기</h1>
+<h3 id="image-정보-확인">Image 정보 확인</h3>
+<p>nginx image를 다운받아보자.</p>
+<ul>
+<li>Image pull</li>
+</ul>
+<pre><code># sudo docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+852e50cd189d: Already exists
+571d7e852307: Pull complete
+addb10abd9cb: Pull complete
+d20aa7ccdb77: Pull complete
+8b03f1e11359: Pull complete
+Digest: sha256:6b1daa9462046581ac15be20277a7c75476283f969cb3a61c8725ec38d3b01c3
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+</code></pre>
+<ul>
+<li>Image 정보 확인
+Image의 정보는 <code>docker inspect {image}</code> 명령어로 확인할 수 있다.</li>
+</ul>
+<pre><code># docker inspect nginx
+[
+    {
+        &quot;Id&quot;: &quot;sha256:bc9a0695f5712dcaaa09a5adc415a3936ccba13fc2587dfd76b1b8aeea3f221c&quot;,
+        &quot;RepoTags&quot;: [
+            &quot;nginx:latest&quot;
+        ],
+
+(중략)
+</code></pre>
+<h3 id="image-저장소-위치-확인">Image 저장소 위치 확인</h3>
+<p>docker image 저장소 위치는 <code>docker info</code> 명령어로 확인할 수 있다.</p>
+<pre><code># docker info
+Client:
+ Debug Mode: false
+
+Server:
+ Containers: 57
+  Running: 16
+  Paused: 0
+  Stopped: 41
+ Images: 149
+ Server Version: 19.03.13
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Native Overlay Diff: false
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+ Swarm: inactive
+ Runtimes: runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 8fba4e9a7d01810a393d5d25a3621dc101981175
+ runc version: dc9208a3303feef5b3839f4323d9beb36df0a9dd
+ init version: fec3683
+ Security Options:
+  apparmor
+  seccomp
+   Profile: default
+ Kernel Version: 5.4.0-1031-azure
+ Operating System: Ubuntu 18.04.5 LTS
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 2
+ Total Memory: 7.749GiB
+ Name: master
+ ID: 5HUW:6SVP:6Q4Q:LDGN:YMF2:RBDM:VEXF:3UKJ:XVTV:5SRK:SS7R:TPJ2
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Registry: https://index.docker.io/v1/
+ Labels:
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+
+WARNING: No swap limit support
+</code></pre>
+<h3 id="layer-디렉토리">Layer 디렉토리</h3>
+<ul>
+<li>디렉토리 구조
+Image layer 정보를 확인하기 위한 디렉토리만 살펴보면 다음과 같다.</li>
+</ul>
+<pre><code>/var/lib/docker# tree docker
+.
+docker
+├── containers: docker container 정보를 저장한다.
+├── image: docker image 정보를 저장한다.
+│   └── overlay2
+│       ├── imagedb: imagedb에 대한 정보는 layerdb에 저장된다.
+│       └── layerdb: layerdb에 대한 정보는 overlay2에 저장된다.
+├── overlay2: docker image의 파일 시스템이 저장된다. 실질적으로 image layer 데이터가 저장되는 경로이다.
+│   ├── 0090fbeed32cba3aed09c2459d4a5f59144be127dfed23cbe8c7f47982dd3c12
+│   ├── 014997dffd51a7e9a1418e7f888097c360c592ddb791c0973b35b9935a1eea9d
+</code></pre>
+<ul>
+<li>각 디렉토리별 용량
+위의 각 경로의 데이터 용량을 조회해보면 다음과 같다. 실제로 docker 데이터가 저장되는 root 경로인 <code>/var/lib/docker</code> 디렉토리 데이터 용량과 <code>/var/lib/docker/overlay2</code> 디렉토리 데이터 용량이 가장 근접한 것을 볼 수 있다(즉 실질적인 image layer 데이터가 여기에 저장된다는 것).</li>
+</ul>
+<pre><code># du -sh /var/lib/docker
+9.1G    /var/lib/docker
+
+# du -sh /var/lib/docker/containers/
+39M     /var/lib/docker/containers/
+
+# du -sh /var/lib/docker/image/
+11M     /var/lib/docker/image/
+
+# du -sh /var/lib/docker/overlay2/
+6.0G    /var/lib/docker/overlay2/
+</code></pre>
 <h1 id="참고">참고</h1>
 <ul>
 <li><a href="https://docs.docker.com/get-started/overview/">https://docs.docker.com/get-started/overview/</a></li>
