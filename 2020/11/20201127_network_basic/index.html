@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <title>
-        ringu blog</title>
+        네트워크 용어, 인터페이스 및 프로토콜 기초 이해하기 - ringu blog
+      </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
@@ -19,26 +20,33 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    
+    <meta name="description" content="소개 서버를 관리하다보면 네트워크에 대한 지식에 아쉬움을 느낄 때가 종종 있다. An Introduction to Networking Terminology, Interfaces, and Protocols의 내용을 정리하면서 네트워크의 기본 개념을 살" />
     <meta name="generator" content="Hugo 0.74.3 with theme pure" />
-    <title>ringu blog</title>
+    <title>네트워크 용어, 인터페이스 및 프로토콜 기초 이해하기 - ringu blog</title>
     
-    <link rel="alternate" type="application/rss+xml" href="https://healinyoon.github.io/categories/programming/index.xml" title="ringu blog" />
     
     <link rel="stylesheet" href="https://healinyoon.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="programming" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://healinyoon.github.io/categories/programming/" />
-<meta property="og:updated_time" content="2019-06-02T18:35:16+09:00" />
-<meta itemprop="name" content="programming">
-<meta itemprop="description" content="">
+    <meta property="og:title" content="네트워크 용어, 인터페이스 및 프로토콜 기초 이해하기" />
+<meta property="og:description" content="소개 서버를 관리하다보면 네트워크에 대한 지식에 아쉬움을 느낄 때가 종종 있다. An Introduction to Networking Terminology, Interfaces, and Protocols의 내용을 정리하면서 네트워크의 기본 개념을 살" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://healinyoon.github.io/2020/11/20201127_network_basic/" />
+<meta property="article:published_time" content="2020-11-27T11:22:24+09:00" />
+<meta property="article:modified_time" content="2020-11-27T11:22:24+09:00" />
+<meta itemprop="name" content="네트워크 용어, 인터페이스 및 프로토콜 기초 이해하기">
+<meta itemprop="description" content="소개 서버를 관리하다보면 네트워크에 대한 지식에 아쉬움을 느낄 때가 종종 있다. An Introduction to Networking Terminology, Interfaces, and Protocols의 내용을 정리하면서 네트워크의 기본 개념을 살">
+<meta itemprop="datePublished" content="2020-11-27T11:22:24+09:00" />
+<meta itemprop="dateModified" content="2020-11-27T11:22:24+09:00" />
+<meta itemprop="wordCount" content="393">
+
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="programming"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="네트워크 용어, 인터페이스 및 프로토콜 기초 이해하기"/>
+<meta name="twitter:description" content="소개 서버를 관리하다보면 네트워크에 대한 지식에 아쉬움을 느낄 때가 종종 있다. An Introduction to Networking Terminology, Interfaces, and Protocols의 내용을 정리하면서 네트워크의 기본 개념을 살"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -270,51 +278,180 @@
 
     
     
-<main class="main" role="main">
-    <article class="article article-categories article-type-list" itemscope="">
-        <header class="article-header">
-            <h1 itemprop="name" class="hidden-xs">programming</h1>
-            <p class="text-muted hidden-xs">Total 10 categories</p>
-            <nav role="navigation" id="nav-main" class="okayNav">
-                <ul>
-                    <li><a href="/categories/">All</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/blog/">blog</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/ci/cd/">ci/cd</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/cloud/">cloud</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/devops/">devops</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/gpu/">gpu</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/jvm/">jvm</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/linux/">linux</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/msa/">msa</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/networks/">networks</a></li>
-                    <li><a href="https://healinyoon.github.io/categories/programming/">programming</a></li>
-                </ul>
-            </nav>
-        </header>
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/11/20201127_network_basic/"
+    >네트워크 용어, 인터페이스 및 프로토콜 기초 이해하기</a
+  >
+</h1>
+
+      <div class="article-meta">
         
-        <div class="article-body">
-            <div class="panel panel-default b-no">
-                <div class="panel-heading" role="tab">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" href="#collapse7e73d06707f5fb75ec77cc5f2bd9bb92" aria-expanded="true">
-                            <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>programming
-                        </a>
-                        <small class="text-muted">(Total1 articles)</small>
-                    </h4>
-                </div>
-                <div id="collapse7e73d06707f5fb75ec77cc5f2bd9bb92" class="panel-collapse collapse in" role="tabpanel"
-                    aria-labelledby="heading7e73d06707f5fb75ec77cc5f2bd9bb92">
-                    <div class="panel-body">
-                        <div class="collection"><a href="https://healinyoon.github.io/2019/06/20190602_shell_script/" class="collection-item" itemprop="url" target="_blank">
-    <time datetime="2019-06-02 18:35:16 &#43;0900 KST" itemprop="datePublished" style="margin-right: 5px;">2019-06-02
-    </time>Shell Scripts 사용하기
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://healinyoon.github.io/2020/11/20201127_network_basic/" class="article-date">
+  <time datetime="2020-11-27 11:22:24 &#43;0900 KST" itemprop="datePublished">2020-11-27</time>
 </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/networks/"> networks </a>
+</span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/11/20201127_network_basic/#comments"
+            class="article-comment-link">Comments</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 393words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="소개">소개</h1>
+<p>서버를 관리하다보면 네트워크에 대한 지식에 아쉬움을 느낄 때가 종종 있다. <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-networking-terminology-interfaces-and-protocols">An Introduction to Networking Terminology, Interfaces, and Protocols</a>의 내용을 정리하면서 네트워크의 기본 개념을 살펴보고자 한다.</p>
+<h1 id="networking-glossary">Networking Glossary</h1>
+<p>네트워크 기본 지식을 살펴보기 앞서, 자주 사용되는 용어를 정의하면 다음과 같다.</p>
+<ul>
+<li>Connection: 데이터 블록을 전달하기 위한 통로
+<ul>
+<li>일반적으로 데이터 전송 전 &lsquo;connection&rsquo; 준비 / 데이터 전송 후 &lsquo;connection&rsquo; 해제</li>
+</ul>
+</li>
+<li>Packet: 네트워크를 통해 전송되는 데이터의 가장 기본적인 단위(블록)
+<ul>
+<li>Packet = Header + Data + Tail</li>
+<li>Header = packet의 송수신 주소, 타임 스탬프, network hop 등의 정보 포함</li>
+<li>Body(or Payload) = 전송되는 데이터를 포함</li>
+</ul>
+</li>
+<li>Network Interface: 네트워크 하드웨어와 통신하기 위한 네트워크 고유 소프트웨어</li>
+<li>WAN(Wide Area Network): 광역 통신망
+<ul>
+<li>일반적으로 인터넷 전체를 의미 =&gt; interface가 WAN에 연결 = 인터넷을 통해 연결 가능하다고 가정</li>
+<li>LAN과 LAN 사이를 연결
+<img src="/images/20201127_network_basic/WAN.png" alt="그림 출처: https://ledgku.tistory.com/17"></li>
+</ul>
+</li>
+<li>LAN(Local Area Network): 근거리 통신망
+<ul>
+<li>가정 또는 회사 네트워크</li>
+<li>주로 이더넷 프로토콜 사용</li>
+</ul>
+</li>
+<li>Protocol</li>
+<li>Port</li>
+<li>Firwall</li>
+<li>NAT</li>
+<li>VPN</li>
+</ul>
+<h1 id="network-layers">Network Layers</h1>
+<h3 id="osi-model">OSI Model</h3>
+<ul>
+<li>Application</li>
+<li>Presentation</li>
+<li>Session</li>
+<li>Transport</li>
+<li>Network</li>
+<li>Data Link</li>
+<li>Physical</li>
+</ul>
+<h3 id="tcpip-model">TCP/IP Model</h3>
+<ul>
+<li>Application</li>
+<li>Transport</li>
+<li>Internet</li>
+<li>Link</li>
+</ul>
+<h1 id="interfaces">Interfaces</h1>
+<h1 id="protocols">Protocols</h1>
+<h3 id="media-access-control">Media Access Control</h3>
+<h3 id="ip">IP</h3>
+<h3 id="icmp">ICMP</h3>
+<h3 id="tcp">TCP</h3>
+<h3 id="udp">UDP</h3>
+<h3 id="http">HTTP</h3>
+<h3 id="ftp">FTP</h3>
+<h3 id="dns">DNS</h3>
+<h3 id="ssh">SSH</h3>
+<h1 id="conclusion">Conclusion</h1>
+<h1 id="참고">참고</h1>
+<ul>
+<li><a href="https://www.ibm.com/support/knowledgecenter/ko/ssw_aix_71/network/tcpip_interfaces.html">https://www.ibm.com/support/knowledgecenter/ko/ssw_aix_71/network/tcpip_interfaces.html</a></li>
+<li><a href="https://ledgku.tistory.com/17">https://ledgku.tistory.com/17</a></li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://healinyoon.github.io/2020/11/20201127_network_basic/" title="네트워크 용어, 인터페이스 및 프로토콜 기초 이해하기" target="_blank" rel="external">https://healinyoon.github.io/2020/11/20201127_network_basic/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/healinyoon" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://healinyoon.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/healinyoon" target="_blank"><span class="text-dark">rin gu</span><small class="ml-1x">A Developer</small></a></h3>
+        <div>Linux, Infrastructure, DevOps</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://healinyoon.github.io/2020/11/20201125_docker_image_layer/" title="Docker Image의 핵심 기술: Layer"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
         </div>
-    </article>
+    </div>
+</nav>
+
 </main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
 <ul class="social-links">
     <li><a href="https://github.com/healinyoon" target="_blank" title="github" data-toggle=tooltip data-placement=top >
@@ -389,6 +526,7 @@
         hasInnerContainers: true,
     });
 </script>
+
 
   </body>
 </html>

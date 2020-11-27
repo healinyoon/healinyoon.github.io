@@ -4,7 +4,35 @@
   
   <url>
     <loc>https://healinyoon.github.io/categories/</loc>
-    <lastmod>2020-11-25T15:12:04+09:00</lastmod>
+    <lastmod>2020-11-27T11:22:24+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/categories/networks/</loc>
+    <lastmod>2020-11-27T11:22:24+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/posts/</loc>
+    <lastmod>2020-11-27T11:22:24+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/</loc>
+    <lastmod>2020-11-27T11:22:24+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/2020/11/20201127_network_basic/</loc>
+    <lastmod>2020-11-27T11:22:24+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -25,20 +53,6 @@
   
   <url>
     <loc>https://healinyoon.github.io/categories/msa/</loc>
-    <lastmod>2020-11-25T15:12:04+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/posts/</loc>
-    <lastmod>2020-11-25T15:12:04+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/</loc>
     <lastmod>2020-11-25T15:12:04+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

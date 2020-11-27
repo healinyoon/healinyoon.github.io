@@ -10,6 +10,15 @@
     
     
     <item>
+      <title>네트워크 용어, 인터페이스 및 프로토콜 기초 이해하기</title>
+      <link>https://healinyoon.github.io/2020/11/20201127_network_basic/</link>
+      <pubDate>Fri, 27 Nov 2020 11:22:24 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/11/20201127_network_basic/</guid>
+      <description>소개 서버를 관리하다보면 네트워크에 대한 지식에 아쉬움을 느낄 때가 종종 있다. An Introduction to Networking Terminology, Interfaces, and Protocols의 내용을 정리하면서 네트워크의 기본 개념을 살</description>
+    </item>
+    
+    <item>
       <title>Docker Image의 핵심 기술: Layer</title>
       <link>https://healinyoon.github.io/2020/11/20201125_docker_image_layer/</link>
       <pubDate>Wed, 25 Nov 2020 15:12:04 +0900</pubDate>
