@@ -5,10 +5,19 @@
     <link>https://healinyoon.github.io/</link>
     <description>Recent content on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 27 Nov 2020 11:22:24 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 01 Dec 2020 13:13:54 +0900</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>네트워킹을 위한 IP address, Subnet, CIDR 표기법 이해하기</title>
+      <link>https://healinyoon.github.io/2020/12/20201201_ip_address_subnets_cidr/</link>
+      <pubDate>Tue, 01 Dec 2020 13:13:54 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/12/20201201_ip_address_subnets_cidr/</guid>
+      <description>소개 서버를 관리하다보면 네트워크에 대한 지식에 아쉬움을 느낄 때가 종종 있다. Understanding IP Addresses, Subnets, and CIDR Notation for Networking의 내용을 정리하면서 네트워크의 기본 개념</description>
+    </item>
     
     <item>
       <title>네트워크 용어, 인터페이스 및 프로토콜 기초 이해하기</title>
