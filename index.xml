@@ -5,19 +5,10 @@
     <link>https://healinyoon.github.io/</link>
     <description>Recent content on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 03 Dec 2020 13:11:04 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 01 Dec 2020 13:13:54 +0900</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Gitlab Runner 사용해보기</title>
-      <link>https://healinyoon.github.io/2020/12/20201203_gitlab_runner/</link>
-      <pubDate>Thu, 03 Dec 2020 13:11:04 +0900</pubDate>
-      
-      <guid>https://healinyoon.github.io/2020/12/20201203_gitlab_runner/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>네트워킹을 위한 IP address, Subnet, CIDR 표기법 이해하기</title>
