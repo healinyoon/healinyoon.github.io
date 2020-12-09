@@ -5,10 +5,19 @@
     <link>https://healinyoon.github.io/categories/</link>
     <description>Recent content in Categories on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 09 Dec 2020 10:56:19 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 09 Dec 2020 16:11:19 +0900</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernets(쿠버네티스) Troubleshooting (2) - Node가 NotReady됐는데 docker가 죽어있을 때 </title>
+      <link>https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_2/</link>
+      <pubDate>Wed, 09 Dec 2020 16:11:19 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_2/</guid>
+      <description>요약 k8s cluster의 특정 Node가 NotReady됐는데 docker가 stop 상태였다. 2개의 원인이 만나서 발생: apt 자동 업데이트 + docker.io 패키지 버그 해결</description>
+    </item>
     
     <item>
       <title>Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때 </title>
