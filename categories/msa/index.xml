@@ -5,10 +5,19 @@
     <link>https://healinyoon.github.io/categories/msa/</link>
     <description>Recent content in msa on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 25 Nov 2020 15:12:04 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 09 Dec 2020 10:56:19 +0900</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/categories/msa/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때 </title>
+      <link>https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_1/</link>
+      <pubDate>Wed, 09 Dec 2020 10:56:19 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_1/</guid>
+      <description>에러 PV를 delete 하는 과정에서 계속 &amp;ldquo;Terminating&amp;rdquo; 상태에서 멈춰 있다. # kubectl delete pv jenkins2-pv persistentvolume &amp;quot;jenkins2-pv&amp;quot; deleted # kubectl describe pv jenkins2-pv Name: jenkins2-pv Labels: &amp;lt;none&amp;gt; Annotations: pv.kubernetes.io/bound-by-controller: yes Finalizers: [kubernetes.io/pv-protection] StorageClass: Status: Terminating (lasts 27m) Claim: jenkins/jenkins Reclaim Policy: Retain Access Modes: RWO VolumeMode: Filesystem Capacity: 10Gi Node Affinity: &amp;lt;none&amp;gt; Message: Source: Type: NFS</description>
+    </item>
     
     <item>
       <title>네트워킹을 위한 IP address, Subnet, CIDR 표기법 이해하기</title>
