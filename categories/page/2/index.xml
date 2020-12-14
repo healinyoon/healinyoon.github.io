@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Shell Scripts 사용하기</title>
+      <link>https://healinyoon.github.io/2019/06/20190602_shell_script/</link>
+      <pubDate>Sun, 02 Jun 2019 18:35:16 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2019/06/20190602_shell_script/</guid>
+      <description>Intro 이번 포스트에서는 쉘 스크립트에 대해 알아보고, 사용 방법을 다룬다. 전반적으로 &amp;ldquo;이것이 우분투 리눅스다&amp;rdquo; 책을 참고하였고, 공부</description>
+    </item>
+    
+    <item>
       <title>Docker 설치하기(CentOS)</title>
       <link>https://healinyoon.github.io/2019/06/20190611_docker_install/</link>
       <pubDate>Sat, 01 Jun 2019 23:52:44 +0900</pubDate>

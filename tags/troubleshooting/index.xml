@@ -5,7 +5,7 @@
     <link>https://healinyoon.github.io/tags/troubleshooting/</link>
     <description>Recent content in troubleshooting on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 09 Dec 2020 16:11:19 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 14 Dec 2020 11:50:39 +0900</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,6 +17,15 @@
       
       <guid>https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/</guid>
       <description>Intro Kubernetes CI/CD 구축기 Helm으로 Jenkins를 Kubernetes에 배포하기 Persistence Volume을 위한 NFS 서버 구성 참고: https://sarc.io/index.php/os/1780-ubuntu-nfs-configuration 이 포스트는 NFS을 {NFS server</description>
+    </item>
+    
+    <item>
+      <title>Kubernets(쿠버네티스) Troubleshooting (3) - Pod STATUS가 Running되지 않고 Error 또는 CrashLoopBackOff을 반복할 때</title>
+      <link>https://healinyoon.github.io/2020/12/20201214_k8s_troubleshooting_3/</link>
+      <pubDate>Mon, 14 Dec 2020 11:50:39 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/12/20201214_k8s_troubleshooting_3/</guid>
+      <description>이슈 Jenkins를 Helm으로 설치하는 과정에서 이슈가 하나 발생했다. 컨테이너 초기화가 계속 실패했는데, 아래와 같이 STATUS가 Running이</description>
     </item>
     
     <item>
@@ -179,15 +188,6 @@
       
       <guid>https://healinyoon.github.io/about/</guid>
       <description>배우는 것을 좋아하는 3년차 개발자 입니다. 주요 기술 Linux Infrastructure DevOps 프로젝트</description>
-    </item>
-    
-    <item>
-      <title>Shell Scripts 사용하기</title>
-      <link>https://healinyoon.github.io/2019/06/20190602_shell_script/</link>
-      <pubDate>Sun, 02 Jun 2019 18:35:16 +0900</pubDate>
-      
-      <guid>https://healinyoon.github.io/2019/06/20190602_shell_script/</guid>
-      <description>Intro 이번 포스트에서는 쉘 스크립트에 대해 알아보고, 사용 방법을 다룬다. 전반적으로 &amp;ldquo;이것이 우분투 리눅스다&amp;rdquo; 책을 참고하였고, 공부</description>
     </item>
     
   </channel>
