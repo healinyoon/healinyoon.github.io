@@ -10,7 +10,7 @@
     
     
     <item>
-      <title>Kubernets(쿠버네티스) Troubleshooting (2) - Node가 NotReady됐는데 docker가 죽어있을 때 </title>
+      <title>Kubernets(쿠버네티스) Troubleshooting (2) - Node가 NotReady됐는데 docker가 죽어있을 때</title>
       <link>https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_2/</link>
       <pubDate>Wed, 09 Dec 2020 16:11:19 +0900</pubDate>
       
@@ -19,7 +19,7 @@
     </item>
     
     <item>
-      <title>Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때 </title>
+      <title>Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때</title>
       <link>https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_1/</link>
       <pubDate>Wed, 09 Dec 2020 10:56:19 +0900</pubDate>
       

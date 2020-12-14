@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-        Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때  - ringu blog
+        Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때 - ringu blog
       </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -22,20 +22,20 @@
     
     <meta name="description" content="에러 PV를 delete 하는 과정에서 계속 &amp;ldquo;Terminating&amp;rdquo; 상태에서 멈춰 있다. # kubectl delete pv jenkins2-pv persistentvolume &amp;quot;jenkins2-pv&amp;quot; deleted # kubectl describe pv jenkins2-pv Name: jenkins2-pv Labels: &amp;lt;none&amp;gt; Annotations: pv.kubernetes.io/bound-by-controller: yes Finalizers: [kubernetes.io/pv-protection] StorageClass: Status: Terminating (lasts 27m) Claim: jenkins/jenkins Reclaim Policy: Retain Access Modes: RWO VolumeMode: Filesystem Capacity: 10Gi Node Affinity: &amp;lt;none&amp;gt; Message: Source: Type: NFS" />
     <meta name="generator" content="Hugo 0.74.3 with theme pure" />
-    <title>Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때  - ringu blog</title>
+    <title>Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때 - ringu blog</title>
     
     
     <link rel="stylesheet" href="https://healinyoon.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때 " />
+    <meta property="og:title" content="Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때" />
 <meta property="og:description" content="에러 PV를 delete 하는 과정에서 계속 &ldquo;Terminating&rdquo; 상태에서 멈춰 있다. # kubectl delete pv jenkins2-pv persistentvolume &quot;jenkins2-pv&quot; deleted # kubectl describe pv jenkins2-pv Name: jenkins2-pv Labels: &lt;none&gt; Annotations: pv.kubernetes.io/bound-by-controller: yes Finalizers: [kubernetes.io/pv-protection] StorageClass: Status: Terminating (lasts 27m) Claim: jenkins/jenkins Reclaim Policy: Retain Access Modes: RWO VolumeMode: Filesystem Capacity: 10Gi Node Affinity: &lt;none&gt; Message: Source: Type: NFS" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_1/" />
 <meta property="article:published_time" content="2020-12-09T10:56:19+09:00" />
 <meta property="article:modified_time" content="2020-12-09T10:56:19+09:00" />
-<meta itemprop="name" content="Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때 ">
+<meta itemprop="name" content="Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때">
 <meta itemprop="description" content="에러 PV를 delete 하는 과정에서 계속 &ldquo;Terminating&rdquo; 상태에서 멈춰 있다. # kubectl delete pv jenkins2-pv persistentvolume &quot;jenkins2-pv&quot; deleted # kubectl describe pv jenkins2-pv Name: jenkins2-pv Labels: &lt;none&gt; Annotations: pv.kubernetes.io/bound-by-controller: yes Finalizers: [kubernetes.io/pv-protection] StorageClass: Status: Terminating (lasts 27m) Claim: jenkins/jenkins Reclaim Policy: Retain Access Modes: RWO VolumeMode: Filesystem Capacity: 10Gi Node Affinity: &lt;none&gt; Message: Source: Type: NFS">
 <meta itemprop="datePublished" content="2020-12-09T10:56:19+09:00" />
 <meta itemprop="dateModified" content="2020-12-09T10:56:19+09:00" />
@@ -45,7 +45,7 @@
 
 <meta itemprop="keywords" content="docker,kubernetes,troubleshooting," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때 "/>
+<meta name="twitter:title" content="Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때"/>
 <meta name="twitter:description" content="에러 PV를 delete 하는 과정에서 계속 &ldquo;Terminating&rdquo; 상태에서 멈춰 있다. # kubectl delete pv jenkins2-pv persistentvolume &quot;jenkins2-pv&quot; deleted # kubectl describe pv jenkins2-pv Name: jenkins2-pv Labels: &lt;none&gt; Annotations: pv.kubernetes.io/bound-by-controller: yes Finalizers: [kubernetes.io/pv-protection] StorageClass: Status: Terminating (lasts 27m) Claim: jenkins/jenkins Reclaim Policy: Retain Access Modes: RWO VolumeMode: Filesystem Capacity: 10Gi Node Affinity: &lt;none&gt; Message: Source: Type: NFS"/>
 
     <!--[if lte IE 9]>
@@ -227,7 +227,7 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_2/" class="title">Kubernets(쿠버네티스) Troubleshooting (2) - Node가 NotReady됐는데 docker가 죽어있을 때 </a>
+                        <a href="https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_2/" class="title">Kubernets(쿠버네티스) Troubleshooting (2) - Node가 NotReady됐는데 docker가 죽어있을 때</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-12-09 16:11:19 &#43;0900 KST" itemprop="datePublished">2020-12-09</time>
@@ -237,7 +237,7 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_1/" class="title">Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때 </a>
+                        <a href="https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_1/" class="title">Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-12-09 10:56:19 &#43;0900 KST" itemprop="datePublished">2020-12-09</time>
@@ -299,7 +299,7 @@
   <a
     class="article-title"
     href="/2020/12/20201209_k8s_troubleshooting_1/"
-    >Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때 </a
+    >Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때</a
   >
 </h1>
 
@@ -371,7 +371,7 @@ persistentvolume &quot;jenkins2-pv&quot; deleted
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_1/" title="Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때 " target="_blank" rel="external">https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_1/</a>
+      <a href="https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_1/" title="Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때" target="_blank" rel="external">https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_1/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -409,7 +409,7 @@ persistentvolume &quot;jenkins2-pv&quot; deleted
             </li>
             <li class="next">
                 <a href="https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_2/"
-                    title="Kubernets(쿠버네티스) Troubleshooting (2) - Node가 NotReady됐는데 docker가 죽어있을 때 "><span>Newer&nbsp;&nbsp;</span><i
+                    title="Kubernets(쿠버네티스) Troubleshooting (2) - Node가 NotReady됐는데 docker가 죽어있을 때"><span>Newer&nbsp;&nbsp;</span><i
                         class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
