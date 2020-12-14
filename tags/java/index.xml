@@ -11,12 +11,12 @@
     
     
     <item>
-      <title>Kubernetes CI/CD</title>
+      <title>Kubernetes CI/CD 구축기 (1) - Kubernetes CI 구축하기</title>
       <link>https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/</link>
       <pubDate>Mon, 14 Dec 2020 11:50:39 +0900</pubDate>
       
       <guid>https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/</guid>
-      <description>Intro Kubernetes CI/CD 구축기 Helm으로 Jenkins를 Kubernetes에 배포하기 Persistence Volume을 위한 NFS 서버 구성 참고: https://sarc.io/index.php/os/1780-ubuntu-nfs-configuration 이 포스트는 NFS을 {NFS server</description>
+      <description>Intro Kubernetes CI/CD 구축기 (1) - Kubernetes CI 구축하기 목차 Helm으로 Jenkins를 Kubernetes에 배포하기 Kubernetes와 Docker Private Resistry 연동하기 Gitlab과</description>
     </item>
     
     <item>
