@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on ringu blog</title>
+    <link>https://healinyoon.github.io/tags/java/</link>
+    <description>Recent content in java on ringu blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 13 Nov 2020 14:16:05 +0900</lastBuildDate>
+    
+        <atom:link href="https://healinyoon.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker 설치하기(CentOS)</title>
+      <link>https://healinyoon.github.io/2019/06/20190611_docker_install/</link>
+      <pubDate>Sat, 01 Jun 2019 23:52:44 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2019/06/20190611_docker_install/</guid>
+      <description>Intro 이번 포스트에서는 CentOS에 Docker를 설치하는 방법을 정리했습니다. 1. Docker 설치하기 # yum 패키지 업데이트 yum update # docker, docker registry 설치 yum -y install docker docker-registry 2. Docker 실행 및</description>
+    </item>
+    
+  </channel>
+</rss>

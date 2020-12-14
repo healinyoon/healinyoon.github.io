@@ -5,27 +5,81 @@
     <link>https://healinyoon.github.io/tags/helm/</link>
     <description>Recent content in helm on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 03 Nov 2020 12:54:49 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 14 Dec 2020 11:50:39 +0900</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/tags/helm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Helm(2) - Helm Chart 사용 방법</title>
-      <link>https://healinyoon.github.io/2020/11/20201103_helm_02/</link>
-      <pubDate>Tue, 03 Nov 2020 12:54:49 +0900</pubDate>
+      <title>Kubernetes CI/CD</title>
+      <link>https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/</link>
+      <pubDate>Mon, 14 Dec 2020 11:50:39 +0900</pubDate>
       
-      <guid>https://healinyoon.github.io/2020/11/20201103_helm_02/</guid>
-      <description>Intro 이번 장에서는 Helm Chart를 더 잘 활용하기 위한 방법을 살펴본다. Helm Chart 기본 명령어 사용 방법 helm search: Chart 검색 Helm은 강력한 검색 명령어를 제공한다. 아래의 두 명</description>
+      <guid>https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/</guid>
+      <description>Intro Kubernetes CI/CD 구축기 Helm으로 Jenkins를 Kubernetes에 배포하기 Persistence Volume을 위한 NFS 서버 구성 참고: https://sarc.io/index.php/os/1780-ubuntu-nfs-configuration 이 포스트는 NFS을 {NFS server</description>
     </item>
     
     <item>
-      <title>Helm(1) - Helm 설치 및 사용 방법</title>
-      <link>https://healinyoon.github.io/2020/11/20201103_helm_01/</link>
-      <pubDate>Tue, 03 Nov 2020 11:25:09 +0900</pubDate>
+      <title>Kubernets(쿠버네티스) Troubleshooting (2) - Node가 NotReady됐는데 docker가 죽어있을 때</title>
+      <link>https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_2/</link>
+      <pubDate>Wed, 09 Dec 2020 16:11:19 +0900</pubDate>
       
-      <guid>https://healinyoon.github.io/2020/11/20201103_helm_01/</guid>
-      <description>Helm 이란? Helm은 Kubernetes package managing tool이다. Python에서의 pip, Node.js에서의 npm과 같은 역할을 하는 Kubernetes package 설치를 가능하게 하는 tool이라고 보면</description>
+      <guid>https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_2/</guid>
+      <description>요약 k8s cluster의 특정 Node가 NotReady됐는데 docker가 stop 상태였다. 2개의 원인이 만나서 발생: apt 자동 업데이트 + docker.io 패키지 버그 해결</description>
+    </item>
+    
+    <item>
+      <title>Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때</title>
+      <link>https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_1/</link>
+      <pubDate>Wed, 09 Dec 2020 10:56:19 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_1/</guid>
+      <description>에러 PV를 delete 하는 과정에서 계속 &amp;ldquo;Terminating&amp;rdquo; 상태에서 멈춰 있다. # kubectl delete pv jenkins2-pv persistentvolume &amp;quot;jenkins2-pv&amp;quot; deleted # kubectl describe pv jenkins2-pv Name: jenkins2-pv Labels: &amp;lt;none&amp;gt; Annotations: pv.kubernetes.io/bound-by-controller: yes Finalizers: [kubernetes.io/pv-protection] StorageClass: Status: Terminating (lasts 27m) Claim: jenkins/jenkins Reclaim Policy: Retain Access Modes: RWO VolumeMode: Filesystem Capacity: 10Gi Node Affinity: &amp;lt;none&amp;gt; Message: Source: Type: NFS</description>
+    </item>
+    
+    <item>
+      <title>네트워킹을 위한 IP address, Subnet, CIDR 표기법 이해하기</title>
+      <link>https://healinyoon.github.io/2020/12/%EC%9E%91%EC%84%B1%EC%A4%9120201201_ip_address_subnets_cidr/</link>
+      <pubDate>Tue, 01 Dec 2020 13:13:54 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/12/%EC%9E%91%EC%84%B1%EC%A4%9120201201_ip_address_subnets_cidr/</guid>
+      <description>소개 서버를 관리하다보면 네트워크에 대한 지식에 아쉬움을 느낄 때가 종종 있다. Understanding IP Addresses, Subnets, and CIDR Notation for Networking의 내용을 정리하면서 네트워크의 기본 개념</description>
+    </item>
+    
+    <item>
+      <title>네트워크 용어, 인터페이스 및 프로토콜 기초 이해하기</title>
+      <link>https://healinyoon.github.io/2020/11/20201127_network_basic/</link>
+      <pubDate>Fri, 27 Nov 2020 11:22:24 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/11/20201127_network_basic/</guid>
+      <description>소개 서버를 관리하다보면 네트워크에 대한 지식에 아쉬움을 느낄 때가 종종 있다. An Introduction to Networking Terminology, Interfaces, and Protocols의 내용을 정리하면서 네트워크의 기본 개념을 살</description>
+    </item>
+    
+    <item>
+      <title>Docker Image의 핵심 기술: Layer</title>
+      <link>https://healinyoon.github.io/2020/11/20201125_docker_image_layer/</link>
+      <pubDate>Wed, 25 Nov 2020 15:12:04 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/11/20201125_docker_image_layer/</guid>
+      <description>Docker image는 container를 만들기 위한 템플릿이다. registry에 존재하는 image를 가져와 사용할 수도 있고, image를 만들고 실행하</description>
+    </item>
+    
+    <item>
+      <title>Docker 개요</title>
+      <link>https://healinyoon.github.io/2020/11/20201125_docker_overview/</link>
+      <pubDate>Wed, 25 Nov 2020 13:06:23 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/11/20201125_docker_overview/</guid>
+      <description>The Docker platform Docker는 어플리케이션을 패키징하고 실행할 수 있는 Container라는 격리된 환경을 제공한다. Container는 hypervisor</description>
+    </item>
+    
+    <item>
+      <title>java(openjdk) 설치 및 환경 변수 설정</title>
+      <link>https://healinyoon.github.io/2020/11/20201113_install_java/</link>
+      <pubDate>Fri, 13 Nov 2020 14:16:05 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/11/20201113_install_java/</guid>
+      <description>jdk8 설치 버전 확인 $ java -version repository 업데이트 $ sudo apt-get update openjdk 설치 $ sudo apt-get install openjdk-8-jdk 설치 확인 $ java -version openjdk version &amp;quot;1.8.0_275&amp;quot; OpenJDK Runtime Environment (build 1.8.0_275-8u275-b01-0ubuntu1~18.04-b01) OpenJDK 64-Bit Server VM (build 25.275-b01, mixed mode) 환경 변수 설정 javac 설치 경로 확인 # javac -version javac 1.8.0_275 # which</description>
     </item>
     
     <item>
@@ -134,15 +188,6 @@
       
       <guid>https://healinyoon.github.io/2019/06/20190602_shell_script/</guid>
       <description>Intro 이번 포스트에서는 쉘 스크립트에 대해 알아보고, 사용 방법을 다룬다. 전반적으로 &amp;ldquo;이것이 우분투 리눅스다&amp;rdquo; 책을 참고하였고, 공부</description>
-    </item>
-    
-    <item>
-      <title>Docker 설치하기(CentOS)</title>
-      <link>https://healinyoon.github.io/2019/06/20190611_docker_install/</link>
-      <pubDate>Sat, 01 Jun 2019 23:52:44 +0900</pubDate>
-      
-      <guid>https://healinyoon.github.io/2019/06/20190611_docker_install/</guid>
-      <description>Intro 이번 포스트에서는 CentOS에 Docker를 설치하는 방법을 정리했습니다. 1. Docker 설치하기 # yum 패키지 업데이트 yum update # docker, docker registry 설치 yum -y install docker docker-registry 2. Docker 실행 및</description>
     </item>
     
   </channel>

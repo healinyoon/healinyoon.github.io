@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Kubernetes CI/CD</title>
+      <link>https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/</link>
+      <pubDate>Mon, 14 Dec 2020 11:50:39 +0900</pubDate>
+      
+      <guid>https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/</guid>
+      <description>Intro Kubernetes CI/CD 구축기 Helm으로 Jenkins를 Kubernetes에 배포하기 Persistence Volume을 위한 NFS 서버 구성 참고: https://sarc.io/index.php/os/1780-ubuntu-nfs-configuration 이 포스트는 NFS을 {NFS server</description>
+    </item>
+    
+    <item>
       <title>Kubernets(쿠버네티스) Troubleshooting (2) - Node가 NotReady됐는데 docker가 죽어있을 때</title>
       <link>https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_2/</link>
       <pubDate>Wed, 09 Dec 2020 16:11:19 +0900</pubDate>
@@ -179,15 +188,6 @@
       
       <guid>https://healinyoon.github.io/2019/06/20190602_shell_script/</guid>
       <description>Intro 이번 포스트에서는 쉘 스크립트에 대해 알아보고, 사용 방법을 다룬다. 전반적으로 &amp;ldquo;이것이 우분투 리눅스다&amp;rdquo; 책을 참고하였고, 공부</description>
-    </item>
-    
-    <item>
-      <title>Docker 설치하기(CentOS)</title>
-      <link>https://healinyoon.github.io/2019/06/20190611_docker_install/</link>
-      <pubDate>Sat, 01 Jun 2019 23:52:44 +0900</pubDate>
-      
-      <guid>https://healinyoon.github.io/2019/06/20190611_docker_install/</guid>
-      <description>Intro 이번 포스트에서는 CentOS에 Docker를 설치하는 방법을 정리했습니다. 1. Docker 설치하기 # yum 패키지 업데이트 yum update # docker, docker registry 설치 yum -y install docker docker-registry 2. Docker 실행 및</description>
     </item>
     
   </channel>

@@ -4,55 +4,83 @@
   
   <url>
     <loc>https://healinyoon.github.io/categories/</loc>
-    <lastmod>2020-12-09T16:11:19+09:00</lastmod>
+    <lastmod>2020-12-14T11:50:39+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/tags/docker/</loc>
-    <lastmod>2020-12-09T16:11:19+09:00</lastmod>
+    <lastmod>2020-12-14T11:50:39+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/tags/gitlab/</loc>
+    <lastmod>2020-12-14T11:50:39+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/tags/helm/</loc>
+    <lastmod>2020-12-14T11:50:39+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/tags/jenkins/</loc>
+    <lastmod>2020-12-14T11:50:39+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/tags/kubernetes/</loc>
-    <lastmod>2020-12-09T16:11:19+09:00</lastmod>
+    <lastmod>2020-12-14T11:50:39+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_2/</loc>
-    <lastmod>2020-12-09T16:11:19+09:00</lastmod>
+    <loc>https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/</loc>
+    <lastmod>2020-12-14T11:50:39+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/categories/msa/</loc>
-    <lastmod>2020-12-09T16:11:19+09:00</lastmod>
+    <lastmod>2020-12-14T11:50:39+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/posts/</loc>
-    <lastmod>2020-12-09T16:11:19+09:00</lastmod>
+    <lastmod>2020-12-14T11:50:39+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/</loc>
-    <lastmod>2020-12-09T16:11:19+09:00</lastmod>
+    <lastmod>2020-12-14T11:50:39+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://healinyoon.github.io/tags/</loc>
+    <lastmod>2020-12-14T11:50:39+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_2/</loc>
     <lastmod>2020-12-09T16:11:19+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -194,13 +222,6 @@
   <url>
     <loc>https://healinyoon.github.io/2020/09/%EB%AF%B8%EC%99%8420200901_k8s_pod_network/</loc>
     <lastmod>2020-09-01T13:33:15+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://healinyoon.github.io/tags/jenkins/</loc>
-    <lastmod>2020-08-31T13:26:55+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

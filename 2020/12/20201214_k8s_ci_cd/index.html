@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        Kubernetes CI/CD - ringu blog
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="Intro Kubernetes CI/CD 구축기 Helm으로 Jenkins를 Kubernetes에 배포하기 Persistence Volume을 위한 NFS 서버 구성 참고: https://sarc.io/index.php/os/1780-ubuntu-nfs-configuration 이 포스트는 NFS을 {NFS server" />
+    <meta name="generator" content="Hugo 0.74.3 with theme pure" />
+    <title>Kubernetes CI/CD - ringu blog</title>
+    
+    
+    <link rel="stylesheet" href="https://healinyoon.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="Kubernetes CI/CD" />
+<meta property="og:description" content="Intro Kubernetes CI/CD 구축기 Helm으로 Jenkins를 Kubernetes에 배포하기 Persistence Volume을 위한 NFS 서버 구성 참고: https://sarc.io/index.php/os/1780-ubuntu-nfs-configuration 이 포스트는 NFS을 {NFS server" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/" />
+<meta property="article:published_time" content="2020-12-14T11:50:39+09:00" />
+<meta property="article:modified_time" content="2020-12-14T11:50:39+09:00" />
+<meta itemprop="name" content="Kubernetes CI/CD">
+<meta itemprop="description" content="Intro Kubernetes CI/CD 구축기 Helm으로 Jenkins를 Kubernetes에 배포하기 Persistence Volume을 위한 NFS 서버 구성 참고: https://sarc.io/index.php/os/1780-ubuntu-nfs-configuration 이 포스트는 NFS을 {NFS server">
+<meta itemprop="datePublished" content="2020-12-14T11:50:39+09:00" />
+<meta itemprop="dateModified" content="2020-12-14T11:50:39+09:00" />
+<meta itemprop="wordCount" content="1135">
+
+
+
+<meta itemprop="keywords" content="docker,kubernetes,helm,jenkins,gitlab," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kubernetes CI/CD"/>
+<meta name="twitter:description" content="Intro Kubernetes CI/CD 구축기 Helm으로 Jenkins를 Kubernetes에 배포하기 Persistence Volume을 위한 NFS 서버 구성 참고: https://sarc.io/index.php/os/1780-ubuntu-nfs-configuration 이 포스트는 NFS을 {NFS server"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/healinyoon" target="_blank">
+            <img class="img-circle img-rotate" src="https://healinyoon.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">rin gu</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">A Developer</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Seoul, Korea</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/blog/" class="category-list-link">blog</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/ci/cd/" class="category-list-link">ci/cd</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/cloud/" class="category-list-link">cloud</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/devops/" class="category-list-link">devops</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/gpu/" class="category-list-link">gpu</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/jvm/" class="category-list-link">jvm</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/msa/" class="category-list-link">msa</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/networks/" class="category-list-link">networks</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/programming/" class="category-list-link">programming</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/azure/" class="tag-list-link">azure</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/gitlab/" class="tag-list-link">gitlab</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/go/" class="tag-list-link">go</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/helm/" class="tag-list-link">helm</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/hugo/" class="tag-list-link">hugo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/jenkins/" class="tag-list-link">jenkins</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/kubernetes/" class="tag-list-link">kubernetes</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/openjdk/" class="tag-list-link">openjdk</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/shell/" class="tag-list-link">shell</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/troubleshooting/" class="tag-list-link">troubleshooting</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/" class="title">Kubernetes CI/CD</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-14 11:50:39 &#43;0900 KST" itemprop="datePublished">2020-12-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_2/" class="title">Kubernets(쿠버네티스) Troubleshooting (2) - Node가 NotReady됐는데 docker가 죽어있을 때</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-09 16:11:19 &#43;0900 KST" itemprop="datePublished">2020-12-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_1/" class="title">Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-09 10:56:19 &#43;0900 KST" itemprop="datePublished">2020-12-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://healinyoon.github.io/2020/12/%EC%9E%91%EC%84%B1%EC%A4%9120201201_ip_address_subnets_cidr/" class="title">네트워킹을 위한 IP address, Subnet, CIDR 표기법 이해하기</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-01 13:13:54 &#43;0900 KST" itemprop="datePublished">2020-12-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://healinyoon.github.io/2020/11/20201127_network_basic/" class="title">네트워크 용어, 인터페이스 및 프로토콜 기초 이해하기</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-27 11:22:24 &#43;0900 KST" itemprop="datePublished">2020-11-27</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/12/20201214_k8s_ci_cd/"
+    >Kubernetes CI/CD</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/" class="article-date">
+  <time datetime="2020-12-14 11:50:39 &#43;0900 KST" itemprop="datePublished">2020-12-14</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/msa/"> msa </a>
+  <a class="article-category-link" href="/categories/ci/cd/"> ci/cd </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/docker/"> docker </a>
+    <a class="article-tag-link" href="/tags/kubernetes/"> kubernetes </a>
+    <a class="article-tag-link" href="/tags/helm/"> helm </a>
+    <a class="article-tag-link" href="/tags/jenkins/"> jenkins </a>
+    <a class="article-tag-link" href="/tags/gitlab/"> gitlab </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/12/20201214_k8s_ci_cd/#comments"
+            class="article-comment-link">Comments</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1135words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 3minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="intro">Intro</h1>
+<p>Kubernetes CI/CD 구축기</p>
+<h1 id="helm으로-jenkins를-kubernetes에-배포하기">Helm으로 Jenkins를 Kubernetes에 배포하기</h1>
+<h3 id="persistence-volume을-위한-nfs-서버-구성">Persistence Volume을 위한 NFS 서버 구성</h3>
+<ul>
+<li>참고: <a href="https://sarc.io/index.php/os/1780-ubuntu-nfs-configuration">https://sarc.io/index.php/os/1780-ubuntu-nfs-configuration</a></li>
+</ul>
+<p>이 포스트는 NFS을 <code>{NFS server}:/mnt/nfs_server</code>와 <code>{NFS client(k8s cluster)}:/mnt/nfs_client</code> 경로를 마운트하여 구성하였다.</p>
+<h3 id="persistence-volume-생성">Persistence Volume 생성</h3>
+<ol>
+<li>Persistent Volume으로 마운트할 디렉토리 생성</li>
+</ol>
+<pre><code># mkdir /mnt/nfs_server/pv_jenkins
+# chmod 777 /mnt/nfs_server/pv_jenkins
+</code></pre>
+<ol start="2">
+<li>Persistent Volume YAML 작성</li>
+</ol>
+<blockquote>
+<p>jenkins-pv.yaml</p>
+</blockquote>
+<pre><code>apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jenkins-pv
+spec:
+  capacity:
+    storage: 10Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: &quot;&quot;
+  nfs:
+    server: {NFS server IP}
+    path: /mnt/nfs_server/pv_jenkins
+</code></pre>
+<ol start="3">
+<li>Persistent Volume 생성 및 확인</li>
+</ol>
+<pre><code># kubectl create -f jenkins-pv.yaml
+persistentvolume/jenkins-pv created
+
+# kubectl get pv
+NAME         CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE
+jenkins-pv   10Gi       RWO            Retain           Available        
+</code></pre>
+<h3 id="jenkins-helm-repo-추가">Jenkins Helm Repo 추가</h3>
+<p><code>stable/jenkins</code>는 DEPRECATED되었기 때문에 <code>jenkins/jenkins</code>를 사용해야 한다.</p>
+<ol>
+<li>해당 Repository 접근</li>
+</ol>
+<p><a href="https://github.com/jenkinsci/helm-charts">https://github.com/jenkinsci/helm-charts</a></p>
+<ol start="2">
+<li>Helm Chart Repository 추가 및 조회</li>
+</ol>
+<pre><code># helm repo add jenkins https://charts.jenkins.io
+&quot;jenkins&quot; has been added to your repositories
+
+# helm search repo jenkins
+NAME           	CHART VERSION	APP VERSION	DESCRIPTION
+jenkins/jenkins	3.0.2        	2.249.3    	Jenkins - Build great things at any scale! The ...
+</code></pre>
+<p><code>jenkins/jenkins</code> 가 조회되는 것을 확인할 수 있다.</p>
+<h3 id="jenkins-helm-chart-커스터마이징">Jenkins Helm Chart 커스터마이징</h3>
+<ol>
+<li>Jenkins Helm Chart Values 확인</li>
+</ol>
+<p>Jenkins helm chart의 어떤 옵션이 구성 가능한지 <code>helm show values {helm repo}/{애플리케이션명}</code> 명령어로 확인한다. 상당히 길게 출력되는데, 우리에게 필요한 옵션을 찾아 적용하면 된다.</p>
+<pre><code># helm show values jenkins/jenkins
+
+# Default values for jenkins.
+# This is a YAML-formatted file.
+# Declare name/value pairs to be passed into your templates.
+# name: value
+
+## Overrides for generated resource names
+# See templates/_helpers.tpl
+# nameOverride:
+# fullnameOverride:
+# namespaceOverride:
+
+# For FQDN resolving of the master service. Change this value to match your existing configuration.
+# ref: https://github.com/kubernetes/dns/blob/master/docs/specification.md
+clusterZone: &quot;cluster.local&quot;
+
+master:
+  httpsKeyStore:
+    jenkinsHttpsJksSecretName: ''
+    enable: false
+    httpPort: 8081
+    path: &quot;/var/jenkins_keystore&quot;
+    fileName: &quot;keystore.jks&quot;
+    password: &quot;password&quot;
+
+(중략)
+</code></pre>
+<ol start="2">
+<li>Values 파일 생성</li>
+</ol>
+<pre><code># helm show values jenkins/jenkins &gt; jenkins-values.yaml
+</code></pre>
+<ol start="3">
+<li>Values 파일 커스터마이징</li>
+</ol>
+<p>위에서 생성한 <code>jenkins-values.yaml</code> 파일을 커스터마이징할 옵션은 다음과 같다.</p>
+<ul>
+<li>admin 패스워드 변경</li>
+</ul>
+<pre><code>변경 전
+# adminPassword: &lt;defaults to random&gt;
+
+변경 후
+adminPassword: {패스워드}
+</code></pre>
+<ul>
+<li>serviceType 변경</li>
+</ul>
+<p>Service Type을 NodePort로 변경</p>
+<pre><code>변경 전
+serviceType: ClusterIP
+
+변경 후
+serviceType: NodePort
+nodePort: {Port}
+</code></pre>
+<ul>
+<li>storageClass size 변경</li>
+</ul>
+<p>위에서 생성한 pv를 사용하기 위해 동일한 조건 기재</p>
+<pre><code>변경 전
+persistence:
+  enabled: true
+  existingClaim:
+  storageClass:
+  annotations: {}
+  accessMode: &quot;ReadWriteOnce&quot;
+  size: &quot;8Gi&quot;
+
+변경 후
+persistence:
+  enabled: true
+  existingClaim:
+  storageClass:
+  annotations: {}
+  accessMode: &quot;ReadWriteOnce&quot;
+  size: &quot;10Gi&quot;
+</code></pre>
+<ul>
+<li>nodeSelector 지정</li>
+</ul>
+<p>Jenkins Master는 특정 Node에서 배포되도록 Node Selector 지정</p>
+<pre><code>변경 전
+nodeSelector: {}
+
+변경 후
+nodeSelector:
+    kubernetes.io/hostname: &quot;gs-hci-vm-cicd&quot;
+</code></pre>
+<ul>
+<li>Plugin 목록 제거</li>
+</ul>
+<p>컨테이너 초기화에서 플러그인 설치를 주석처리하는 이유는 (Pod STATUS가 Running되지 않고 Error 또는 CrashLoopBackOff을 반복할 때)[]를 참고한다.</p>
+<pre><code>변경 전
+installPlugins:
+    - kubernetes:1.27.6
+    - workflow-aggregator:2.6
+    - git:4.4.5
+    - configuration-as-code:1.46
+변경 후
+installPlugins:
+   # - kubernetes:1.27.6
+   # - workflow-aggregator:2.6
+   # - git:4.4.5
+   # - configuration-as-code:1.46
+</code></pre>
+<p>대신 필요한 플러그인을 설치하고 보안 설정도 해줘야 한다.</p>
+<ul>
+<li>kubernetes</li>
+<li>workflow-aggregator</li>
+<li>git</li>
+<li>configuration-as-code</li>
+</ul>
+<h3 id="jenkins-helm-install">Jenkins Helm Install</h3>
+<ol>
+<li>Jenkins Helm 설치</li>
+</ol>
+<pre><code># helm install jenkins -f jenkins-values.yaml jenkins/jenkins --namespace=jenkins
+NAME: jenkins
+LAST DEPLOYED: Wed Dec  9 11:19:15 2020
+NAMESPACE: jenkins
+STATUS: deployed
+REVISION: 1
+NOTES:
+1. Get your 'admin' user password by running:
+  kubectl exec --namespace jenkins -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/chart-admin-password &amp;&amp; echo
+2. Get the Jenkins URL to visit by running these commands in the same shell:
+  export NODE_PORT=$(kubectl get --namespace jenkins -o jsonpath=&quot;{.spec.ports[0].nodePort}&quot; services jenkins)
+  export NODE_IP=$(kubectl get nodes --namespace jenkins -o jsonpath=&quot;{.items[0].status.addresses[0].address}&quot;)
+  echo http://$NODE_IP:$NODE_PORT/login
+
+3. Login with the password from step 1 and the username: admin
+4. Configure security realm and authorization strategy
+5. Use Jenkins Configuration as Code by specifying configScripts in your values.yaml file, see documentation: http:///configuration-as-code and examples: https://github.com/jenkinsci/configuration-as-code-plugin/tree/master/demos
+
+For more information on running Jenkins on Kubernetes, visit:
+https://cloud.google.com/solutions/jenkins-on-container-engine
+
+For more information about Jenkins Configuration as Code, visit:
+https://jenkins.io/projects/jcasc/
+
+NOTE: Consider using a custom image with pre-installed plugins
+</code></pre>
+<ol start="2">
+<li>Kubernetes Resource 조회</li>
+</ol>
+<pre><code># kubectl get all -n jenkins
+NAME             READY   STATUS    RESTARTS   AGE
+pod/jenkins2-0   2/2     Running   0          6m20s
+
+NAME                     TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+service/jenkins2         NodePort    10.109.131.192   &lt;none&gt;        8080:31133/TCP   178m
+service/jenkins2-agent   ClusterIP   10.99.253.235    &lt;none&gt;        50000/TCP        178m
+
+NAME                        READY   AGE
+statefulset.apps/jenkins2   1/1     178m
+</code></pre>
+<p>한참 기다리면 <code>Init:0/1 → Running</code> 으로 변경되는 것 확인</p>
+<ol start="3">
+<li>
+<p>사이트 접속 확인: {k8s cluster IP}:31122</p>
+</li>
+<li>
+<p>pv 정상 동작도 확인</p>
+</li>
+</ol>
+<pre><code># pwd
+/mnt/nfs_server/pv_jenkins
+
+# ls
+casc_configs                    identity.key.enc                                             jenkins.telemetry.Correlator.xml  plugins                   updates
+config.xml                      jenkins.install.InstallUtil.lastExecVersion                  jobs                              plugins.txt               userContent
+copy_reference_file.log         jenkins.install.UpgradeWizard.state                          logs                              secret.key                users
+hudson.model.UpdateCenter.xml   jenkins.model.JenkinsLocationConfiguration.xml               nodeMonitors.xml                  secret.key.not-so-secret  war
+hudson.plugins.git.GitTool.xml  jenkins.security.apitoken.ApiTokenPropertyConfiguration.xml  nodes                             secrets                   workflow-libs
+</code></pre>
+<h1 id="참고">참고</h1>
+<h3 id="helm으로-jenkins를-kubernetes에-배포하기-1">Helm으로 Jenkins를 Kubernetes에 배포하기</h3>
+<ul>
+<li><a href="https://m.blog.naver.com/alice_k106/221562805601">https://m.blog.naver.com/alice_k106/221562805601</a></li>
+<li><a href="https://velog.io/@hamon/Kubernetes-Cluster%EC%97%90-Jenkins-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0">https://velog.io/@hamon/Kubernetes-Cluster%EC%97%90-Jenkins-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0</a></li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/" title="Kubernetes CI/CD" target="_blank" rel="external">https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/healinyoon" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://healinyoon.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/healinyoon" target="_blank"><span class="text-dark">rin gu</span><small class="ml-1x">A Developer</small></a></h3>
+        <div>Linux, Infrastructure, DevOps</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_2/" title="Kubernets(쿠버네티스) Troubleshooting (2) - Node가 NotReady됐는데 docker가 죽어있을 때"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/healinyoon" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://healinyoon.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2020
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://healinyoon.github.io/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
+<script src="https://healinyoon.github.io/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/healinyoon.github.io',
+            CONTENT_URL: 'https:\/\/healinyoon.github.io\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://healinyoon.github.io/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>
