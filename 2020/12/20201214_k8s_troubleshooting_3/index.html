@@ -39,7 +39,7 @@
 <meta itemprop="description" content="이슈 Jenkins를 Helm으로 설치하는 과정에서 이슈가 하나 발생했다. 컨테이너 초기화가 계속 실패했는데, 아래와 같이 STATUS가 Running이">
 <meta itemprop="datePublished" content="2020-12-14T11:50:39+09:00" />
 <meta itemprop="dateModified" content="2020-12-14T11:50:39+09:00" />
-<meta itemprop="wordCount" content="534">
+<meta itemprop="wordCount" content="763">
 
 
 
@@ -315,7 +315,7 @@
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://healinyoon.github.io/2020/12/20201214_k8s_troubleshooting_3/" class="article-title">
+<a href="https://healinyoon.github.io/2020/12/20201214_k8s_troubleshooting_3/" class="article-date">
   <time datetime="2020-12-14 11:50:39 &#43;0900 KST" itemprop="datePublished">2020-12-14</time>
 </a>
 </span>
@@ -332,7 +332,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/12/20201214_k8s_troubleshooting_3/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 534words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 763words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2minutes </span>
       </div>
     </div>
@@ -347,7 +347,39 @@ pod/jenkins-0                                0/2     Init:0/1   0          4m31s
 <li><a href="https://kubernetes.io/ko/docs/concepts/workloads/pods/init-containers/">https://kubernetes.io/ko/docs/concepts/workloads/pods/init-containers/</a></li>
 <li><a href="https://kubernetes.io/ko/docs/tasks/debug-application-cluster/debug-init-containers/">https://kubernetes.io/ko/docs/tasks/debug-application-cluster/debug-init-containers/</a></li>
 </ul>
-<p>여기서 중요한 포인트는 <code>Running</code>이 안되고 <code>Init:0/1</code> -&gt; <code>CrashLoopBackOff</code> -&gt; <code>Error</code>를 반복한다는 것.. 이를 해결하기 위해서 node에 접근해서 container 로그를 확인해봤다.</p>
+<pre><code># kubectl get all -n jenkins
+NAME             READY   STATUS                 RESTARTS   AGE
+pod/jenkins-0   0/2     Init:CrashLoopBackOff   4          8m45s
+
+</code></pre>
+<p>여기서 중요한 포인트는 <code>Running</code>이 안되고 <code>Init:0/1</code> -&gt; <code>CrashLoopBackOff</code> -&gt; <code>Error</code>를 반복한다는 것이다.</p>
+<p><code>kubectl describe</code> 명령어로 Event를 확인하면 container init 과정에서 계속 에러가 발생한다.</p>
+<pre><code># kubectl describe pod jenkins-0 -n jenkins
+Name:         jenkins-0
+Namespace:    jenkins
+Priority:     0
+Node:         gs-hci-vm-cicd/10.231.238.230
+Start Time:   Wed, 09 Dec 2020 20:19:26 +0900
+Labels:       app.kubernetes.io/component=jenkins-controller
+              app.kubernetes.io/instance=jenkins
+              app.kubernetes.io/managed-by=Helm
+              app.kubernetes.io/name=jenkins
+              controller-revision-hash=jenkins-584bd849f4
+              statefulset.kubernetes.io/pod-name=jenkins-0
+
+(중략)
+
+Events:
+  Type     Reason     Age                            From                     Message
+  ----     ------     ----                           ----                     -------
+  Normal   Scheduled  8m51s                          default-scheduler        Successfully assigned jenkins/jenkins-0 to gs-hci-vm-cicd
+  Normal   Started    &lt;invalid&gt; (x4 over &lt;invalid&gt;)  kubelet, gs-hci-vm-cicd  Started container init
+  Warning  BackOff    &lt;invalid&gt; (x7 over &lt;invalid&gt;)  kubelet, gs-hci-vm-cicd  Back-off restarting failed container
+  Normal   Pulling    &lt;invalid&gt; (x5 over &lt;invalid&gt;)  kubelet, gs-hci-vm-cicd  Pulling image &quot;jenkins/jenkins:lts&quot;
+  Normal   Pulled     &lt;invalid&gt; (x5 over &lt;invalid&gt;)  kubelet, gs-hci-vm-cicd  Successfully pulled image &quot;jenkins/jenkins:lts&quot;
+  Normal   Created    &lt;invalid&gt; (x5 over &lt;invalid&gt;)  kubelet, gs-hci-vm-cicd  Created container init
+</code></pre>
+<p>이를 해결하기 위해서 node에 접근해서 container 로그를 확인해봤다.</p>
 <pre><code># docker logs 0150155f58e9
 Downloading plugin workflow-durable-task-step from url: https://updates.jenkins.io/download/plugins/workflow-durable-task-step/2.37/workflow-durable-task-step.hpi
 Downloaded file is not a valid ZIP
@@ -381,6 +413,24 @@ installPlugins:
 <p>그리고 다시 helm release upgrade하면 정상 동작을 확인할 수 있다.</p>
 <pre><code># helm upgrade -f jenkins-values.yaml jenkins jenkins/jenkins --namespace=jenkins
 </code></pre>
+<pre><code># kubectl get all -n jenkins
+NAME            READY   STATUS    RESTARTS   AGE
+pod/jenkins-0   2/2     Running   0          6m20s
+
+NAME                    TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+service/jenkins         NodePort    10.109.131.192   &lt;none&gt;        8080:31133/TCP   178m
+service/jenkins-agent   ClusterIP   10.99.253.235    &lt;none&gt;        50000/TCP        178m
+
+NAME                       READY   AGE
+statefulset.apps/jenkins   1/1     178m
+</code></pre>
+<p>대신 필요한 플러그인을 설치하고 보안 설정도 해줘야 한다.</p>
+<ul>
+<li>kubernetes</li>
+<li>workflow-aggregator</li>
+<li>git</li>
+<li>configuration-as-code</li>
+</ul>
 <h1 id="참고">참고</h1>
 <ul>
 <li><a href="https://stackoverflow.com/questions/57790463/cans-initiate-jenkins-using-stable-helm">https://stackoverflow.com/questions/57790463/cans-initiate-jenkins-using-stable-helm</a></li>

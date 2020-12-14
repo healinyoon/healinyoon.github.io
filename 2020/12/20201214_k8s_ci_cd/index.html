@@ -39,7 +39,7 @@
 <meta itemprop="description" content="Intro Kubernetes CI/CD 구축기 Helm으로 Jenkins를 Kubernetes에 배포하기 Persistence Volume을 위한 NFS 서버 구성 참고: https://sarc.io/index.php/os/1780-ubuntu-nfs-configuration 이 포스트는 NFS을 {NFS server">
 <meta itemprop="datePublished" content="2020-12-14T11:50:39+09:00" />
 <meta itemprop="dateModified" content="2020-12-14T11:50:39+09:00" />
-<meta itemprop="wordCount" content="1135">
+<meta itemprop="wordCount" content="1214">
 
 
 
@@ -335,7 +335,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/12/20201214_k8s_ci_cd/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1135words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1214words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 3minutes </span>
       </div>
     </div>
@@ -456,7 +456,7 @@ master:
 adminPassword: {패스워드}
 </code></pre>
 <ul>
-<li>serviceType 변경</li>
+<li><code>controller.serviceType</code> 변경</li>
 </ul>
 <p>Service Type을 NodePort로 변경</p>
 <pre><code>변경 전
@@ -467,7 +467,7 @@ serviceType: NodePort
 nodePort: {Port}
 </code></pre>
 <ul>
-<li>storageClass size 변경</li>
+<li><code>persistence.storageClass.size</code> 변경</li>
 </ul>
 <p>위에서 생성한 pv를 사용하기 위해 동일한 조건 기재</p>
 <pre><code>변경 전
@@ -554,6 +554,13 @@ https://jenkins.io/projects/jcasc/
 NOTE: Consider using a custom image with pre-installed plugins
 </code></pre>
 <ol start="2">
+<li>Helm 확인</li>
+</ol>
+<pre><code># helm ls --namespace=jenkins
+NAME   	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART        APP VERSION
+jenkins	default  	1       	2020-12-08 16:12:00.059225605 +0900 KST	deployed	jenkins-3.0.22.249.3
+</code></pre>
+<ol start="3">
 <li>Kubernetes Resource 조회</li>
 </ol>
 <pre><code># kubectl get all -n jenkins
@@ -569,12 +576,11 @@ statefulset.apps/jenkins2   1/1     178m
 </code></pre>
 <p>한참 기다리면 <code>Init:0/1 → Running</code> 으로 변경되는 것 확인</p>
 <ol start="3">
-<li>
-<p>사이트 접속 확인: {k8s cluster IP}:31122</p>
-</li>
-<li>
-<p>pv 정상 동작도 확인</p>
-</li>
+<li>사이트 접속 확인: {k8s cluster IP}:31122</li>
+</ol>
+<p>현재 계정 관련 플러그인이 설치되어 있지 않기 때문에 로그인하지 않고 접속하게 되어 있다.</p>
+<ol start="4">
+<li>pv 정상 동작도 확인</li>
 </ol>
 <pre><code># pwd
 /mnt/nfs_server/pv_jenkins
@@ -586,6 +592,7 @@ copy_reference_file.log         jenkins.install.UpgradeWizard.state             
 hudson.model.UpdateCenter.xml   jenkins.model.JenkinsLocationConfiguration.xml               nodeMonitors.xml                  secret.key.not-so-secret  war
 hudson.plugins.git.GitTool.xml  jenkins.security.apitoken.ApiTokenPropertyConfiguration.xml  nodes                             secrets                   workflow-libs
 </code></pre>
+<h1 id="kubernetes와-docker-private-resistry-연동하기">Kubernetes와 Docker Private Resistry 연동하기</h1>
 <h1 id="참고">참고</h1>
 <h3 id="helm으로-jenkins를-kubernetes에-배포하기-1">Helm으로 Jenkins를 Kubernetes에 배포하기</h3>
 <ul>
