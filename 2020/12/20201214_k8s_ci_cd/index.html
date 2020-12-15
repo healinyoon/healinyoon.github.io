@@ -39,7 +39,7 @@
 <meta itemprop="description" content="Intro Kubernetes CI/CD 구축기 (1) - Kubernetes CI 구축하기 목차 Helm으로 Jenkins를 Kubernetes에 배포하기 Kubernetes와 Docker Private Resistry 연동하기 Gitlab과">
 <meta itemprop="datePublished" content="2020-12-14T11:50:39+09:00" />
 <meta itemprop="dateModified" content="2020-12-14T11:50:39+09:00" />
-<meta itemprop="wordCount" content="1760">
+<meta itemprop="wordCount" content="2523">
 
 
 
@@ -335,8 +335,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/12/20201214_k8s_ci_cd/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1760words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2523words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 6minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -607,12 +607,71 @@ https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 Login Succeeded
 </code></pre>
 <h3 id="kubernetes와-docker-private-registry-연동">Kubernetes와 Docker Private Registry 연동</h3>
-<p>Kubernetes에서 Private Registry를 사용하기 위해서는 <strong>Secret</strong>을 등록해야 한다.</p>
+<p>Kubernetes에서 Private Registry를 사용하기 위해서는 <strong>Secret</strong>을 등록해야 한다(여기서는 Harbor로 구축한 Private Registry를 사용한다).</p>
 <h4 id="1-secret-생성">1. Secret 생성</h4>
-<pre><code># kubectl create secret docker-registry {registry name} --docker-server={docker private registry IP}:{port} --docker-username={account} --docker-password={password}
+<pre><code># kubectl create secret docker-registry {registry name} --docker-server={docker-registry-server} --docker-username={account} --docker-password={password} --docker-email={email}
 </code></pre>
 <h4 id="2-생성된-secret-확인">2. 생성된 Secret 확인</h4>
 <pre><code># kubectl get secret {registry name} --output=&quot;jsonpath={.data.\.dockerconfigjson}&quot; | base64 -d
+</code></pre>
+<h4 id="3-kubernetes와-docker-private-registy-연동-확인">3. Kubernetes와 Docker Private Registy 연동 확인</h4>
+<p>먼저 테스트에 사용할 image를 private registry에 push 하자. 저장소에 image를 push 하려면 <code>docker tag</code> 명령어로 저장소 주소와 프로젝트 명을 입력해야 한다.</p>
+<pre><code># docker tag {source image name}:{tag} {docker-registry-server}/{project}/{image name}:{tag}
+</code></pre>
+<p>tagging이 완료되면 image를 push 하자.</p>
+<pre><code># docker push {docker-registry-server}/{project}/{image name}:{tag}
+</code></pre>
+<blockquote>
+<p>Harbor에 image를 push하는 명령어를 얻는 꿀팁은 아래의 그림과 같이 [UI 페이지] &gt;[PUSH COMMAND]를 클릭해서 얻을 수 있다.
+<img src="/images/20201214_k8s_ci_cd/img1.png" alt=""></p>
+</blockquote>
+<p>마지막으로 push한 image를 사용하여 deployment를 실행해보자.</p>
+<blockquote>
+<p>http-go-deploy.yaml</p>
+</blockquote>
+<pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: http-go
+  name: http-go
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: http-go
+  template:
+    metadata:
+      labels:
+        app: http-go
+    spec:
+      containers:
+      - image: {docker-registry-server}/{project}/{image name}:{tag}
+        name: http-go
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: ldccai
+      nodeSelector:
+        kubernetes.io/hostname: gs-hci-vm-cicd
+</code></pre>
+<p>위에서 작성한 YAML 파일을 실행하면 정상적으로 image를 pull하고 pod를 생성하는 것을 확인할 수 있다.</p>
+<pre><code># kubectl apply -f http-go-deploy.yaml
+
+# kubectl get pod
+NAME                                     READY   STATUS    RESTARTS   AGE
+http-go-7cdb5779f7-7jz2x                 1/1     Running   0          22m
+
+# kubectl describe pod http-go-7cdb5779f7-7jz2x
+(중략)
+Events:
+  Type    Reason     Age        From                     Message
+  ----    ------     ----       ----                     -------
+  Normal  Scheduled  &lt;unknown&gt;  default-scheduler        Successfully assigned default/http-go-7cdb5779f7-7jz2x to gs-hci-vm-cicd
+  Normal  Pulling    &lt;invalid&gt;  kubelet, gs-hci-vm-cicd  Pulling image &quot;{docker-registry-server}/{project}/{image name}:{tag}&quot;
+  Normal  Pulled     &lt;invalid&gt;  kubelet, gs-hci-vm-cicd  Successfully pulled image &quot;{docker-registry-server}/{project}/{image name}:{tag}&quot;
+  Normal  Created    &lt;invalid&gt;  kubelet, gs-hci-vm-cicd  Created container http-go
+  Normal  Started    &lt;invalid&gt;  kubelet, gs-hci-vm-cicd  Started container http-go
 </code></pre>
 <h1 id="gitlab과-jenkins를-사용하여-kubernetes-애플리케이션-배포하기">Gitlab과 Jenkins를 사용하여 Kubernetes 애플리케이션 배포하기</h1>
 <h3 id="gitlab를-jenkins와-연동하기">Gitlab를 Jenkins와 연동하기</h3>
@@ -623,7 +682,40 @@ Login Succeeded
 <li>pipeline</li>
 <li>kubernetes</li>
 </ul>
-<h4 id="2">2.</h4>
+<h3 id="ci를-위한-jenkinsfile-작성하기">CI를 위한 Jenkinsfile 작성하기</h3>
+<h4 id="1-jenkinsfile-작성">1. Jenkinsfile 작성</h4>
+<pre><code>podTemplate(containers: [
+    containerTemplate(name: 'chatbot-server-client', image: 'ldccai-registry/library/chatbot-server-client', ttyEnabled: true, command: 'cat'),
+    containerTemplate(name: 'golang', image: 'golang:1.8.0', ttyEnabled: true, command: 'cat')
+  ]) {
+
+    node(POD_LABEL) {
+        stage('Get a Maven project') {
+            git 'https://github.com/jenkinsci/kubernetes-plugin.git'
+            container('maven') {
+                stage('Build a Maven project') {
+                    sh 'mvn -B clean install'
+                }
+            }
+        }
+
+        stage('Get a Golang project') {
+            git url: 'https://github.com/hashicorp/terraform.git'
+            container('golang') {
+                stage('Build a Go project') {
+                    sh &quot;&quot;&quot;
+                    mkdir -p /go/src/github.com/hashicorp
+                    ln -s `pwd` /go/src/github.com/hashicorp/terraform
+                    cd /go/src/github.com/hashicorp/terraform &amp;&amp; make core-dev
+                    &quot;&quot;&quot;
+                }
+            }
+        }
+
+    }
+}
+
+</code></pre>
 <h1 id="참고">참고</h1>
 <h3 id="helm으로-jenkins를-kubernetes에-배포하기-1">Helm으로 Jenkins를 Kubernetes에 배포하기</h3>
 <ul>
@@ -634,7 +726,59 @@ Login Succeeded
 <ul>
 <li><a href="https://lahuman.github.io/kubernetes-harbor/">https://lahuman.github.io/kubernetes-harbor/</a></li>
 <li><a href="https://hakurei.tistory.com/282">https://hakurei.tistory.com/282</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/">https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/</a></li>
+<li><a href="https://blog.uniqbuild.co.kr/?p=724">https://blog.uniqbuild.co.kr/?p=724</a></li>
+<li><a href="https://support.cloudz.co.kr/ko/support/solutions/articles/42000042543-image-registry-public-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B4%80%EB%A6%AC">https://support.cloudz.co.kr/ko/support/solutions/articles/42000042543-image-registry-public-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B4%80%EB%A6%AC</a></li>
+<li><a href="https://velog.io/@tkfrn4799/Harbor%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Private-Docker-Registry-%EA%B5%AC%EC%B6%95">https://velog.io/@tkfrn4799/Harbor%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Private-Docker-Registry-%EA%B5%AC%EC%B6%95</a></li>
 </ul>
+<h3 id="gitlab과-jenkins를-사용하여-kubernetes-애플리케이션-배포하기-1">Gitlab과 Jenkins를 사용하여 Kubernetes 애플리케이션 배포하기</h3>
+<ul>
+<li></li>
+</ul>
+<h1 id="docker-images">docker images</h1>
+<p>REPOSITORY                              TAG                 IMAGE ID            CREATED             SIZE
+ldccai-registry/chatbot-server-client   2012141610          743a57b3f7e0        6 minutes ago       561MB
+jenkins/jenkins                         lts                 1920bf702d7d        12 days ago         713MB
+kiwigrid/k8s-sidecar                    0.1.275             4cbe191ff8a1        4 weeks ago         86MB
+k8s.gcr.io/kube-proxy                   v1.18.6             c3d62d6fe412        5 months ago        117MB
+weaveworks/weave-npc                    2.6.5               420d4d5aac6f        6 months ago        36.8MB
+weaveworks/weave-kube                   2.6.5               e9dd2f85e51b        6 months ago        123MB
+k8s.gcr.io/pause                        3.2                 80d28bedfe5d        10 months ago       683kB
+node                                    12.2.0-alpine       f391dabf9dce        19 months ago       77.7MB
+root@gs-hci-vm-cicd:~/chatbot-client# docker tag ldccai-registry/chatbot-server-client:2012141610 http://10.231.238.220:31000/library/chatbot-server-client:2012141610
+Error parsing reference: &ldquo;http://10.231.238.220:31000/library/chatbot-server-client:2012141610&rdquo; is not a valid repository/tag: invalid reference format
+root@gs-hci-vm-cicd:~/chatbot-client# docker tag ldccai-registry/chatbot-server-client:2012141610 10.231.238.220:31000/library/chatbot-server-client:2012141610
+root@gs-hci-vm-cicd:~/chatbot-client# docker images
+REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
+10.231.238.220:31000/library/chatbot-server-client   2012141610          743a57b3f7e0        8 minutes ago       561MB
+ldccai-registry/chatbot-server-client                2012141610          743a57b3f7e0        8 minutes ago       561MB
+jenkins/jenkins                                      lts                 1920bf702d7d        12 days ago         713MB
+kiwigrid/k8s-sidecar                                 0.1.275             4cbe191ff8a1        4 weeks ago         86MB
+k8s.gcr.io/kube-proxy                                v1.18.6             c3d62d6fe412        5 months ago        117MB
+weaveworks/weave-npc                                 2.6.5               420d4d5aac6f        6 months ago        36.8MB
+weaveworks/weave-kube                                2.6.5               e9dd2f85e51b        6 months ago        123MB
+k8s.gcr.io/pause                                     3.2                 80d28bedfe5d        10 months ago       683kB
+node                                                 12.2.0-alpine       f391dabf9dce        19 months ago       77.7MB
+root@gs-hci-vm-cicd:~/chatbot-client# docker push 10.231.238.220:31000/library/chatbot-server-client:2012141610
+The push refers to repository [10.231.238.220:31000/library/chatbot-server-client]
+8345e8881dd0: Pushed
+5283c19fe222: Pushed
+374955a1cffa: Pushed
+f6cc7537fab1: Pushed
+b7ceb6c9e50e: Pushed
+59b74033df85: Pushed
+917da41f96aa: Pushed
+7d6e2801765d: Pushed
+f1b5933fe4b5: Pushed
+2012141610: digest: sha256:0bb6173a94f220e32afa30c921d61c5f7e3f80a3913068720a04a1b25d937710 size: 2214
+root@gs-hci-vm-cicd:~/chatbot-client#</p>
+<pre><code># kubectl create secret docker-registry ldccai --docker-server=http://10.231.238.220:31000/library --docker-username=admin --docker-password='Harbor12345' --docker-email=&quot;healin.yoon@lotte.net&quot;
+secret/ldccai created
+
+# kubectl get secret
+NAME                  TYPE                                  DATA   AGE
+ldccai                kubernetes.io/dockerconfigjson        1      6s
+</code></pre>
 
     </div>
     <div class="article-footer">
