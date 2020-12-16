@@ -39,7 +39,7 @@
 <meta itemprop="description" content="이슈 Jenkins Kubernetes 플러그인을 사용하여 Jenkins Slave Pod를 배포하려고 하는 데 아래와 같은 에러가 계속 발생했다. {pod name} is offline 또는 Pod 재시작 무한 반복 Still waiting to schedule task &ldquo;Jenkins doesn&rsquo;t have label {pod name} Pod">
 <meta itemprop="datePublished" content="2020-12-16T16:40:24+09:00" />
 <meta itemprop="dateModified" content="2020-12-16T16:40:24+09:00" />
-<meta itemprop="wordCount" content="485">
+<meta itemprop="wordCount" content="492">
 
 
 
@@ -332,7 +332,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/12/20201216_k8s_troubleshooting_4/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 485words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 492words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1minutes </span>
       </div>
     </div>
@@ -368,7 +368,7 @@ java.io.IOException: http://x.x.x.x:31122/ provided port:50000 is not reachable
 	at hudson.remoting.Engine.innerRun(Engine.java:693)
 	at hudson.remoting.Engine.run(Engine.java:518)
 </code></pre>
-<p><code>SEVERE: http://x.x.x.x:31122/ provided port:50000 is not reachable</code> = 즉 jenkins agent에 연결이 안된다는 것..</p>
+<p><code>SEVERE: http://x.x.x.x:31122/ provided port:50000 is not reachable</code> = <strong>즉 jenkins-agent에 연결이 안된다는 것..</strong></p>
 <h1 id="해결-방법">해결 방법</h1>
 <p>[Jenkins 관리] &gt; [시스템 설정] &gt; [Cloud(The cloud configuration has moves to a separate configuration page)]에 접근하여 아래와 같이 설정해준다.</p>
 <p><img src="/images/20201214_k8s_ci_cd/set-k8s-plugin1.png" alt="">
