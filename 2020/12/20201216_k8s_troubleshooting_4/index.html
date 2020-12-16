@@ -39,7 +39,7 @@
 <meta itemprop="description" content="이슈 Jenkins Kubernetes 플러그인을 사용하여 Jenkins Slave Pod를 배포하려고 하는 데 아래와 같은 에러가 계속 발생했다. {pod name} is offline 또는 Pod 재시작 무한 반복 Still waiting to schedule task &ldquo;Jenkins doesn&rsquo;t have label {pod name} Pod">
 <meta itemprop="datePublished" content="2020-12-16T16:40:24+09:00" />
 <meta itemprop="dateModified" content="2020-12-16T16:40:24+09:00" />
-<meta itemprop="wordCount" content="492">
+<meta itemprop="wordCount" content="529">
 
 
 
@@ -332,8 +332,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/12/20201216_k8s_troubleshooting_4/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 492words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 529words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -385,6 +385,12 @@ jenkins-agent    ClusterIP   10.109.207.50    &lt;none&gt;        50000/TCP     
 <p>이제 아름답게 잘된다..</p>
 <p><img src="/images/20201216_k8s_troubleshooting_4/good1.png" alt="">
 <img src="/images/20201216_k8s_troubleshooting_4/good2.png" alt=""></p>
+<p>개인적으로 coreDNS의 의의를 절실히 배우게 해준 문제 해결이었다..</p>
+<h1 id="참고">참고</h1>
+<ul>
+<li><a href="https://stackoverflow.com/questions/59931004/kubernetes-jenkins-slave-doesnt-see-master">https://stackoverflow.com/questions/59931004/kubernetes-jenkins-slave-doesnt-see-master</a></li>
+<li><a href="https://github.com/keptn/keptn/issues/226">https://github.com/keptn/keptn/issues/226</a></li>
+</ul>
 
     </div>
     <div class="article-footer">
