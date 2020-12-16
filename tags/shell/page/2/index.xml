@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>About</title>
+      <link>https://healinyoon.github.io/about/</link>
+      <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://healinyoon.github.io/about/</guid>
+      <description>배우는 것을 좋아하는 3년차 개발자 입니다. 주요 기술 Linux Infrastructure DevOps 프로젝트</description>
+    </item>
+    
+    <item>
       <title>Shell Scripts 사용하기</title>
       <link>https://healinyoon.github.io/2019/06/20190602_shell_script/</link>
       <pubDate>Sun, 02 Jun 2019 18:35:16 +0900</pubDate>

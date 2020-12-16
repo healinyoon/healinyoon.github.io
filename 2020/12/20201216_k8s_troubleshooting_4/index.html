@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        Kubernets(쿠버네티스) Troubleshooting (4) - Jenkins Agent로 Slave Pod가 뜨지 않고 계속 죽을 때 - ringu blog
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="이슈 Jenkins Kubernetes 플러그인을 사용하여 Jenkins Slave Pod를 배포하려고 하는 데 아래와 같은 에러가 계속 발생했다. {pod name} is offline 또는 Pod 재시작 무한 반복 Still waiting to schedule task &amp;ldquo;Jenkins doesn&amp;rsquo;t have label {pod name} Pod" />
+    <meta name="generator" content="Hugo 0.74.3 with theme pure" />
+    <title>Kubernets(쿠버네티스) Troubleshooting (4) - Jenkins Agent로 Slave Pod가 뜨지 않고 계속 죽을 때 - ringu blog</title>
+    
+    
+    <link rel="stylesheet" href="https://healinyoon.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="Kubernets(쿠버네티스) Troubleshooting (4) - Jenkins Agent로 Slave Pod가 뜨지 않고 계속 죽을 때" />
+<meta property="og:description" content="이슈 Jenkins Kubernetes 플러그인을 사용하여 Jenkins Slave Pod를 배포하려고 하는 데 아래와 같은 에러가 계속 발생했다. {pod name} is offline 또는 Pod 재시작 무한 반복 Still waiting to schedule task &ldquo;Jenkins doesn&rsquo;t have label {pod name} Pod" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_4/" />
+<meta property="article:published_time" content="2020-12-16T16:40:24+09:00" />
+<meta property="article:modified_time" content="2020-12-16T16:40:24+09:00" />
+<meta itemprop="name" content="Kubernets(쿠버네티스) Troubleshooting (4) - Jenkins Agent로 Slave Pod가 뜨지 않고 계속 죽을 때">
+<meta itemprop="description" content="이슈 Jenkins Kubernetes 플러그인을 사용하여 Jenkins Slave Pod를 배포하려고 하는 데 아래와 같은 에러가 계속 발생했다. {pod name} is offline 또는 Pod 재시작 무한 반복 Still waiting to schedule task &ldquo;Jenkins doesn&rsquo;t have label {pod name} Pod">
+<meta itemprop="datePublished" content="2020-12-16T16:40:24+09:00" />
+<meta itemprop="dateModified" content="2020-12-16T16:40:24+09:00" />
+<meta itemprop="wordCount" content="485">
+
+
+
+<meta itemprop="keywords" content="docker,kubernetes,troubleshooting," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kubernets(쿠버네티스) Troubleshooting (4) - Jenkins Agent로 Slave Pod가 뜨지 않고 계속 죽을 때"/>
+<meta name="twitter:description" content="이슈 Jenkins Kubernetes 플러그인을 사용하여 Jenkins Slave Pod를 배포하려고 하는 데 아래와 같은 에러가 계속 발생했다. {pod name} is offline 또는 Pod 재시작 무한 반복 Still waiting to schedule task &ldquo;Jenkins doesn&rsquo;t have label {pod name} Pod"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/healinyoon" target="_blank">
+            <img class="img-circle img-rotate" src="https://healinyoon.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">rin gu</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">A Developer</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Seoul, Korea</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/blog/" class="category-list-link">blog</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/ci/cd/" class="category-list-link">ci/cd</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/cloud/" class="category-list-link">cloud</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/devops/" class="category-list-link">devops</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/gpu/" class="category-list-link">gpu</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/jvm/" class="category-list-link">jvm</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/msa/" class="category-list-link">msa</a><span class="category-list-count">12</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/networks/" class="category-list-link">networks</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/programming/" class="category-list-link">programming</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/azure/" class="tag-list-link">azure</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">11</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/gitlab/" class="tag-list-link">gitlab</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/go/" class="tag-list-link">go</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/helm/" class="tag-list-link">helm</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/hugo/" class="tag-list-link">hugo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/jenkins/" class="tag-list-link">jenkins</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/kubernetes/" class="tag-list-link">kubernetes</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/openjdk/" class="tag-list-link">openjdk</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/shell/" class="tag-list-link">shell</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/troubleshooting/" class="tag-list-link">troubleshooting</a><span
+                    class="tag-list-count">4</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_4/" class="title">Kubernets(쿠버네티스) Troubleshooting (4) - Jenkins Agent로 Slave Pod가 뜨지 않고 계속 죽을 때</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-16 16:40:24 &#43;0900 KST" itemprop="datePublished">2020-12-16</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/" class="title">Kubernetes CI/CD 구축기 (1) - Kubernetes CI 구축하기</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-14 11:50:39 &#43;0900 KST" itemprop="datePublished">2020-12-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://healinyoon.github.io/2020/12/20201214_k8s_troubleshooting_3/" class="title">Kubernets(쿠버네티스) Troubleshooting (3) - Pod STATUS가 Running되지 않고 Error 또는 CrashLoopBackOff을 반복할 때</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-14 11:50:39 &#43;0900 KST" itemprop="datePublished">2020-12-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_2/" class="title">Kubernets(쿠버네티스) Troubleshooting (2) - Node가 NotReady됐는데 docker가 죽어있을 때</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-09 16:11:19 &#43;0900 KST" itemprop="datePublished">2020-12-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_1/" class="title">Kubernets(쿠버네티스) Troubleshooting (1) - PV Terminating에서 멈출 때</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-09 10:56:19 &#43;0900 KST" itemprop="datePublished">2020-12-09</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/12/20201216_k8s_troubleshooting_4/"
+    >Kubernets(쿠버네티스) Troubleshooting (4) - Jenkins Agent로 Slave Pod가 뜨지 않고 계속 죽을 때</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_4/" class="article-date">
+  <time datetime="2020-12-16 16:40:24 &#43;0900 KST" itemprop="datePublished">2020-12-16</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/msa/"> msa </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/docker/"> docker </a>
+    <a class="article-tag-link" href="/tags/kubernetes/"> kubernetes </a>
+    <a class="article-tag-link" href="/tags/troubleshooting/"> troubleshooting </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/12/20201216_k8s_troubleshooting_4/#comments"
+            class="article-comment-link">Comments</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 485words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="이슈">이슈</h1>
+<p>Jenkins Kubernetes 플러그인을 사용하여 Jenkins Slave Pod를 배포하려고 하는 데 아래와 같은 에러가 계속 발생했다.</p>
+<h3 id="pod-name-is-offline-또는-pod-재시작-무한-반복">{pod name} is offline 또는 Pod 재시작 무한 반복</h3>
+<p><img src="/images/20201216_k8s_troubleshooting_4/error1.png" alt=""></p>
+<h3 id="still-waiting-to-schedule-task-jenkins-doesnt-have-label-pod-name">Still waiting to schedule task &ldquo;Jenkins doesn&rsquo;t have label {pod name}</h3>
+<p><img src="/images/20201216_k8s_troubleshooting_4/error2.png" alt=""></p>
+<p>Pod가 배포된 노드에서 <code>docker logs {container name}</code> 명령어로 컨테이너 로그를 확인해보니 다음과 같은 내용이 출력되었다.</p>
+<pre><code># docker logs 53e57b2202c7
+Dec 16, 2020 8:32:45 AM hudson.remoting.jnlp.Main createEngine
+INFO: Setting up agent: k8s-pipeline-chatbot-pipeline-24-c8mmg-r47mn-mgpnd
+Dec 16, 2020 8:32:45 AM hudson.remoting.jnlp.Main$CuiListener &lt;init&gt;
+INFO: Jenkins agent is running in headless mode.
+Dec 16, 2020 8:32:45 AM hudson.remoting.Engine startEngine
+INFO: Using Remoting version: 4.3
+Dec 16, 2020 8:32:45 AM org.jenkinsci.remoting.engine.WorkDirManager initializeWorkDir
+INFO: Using /home/jenkins/agent/remoting as a remoting work directory
+Dec 16, 2020 8:32:45 AM org.jenkinsci.remoting.engine.WorkDirManager setupLogging
+INFO: Both error and output logs will be printed to /home/jenkins/agent/remoting
+Dec 16, 2020 8:32:46 AM hudson.remoting.jnlp.Main$CuiListener status
+INFO: Locating server among [http://x.x.x.x:31122/]
+Dec 16, 2020 8:32:46 AM org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver resolve
+INFO: Remoting server accepts the following protocols: [JNLP4-connect, Ping]
+Dec 16, 2020 8:32:46 AM org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver isPortVisible
+WARNING: Connection refused (Connection refused)
+Dec 16, 2020 8:32:46 AM hudson.remoting.jnlp.Main$CuiListener error
+SEVERE: http://x.x.x.x:31122/ provided port:50000 is not reachable
+java.io.IOException: http://x.x.x.x:31122/ provided port:50000 is not reachable
+	at org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver.resolve(JnlpAgentEndpointResolver.java:314)
+	at hudson.remoting.Engine.innerRun(Engine.java:693)
+	at hudson.remoting.Engine.run(Engine.java:518)
+</code></pre>
+<p><code>SEVERE: http://x.x.x.x:31122/ provided port:50000 is not reachable</code> = 즉 jenkins agent에 연결이 안된다는 것..</p>
+<h1 id="해결-방법">해결 방법</h1>
+<p>[Jenkins 관리] &gt; [시스템 설정] &gt; [Cloud(The cloud configuration has moves to a separate configuration page)]에 접근하여 아래와 같이 설정해준다.</p>
+<p><img src="/images/20201214_k8s_ci_cd/set-k8s-plugin1.png" alt="">
+<img src="/images/20201214_k8s_ci_cd/set-k8s-plugin2.png" alt=""></p>
+<p>중요한 점은 jenkins-agent pod는 아래와 같이 <code>ClusterIP</code> serviceType으로 배포되어 있기 때문에 <strong>coreDNS</strong>로 Jenkins tunnel을 입력해줘야 한다는 것이다!! coreDNS 형식은 <code>{svc name}.{namespace}.svc.cluster.local:50000</code></p>
+<pre><code># kubectl get svc -n jenkins -o wide
+NAME             TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE    SELECTOR
+jenkins          NodePort    10.107.89.164    &lt;none&gt;        8080:31122/TCP   6d2h   app.kubernetes.io/component=jenkins-controller,app.kubernetes.io/instance=jenkins
+jenkins-agent    ClusterIP   10.109.207.50    &lt;none&gt;        50000/TCP        6d2h   app.kubernetes.io/component=jenkins-controller,app.kubernetes.io/instance=jenkins
+</code></pre>
+<blockquote>
+<p>Jenkins tunnel: Connect to the specified host and port, instead of connecting directly to Jenkins. Useful when connection to Jenkins needs to be tunneled. Can be also HOST: or :PORT, in which case the missing portion will be auto-configured like the default behavior</p>
+</blockquote>
+<p>이제 아름답게 잘된다..</p>
+<p><img src="/images/20201214_k8s_ci_cd/good1.png" alt="">
+<img src="/images/20201214_k8s_ci_cd/good2.png" alt=""></p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_4/" title="Kubernets(쿠버네티스) Troubleshooting (4) - Jenkins Agent로 Slave Pod가 뜨지 않고 계속 죽을 때" target="_blank" rel="external">https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_4/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/healinyoon" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://healinyoon.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/healinyoon" target="_blank"><span class="text-dark">rin gu</span><small class="ml-1x">A Developer</small></a></h3>
+        <div>Linux, Infrastructure, DevOps</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/" title="Kubernetes CI/CD 구축기 (1) - Kubernetes CI 구축하기"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/healinyoon" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://healinyoon.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2020
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://healinyoon.github.io/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
+<script src="https://healinyoon.github.io/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/healinyoon.github.io',
+            CONTENT_URL: 'https:\/\/healinyoon.github.io\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://healinyoon.github.io/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

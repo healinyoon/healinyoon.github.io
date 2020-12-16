@@ -5,10 +5,19 @@
     <link>https://healinyoon.github.io/</link>
     <description>Recent content on ringu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 14 Dec 2020 11:50:39 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 16 Dec 2020 16:40:24 +0900</lastBuildDate>
     
         <atom:link href="https://healinyoon.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>About</title>
+      <link>https://healinyoon.github.io/about/</link>
+      <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://healinyoon.github.io/about/</guid>
+      <description>배우는 것을 좋아하는 3년차 개발자 입니다. 주요 기술 Linux Infrastructure DevOps 프로젝트</description>
+    </item>
     
     <item>
       <title>Shell Scripts 사용하기</title>

@@ -39,7 +39,7 @@
 <meta itemprop="description" content="Intro Kubernetes CI/CD 구축기 (1) - Kubernetes CI 구축하기 목차 Helm으로 Jenkins를 Kubernetes에 배포하기 Kubernetes와 Docker Private Resistry 연동하기 Gitlab과">
 <meta itemprop="datePublished" content="2020-12-14T11:50:39+09:00" />
 <meta itemprop="dateModified" content="2020-12-14T11:50:39+09:00" />
-<meta itemprop="wordCount" content="2523">
+<meta itemprop="wordCount" content="2718">
 
 
 
@@ -164,7 +164,7 @@
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/gpu/" class="category-list-link">gpu</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/jvm/" class="category-list-link">jvm</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">2</span></li>
-            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/msa/" class="category-list-link">msa</a><span class="category-list-count">11</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/msa/" class="category-list-link">msa</a><span class="category-list-count">12</span></li>
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/networks/" class="category-list-link">networks</a><span class="category-list-count">2</span></li>
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/programming/" class="category-list-link">programming</a><span class="category-list-count">1</span></li>
         </ul>
@@ -181,7 +181,7 @@
             
             
             <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/docker/" class="tag-list-link">docker</a><span
-                    class="tag-list-count">10</span></li>
+                    class="tag-list-count">11</span></li>
             
             
             <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/gitlab/" class="tag-list-link">gitlab</a><span
@@ -209,7 +209,7 @@
             
             
             <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/kubernetes/" class="tag-list-link">kubernetes</a><span
-                    class="tag-list-count">8</span></li>
+                    class="tag-list-count">9</span></li>
             
             
             <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/openjdk/" class="tag-list-link">openjdk</a><span
@@ -221,7 +221,7 @@
             
             
             <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/troubleshooting/" class="tag-list-link">troubleshooting</a><span
-                    class="tag-list-count">3</span></li>
+                    class="tag-list-count">4</span></li>
             
         </ul>
 
@@ -232,6 +232,16 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_4/" class="title">Kubernets(쿠버네티스) Troubleshooting (4) - Jenkins Agent로 Slave Pod가 뜨지 않고 계속 죽을 때</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-16 16:40:24 &#43;0900 KST" itemprop="datePublished">2020-12-16</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -269,16 +279,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2020-12-09 10:56:19 &#43;0900 KST" itemprop="datePublished">2020-12-09</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://healinyoon.github.io/2020/12/%EC%9E%91%EC%84%B1%EC%A4%9120201201_ip_address_subnets_cidr/" class="title">네트워킹을 위한 IP address, Subnet, CIDR 표기법 이해하기</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-12-01 13:13:54 &#43;0900 KST" itemprop="datePublished">2020-12-01</time>
                     </p>
                 </div>
             </li>
@@ -335,7 +335,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/12/20201214_k8s_ci_cd/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2523words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2718words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 6minutes </span>
       </div>
     </div>
@@ -682,45 +682,50 @@ Events:
 <li>pipeline</li>
 <li>kubernetes</li>
 </ul>
+<h4 id="2-jenkins-kubernetes-플러그인-설정">2. Jenkins Kubernetes 플러그인 설정</h4>
+<p>여기서 정말 엄청 헤맸다 ㅠㅠ.</p>
+<p>[Jenkins 관리] &gt; [시스템 설정] &gt; [Cloud(The cloud configuration has moves to a separate configuration page)]에 접근하여 아래와 같이 설정해준다.</p>
+<p><img src="/images/20201214_k8s_ci_cd/set-k8s-plugin1.png" alt="">
+<img src="/images/20201214_k8s_ci_cd/set-k8s-plugin2.png" alt=""></p>
+<p>중요한 점은 jenkins-agent pod는 아래와 같이 <code>ClusterIP</code> serviceType으로 배포되어 있기 때문에 <strong>coreDNS</strong>로 Jenkins tunnel을 입력해줘야 한다는 점이다!!</p>
+<pre><code># kubectl get svc -n jenkins -o wide
+NAME             TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE    SELECTOR
+jenkins          NodePort    10.107.89.164    &lt;none&gt;        8080:31122/TCP   6d2h   app.kubernetes.io/component=jenkins-controller,app.kubernetes.io/instance=jenkins
+jenkins-agent    ClusterIP   10.109.207.50    &lt;none&gt;        50000/TCP        6d2h   app.kubernetes.io/component=jenkins-controller,app.kubernetes.io/instance=jenkins
+</code></pre>
+<blockquote>
+<p>Jenkins tunnel: Connect to the specified host and port, instead of connecting directly to Jenkins. Useful when connection to Jenkins needs to be tunneled. Can be also HOST: or :PORT, in which case the missing portion will be auto-configured like the default behavior</p>
+</blockquote>
+<h4 id="3-jenkins-kubernetes-플러그인-테스트">3. Jenkins Kubernetes 플러그인 테스트</h4>
 <h3 id="ci를-위한-jenkinsfile-작성하기">CI를 위한 Jenkinsfile 작성하기</h3>
 <h4 id="1-jenkinsfile-작성">1. Jenkinsfile 작성</h4>
-<pre><code>podTemplate(containers: [
-    containerTemplate(name: 'chatbot-server-client', image: 'ldccai-registry/library/chatbot-server-client', ttyEnabled: true, command: 'cat'),
-    containerTemplate(name: 'golang', image: 'golang:1.8.0', ttyEnabled: true, command: 'cat')
+<pre><code>podTemplate(
+    containers: [
+        containerTemplate(name: 'chatbot-container', image: 'docker', ttyEnabled: true, command: 'cat'),
   ]) {
 
     node(POD_LABEL) {
-        stage('Get a Maven project') {
-            git 'https://github.com/jenkinsci/kubernetes-plugin.git'
-            container('maven') {
-                stage('Build a Maven project') {
-                    sh 'mvn -B clean install'
+        stage('Get a chatbot project') {
+            git branch: 'chatbot/pages-link',
+                credentialsId: 'gitlab',
+                url: 'https://ldccai.lotte.net/gitlab/newdeal-chatbot/chatbot-client.git'
+            container('chatbot-container') {
+                stage('Build a chatbot project') {
+                    sh 'docker login 10.231.238.220:31000 -uadmin -pHarbor12345'
+                    sh 'docker build -t 10.231.238.220:31000/library/test-chatbot .'
+                    sh 'docker push 10.231.238.220:31000/library/test-chatbot'
                 }
             }
         }
-
-        stage('Get a Golang project') {
-            git url: 'https://github.com/hashicorp/terraform.git'
-            container('golang') {
-                stage('Build a Go project') {
-                    sh &quot;&quot;&quot;
-                    mkdir -p /go/src/github.com/hashicorp
-                    ln -s `pwd` /go/src/github.com/hashicorp/terraform
-                    cd /go/src/github.com/hashicorp/terraform &amp;&amp; make core-dev
-                    &quot;&quot;&quot;
-                }
-            }
-        }
-
     }
 }
-
 </code></pre>
 <h1 id="참고">참고</h1>
 <h3 id="helm으로-jenkins를-kubernetes에-배포하기-1">Helm으로 Jenkins를 Kubernetes에 배포하기</h3>
 <ul>
 <li><a href="https://m.blog.naver.com/alice_k106/221562805601">https://m.blog.naver.com/alice_k106/221562805601</a></li>
 <li><a href="https://velog.io/@hamon/Kubernetes-Cluster%EC%97%90-Jenkins-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0">https://velog.io/@hamon/Kubernetes-Cluster%EC%97%90-Jenkins-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0</a></li>
+<li><a href="https://mathieuherbert.github.io/kubernetes/jenkins/2018/01/04/jenkins-on-kubernetes.html">https://mathieuherbert.github.io/kubernetes/jenkins/2018/01/04/jenkins-on-kubernetes.html</a></li>
 </ul>
 <h3 id="kubernetes와-docker-private-resistry-연동하기-1">Kubernetes와 Docker Private Resistry 연동하기</h3>
 <ul>
@@ -730,10 +735,12 @@ Events:
 <li><a href="https://blog.uniqbuild.co.kr/?p=724">https://blog.uniqbuild.co.kr/?p=724</a></li>
 <li><a href="https://support.cloudz.co.kr/ko/support/solutions/articles/42000042543-image-registry-public-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B4%80%EB%A6%AC">https://support.cloudz.co.kr/ko/support/solutions/articles/42000042543-image-registry-public-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B4%80%EB%A6%AC</a></li>
 <li><a href="https://velog.io/@tkfrn4799/Harbor%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Private-Docker-Registry-%EA%B5%AC%EC%B6%95">https://velog.io/@tkfrn4799/Harbor%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Private-Docker-Registry-%EA%B5%AC%EC%B6%95</a></li>
+<li><a href="https://engineering.linecorp.com/ko/blog/harbor-for-private-docker-registry/">https://engineering.linecorp.com/ko/blog/harbor-for-private-docker-registry/</a></li>
 </ul>
 <h3 id="gitlab과-jenkins를-사용하여-kubernetes-애플리케이션-배포하기-1">Gitlab과 Jenkins를 사용하여 Kubernetes 애플리케이션 배포하기</h3>
 <ul>
-<li></li>
+<li><a href="https://stackoverflow.com/questions/38461705/checkout-jenkins-pipeline-git-scm-with-credentials">https://stackoverflow.com/questions/38461705/checkout-jenkins-pipeline-git-scm-with-credentials</a></li>
+<li><a href="https://stackoverflow.com/questions/38969044/jenkins-kubernetes-jenkins-slave-node-is-offline">https://stackoverflow.com/questions/38969044/jenkins-kubernetes-jenkins-slave-node-is-offline</a></li>
 </ul>
 <h1 id="docker-images">docker images</h1>
 <p>REPOSITORY                              TAG                 IMAGE ID            CREATED             SIZE
@@ -821,6 +828,11 @@ ldccai                kubernetes.io/dockerconfigjson        1      6s
                 <a href="https://healinyoon.github.io/2020/12/20201214_k8s_troubleshooting_3/" title="Kubernets(쿠버네티스) Troubleshooting (3) - Pod STATUS가 Running되지 않고 Error 또는 CrashLoopBackOff을 반복할 때"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_4/"
+                    title="Kubernets(쿠버네티스) Troubleshooting (4) - Jenkins Agent로 Slave Pod가 뜨지 않고 계속 죽을 때"><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">
