@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-        Kubernets(쿠버네티스) Troubleshooting (3) - Pod STATUS가 Running되지 않고 Error 또는 CrashLoopBackOff을 반복할 때 - ringu blog
+        Kubernets(쿠버네티스) Troubleshooting (5) - docker login 안될 때 Cannot autolaunch D-Bus without X11 $DISPLAY - ringu blog
       </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,33 +20,33 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="이슈 Jenkins를 Helm으로 설치하는 과정에서 발생한 이슈이다. 컨테이너 초기화가 계속 실패했는데, 아래와 같이 STATUS가 Running이 되지" />
+    <meta name="description" content="이슈 # docker login 10.231.238.220:31000 Username: admin Password: Error saving credentials: error storing credentials - err: exit status 1, out: `Cannot autolaunch D-Bus without X11 $DISPLAY` 해결 방법 # sudo apt remove golang-docker-credential-helpers Reading package lists... Done Building dependency tree Reading state information... Done The following packages were automatically installed and are no longer required: libpython-stdlib python python-asn1crypto python-backports.ssl-match-hostname python-cached-property python-certifi python-cffi-backend python-chardet python-cryptography python-dockerpty python-docopt python-enum34" />
     <meta name="generator" content="Hugo 0.74.3 with theme pure" />
-    <title>Kubernets(쿠버네티스) Troubleshooting (3) - Pod STATUS가 Running되지 않고 Error 또는 CrashLoopBackOff을 반복할 때 - ringu blog</title>
+    <title>Kubernets(쿠버네티스) Troubleshooting (5) - docker login 안될 때 Cannot autolaunch D-Bus without X11 $DISPLAY - ringu blog</title>
     
     
     <link rel="stylesheet" href="https://healinyoon.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="Kubernets(쿠버네티스) Troubleshooting (3) - Pod STATUS가 Running되지 않고 Error 또는 CrashLoopBackOff을 반복할 때" />
-<meta property="og:description" content="이슈 Jenkins를 Helm으로 설치하는 과정에서 발생한 이슈이다. 컨테이너 초기화가 계속 실패했는데, 아래와 같이 STATUS가 Running이 되지" />
+    <meta property="og:title" content="Kubernets(쿠버네티스) Troubleshooting (5) - docker login 안될 때 Cannot autolaunch D-Bus without X11 $DISPLAY" />
+<meta property="og:description" content="이슈 # docker login 10.231.238.220:31000 Username: admin Password: Error saving credentials: error storing credentials - err: exit status 1, out: `Cannot autolaunch D-Bus without X11 $DISPLAY` 해결 방법 # sudo apt remove golang-docker-credential-helpers Reading package lists... Done Building dependency tree Reading state information... Done The following packages were automatically installed and are no longer required: libpython-stdlib python python-asn1crypto python-backports.ssl-match-hostname python-cached-property python-certifi python-cffi-backend python-chardet python-cryptography python-dockerpty python-docopt python-enum34" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://healinyoon.github.io/2020/12/20201214_k8s_troubleshooting_3/" />
-<meta property="article:published_time" content="2020-12-14T11:50:39+09:00" />
-<meta property="article:modified_time" content="2020-12-14T11:50:39+09:00" />
-<meta itemprop="name" content="Kubernets(쿠버네티스) Troubleshooting (3) - Pod STATUS가 Running되지 않고 Error 또는 CrashLoopBackOff을 반복할 때">
-<meta itemprop="description" content="이슈 Jenkins를 Helm으로 설치하는 과정에서 발생한 이슈이다. 컨테이너 초기화가 계속 실패했는데, 아래와 같이 STATUS가 Running이 되지">
-<meta itemprop="datePublished" content="2020-12-14T11:50:39+09:00" />
-<meta itemprop="dateModified" content="2020-12-14T11:50:39+09:00" />
-<meta itemprop="wordCount" content="761">
+<meta property="og:url" content="https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_5/" />
+<meta property="article:published_time" content="2020-12-22T16:40:24+09:00" />
+<meta property="article:modified_time" content="2020-12-22T16:40:24+09:00" />
+<meta itemprop="name" content="Kubernets(쿠버네티스) Troubleshooting (5) - docker login 안될 때 Cannot autolaunch D-Bus without X11 $DISPLAY">
+<meta itemprop="description" content="이슈 # docker login 10.231.238.220:31000 Username: admin Password: Error saving credentials: error storing credentials - err: exit status 1, out: `Cannot autolaunch D-Bus without X11 $DISPLAY` 해결 방법 # sudo apt remove golang-docker-credential-helpers Reading package lists... Done Building dependency tree Reading state information... Done The following packages were automatically installed and are no longer required: libpython-stdlib python python-asn1crypto python-backports.ssl-match-hostname python-cached-property python-certifi python-cffi-backend python-chardet python-cryptography python-dockerpty python-docopt python-enum34">
+<meta itemprop="datePublished" content="2020-12-22T16:40:24+09:00" />
+<meta itemprop="dateModified" content="2020-12-22T16:40:24+09:00" />
+<meta itemprop="wordCount" content="205">
 
 
 
 <meta itemprop="keywords" content="docker,kubernetes,troubleshooting," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Kubernets(쿠버네티스) Troubleshooting (3) - Pod STATUS가 Running되지 않고 Error 또는 CrashLoopBackOff을 반복할 때"/>
-<meta name="twitter:description" content="이슈 Jenkins를 Helm으로 설치하는 과정에서 발생한 이슈이다. 컨테이너 초기화가 계속 실패했는데, 아래와 같이 STATUS가 Running이 되지"/>
+<meta name="twitter:title" content="Kubernets(쿠버네티스) Troubleshooting (5) - docker login 안될 때 Cannot autolaunch D-Bus without X11 $DISPLAY"/>
+<meta name="twitter:description" content="이슈 # docker login 10.231.238.220:31000 Username: admin Password: Error saving credentials: error storing credentials - err: exit status 1, out: `Cannot autolaunch D-Bus without X11 $DISPLAY` 해결 방법 # sudo apt remove golang-docker-credential-helpers Reading package lists... Done Building dependency tree Reading state information... Done The following packages were automatically installed and are no longer required: libpython-stdlib python python-asn1crypto python-backports.ssl-match-hostname python-cached-property python-certifi python-cffi-backend python-chardet python-cryptography python-dockerpty python-docopt python-enum34"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -298,8 +298,8 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2020/12/20201214_k8s_troubleshooting_3/"
-    >Kubernets(쿠버네티스) Troubleshooting (3) - Pod STATUS가 Running되지 않고 Error 또는 CrashLoopBackOff을 반복할 때</a
+    href="/2020/12/20201216_k8s_troubleshooting_5/"
+    >Kubernets(쿠버네티스) Troubleshooting (5) - docker login 안될 때 Cannot autolaunch D-Bus without X11 $DISPLAY</a
   >
 </h1>
 
@@ -307,8 +307,8 @@
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://healinyoon.github.io/2020/12/20201214_k8s_troubleshooting_3/" class="article-date">
-  <time datetime="2020-12-14 11:50:39 &#43;0900 KST" itemprop="datePublished">2020-12-14</time>
+<a href="https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_5/" class="article-date">
+  <time datetime="2020-12-22 16:40:24 &#43;0900 KST" itemprop="datePublished">2020-12-22</time>
 </a>
 </span>
 <span class="article-category">
@@ -322,110 +322,56 @@
     <a class="article-tag-link" href="/tags/troubleshooting/"> troubleshooting </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/12/20201214_k8s_troubleshooting_3/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/12/20201216_k8s_troubleshooting_5/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 761words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 205words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       <h1 id="이슈">이슈</h1>
-<p>Jenkins를 Helm으로 설치하는 과정에서 발생한 이슈이다. 컨테이너 초기화가 계속 실패했는데, 아래와 같이 <code>STATUS</code>가 Running이 되지 않고 CrashLoopBackOff 또는 Error가 되는 것이다. 일단 <code>Init:0/1</code>은 &lsquo;초기화 컨테이너라는 것&rsquo;인데 자세한 내용은 아래의 공식 문서를 참고하자.</p>
-<pre><code># kubectl get all -n jenkins
-NAME                                         READY   STATUS     RESTARTS   AGE
-pod/jenkins-0                                0/2     Init:0/1   0          4m31s
-</code></pre>
-<ul>
-<li><a href="https://kubernetes.io/ko/docs/concepts/workloads/pods/init-containers/">https://kubernetes.io/ko/docs/concepts/workloads/pods/init-containers/</a></li>
-<li><a href="https://kubernetes.io/ko/docs/tasks/debug-application-cluster/debug-init-containers/">https://kubernetes.io/ko/docs/tasks/debug-application-cluster/debug-init-containers/</a></li>
-</ul>
-<pre><code># kubectl get all -n jenkins
-NAME             READY   STATUS                 RESTARTS   AGE
-pod/jenkins-0   0/2     Init:CrashLoopBackOff   4          8m45s
-
-</code></pre>
-<p>여기서 중요한 포인트는 <code>Running</code>이 안되고 <code>Init:0/1</code> -&gt; <code>CrashLoopBackOff</code> -&gt; <code>Error</code>를 반복한다는 것이다.</p>
-<p><code>kubectl describe</code> 명령어로 Event를 확인하면 container init 과정에서 계속 에러가 발생한다.</p>
-<pre><code># kubectl describe pod jenkins-0 -n jenkins
-Name:         jenkins-0
-Namespace:    jenkins
-Priority:     0
-Node:         ringu/x.x.x.x
-Start Time:   Wed, 09 Dec 2020 20:19:26 +0900
-Labels:       app.kubernetes.io/component=jenkins-controller
-              app.kubernetes.io/instance=jenkins
-              app.kubernetes.io/managed-by=Helm
-              app.kubernetes.io/name=jenkins
-              controller-revision-hash=jenkins-584bd849f4
-              statefulset.kubernetes.io/pod-name=jenkins-0
-
-(중략)
-
-Events:
-  Type     Reason     Age                            From                Message
-  ----     ------     ----                           ----                -------
-  Normal   Scheduled  8m51s                          default-scheduler   Successfully assigned jenkins/jenkins-0 to ringu
-  Normal   Started    &lt;invalid&gt; (x4 over &lt;invalid&gt;)  kubelet, ringu      Started container init
-  Warning  BackOff    &lt;invalid&gt; (x7 over &lt;invalid&gt;)  kubelet, ringu      Back-off restarting failed container
-  Normal   Pulling    &lt;invalid&gt; (x5 over &lt;invalid&gt;)  kubelet, ringu      Pulling image &quot;jenkins/jenkins:lts&quot;
-  Normal   Pulled     &lt;invalid&gt; (x5 over &lt;invalid&gt;)  kubelet, ringu      Successfully pulled image &quot;jenkins/jenkins:lts&quot;
-  Normal   Created    &lt;invalid&gt; (x5 over &lt;invalid&gt;)  kubelet, ringu      Created container init
-</code></pre>
-<p>이를 해결하기 위해서 node에 접근해서 container 로그를 확인해봤다.</p>
-<pre><code># docker logs 0150155f58e9
-Downloading plugin workflow-durable-task-step from url: https://updates.jenkins.io/download/plugins/workflow-durable-task-step/2.37/workflow-durable-task-step.hpi
-Downloaded file is not a valid ZIP
-Unable to download workflow-support
-</code></pre>
-<p>특정 플러그인을 설치하는데만 문제가 발생하나 싶어서 로그를 계속 확인해봤는데 &lsquo;특정 플러그인에서만 발생하는 이슈는 아님&rsquo;</p>
-<p>플러그인 다운로드의 시간이 livenessProbe와 startupProbe에 설정한 시간을 초과하는 건가 싶어서 설정 조정 후 <code>helm upgrade</code>를 시도했으나, 여전히 안됐다.</p>
-<blockquote>
-<p>(참고) Helm Release Upgrade</p>
-</blockquote>
-<pre><code># helm upgrade -f jenkins-values.yaml jenkins jenkins/jenkins --namespace=jenkins
+<pre><code># docker login 10.231.238.220:31000
+Username: admin
+Password:
+Error saving credentials: error storing credentials - err: exit status 1, out: `Cannot autolaunch D-Bus without X11 $DISPLAY`
 </code></pre>
 <h1 id="해결-방법">해결 방법</h1>
-<p>결국 Plugin을 초기화할 때 설치하지 않도록 jenkins-values.yaml에서 주석 처리했다.</p>
-<blockquote>
-<p>jenkins-values.yaml</p>
-</blockquote>
-<pre><code>변경 전
-installPlugins:
-    - kubernetes:1.27.6
-    - workflow-aggregator:2.6
-    - git:4.4.5
-    - configuration-as-code:1.46
-변경 후
-installPlugins:
-   # - kubernetes:1.27.6
-   # - workflow-aggregator:2.6
-   # - git:4.4.5
-   # - configuration-as-code:1.46
+<pre><code># sudo apt remove golang-docker-credential-helpers
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libpython-stdlib python python-asn1crypto python-backports.ssl-match-hostname python-cached-property python-certifi
+  python-cffi-backend python-chardet python-cryptography python-dockerpty python-docopt python-enum34 python-funcsigs
+  python-functools32 python-idna python-ipaddress python-jsonschema python-minimal python-mock python-openssl python-pbr
+  python-pkg-resources python-requests python-six python-texttable python-urllib3 python-websocket python-yaml python2.7
+  python2.7-minimal
+Use 'sudo apt autoremove' to remove them.
+The following packages will be REMOVED:
+  docker-compose golang-docker-credential-helpers python-docker python-dockerpycreds
+0 upgraded, 0 newly installed, 4 to remove and 37 not upgraded.
+After this operation, 2,438 kB disk space will be freed.
+Do you want to continue? [Y/n] y
+(Reading database ... 207323 files and directories currently installed.)
+Removing docker-compose (1.17.1-2) ...
+Removing python-docker (2.5.1-1) ...
+Removing python-dockerpycreds (0.2.1-1) ...
+Removing golang-docker-credential-helpers (0.5.0-2) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 </code></pre>
-<p>그리고 다시 helm release upgrade하면 정상 동작을 확인할 수 있다.</p>
-<pre><code># helm upgrade -f jenkins-values.yaml jenkins jenkins/jenkins --namespace=jenkins
-</code></pre>
-<pre><code># kubectl get all -n jenkins
-NAME            READY   STATUS    RESTARTS   AGE
-pod/jenkins-0   2/2     Running   0          6m20s
+<h1 id="정상-로그인-확인">정상 로그인 확인</h1>
+<pre><code># docker login {docker private registry}
+Username: admin
+Password:
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 
-NAME                    TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
-service/jenkins         NodePort    10.109.131.192   &lt;none&gt;        8080:8080/TCP   178m
-service/jenkins-agent   ClusterIP   10.99.253.235    &lt;none&gt;        50000/TCP        178m
-
-NAME                       READY   AGE
-statefulset.apps/jenkins   1/1     178m
+Login Succeeded
 </code></pre>
-<p>대신 필요한 플러그인을 설치하고 보안 설정도 해줘야 한다.</p>
-<ul>
-<li>kubernetes</li>
-<li>workflow-aggregator</li>
-<li>git</li>
-<li>configuration-as-code</li>
-</ul>
 <h1 id="참고">참고</h1>
 <ul>
-<li><a href="https://stackoverflow.com/questions/57790463/cans-initiate-jenkins-using-stable-helm">https://stackoverflow.com/questions/57790463/cans-initiate-jenkins-using-stable-helm</a></li>
+<li><a href="https://sukill.tistory.com/100">https://sukill.tistory.com/100</a></li>
 </ul>
 
     </div>
@@ -434,7 +380,7 @@ statefulset.apps/jenkins   1/1     178m
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="https://healinyoon.github.io/2020/12/20201214_k8s_troubleshooting_3/" title="Kubernets(쿠버네티스) Troubleshooting (3) - Pod STATUS가 Running되지 않고 Error 또는 CrashLoopBackOff을 반복할 때" target="_blank" rel="external">https://healinyoon.github.io/2020/12/20201214_k8s_troubleshooting_3/</a>
+      <a href="https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_5/" title="Kubernets(쿠버네티스) Troubleshooting (5) - docker login 안될 때 Cannot autolaunch D-Bus without X11 $DISPLAY" target="_blank" rel="external">https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_5/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -466,14 +412,9 @@ statefulset.apps/jenkins   1/1     178m
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://healinyoon.github.io/2020/12/20201209_k8s_troubleshooting_2/" title="Kubernets(쿠버네티스) Troubleshooting (2) - Node가 NotReady됐는데 docker가 죽어있을 때"><i
+                <a href="https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_4/" title="Kubernets(쿠버네티스) Troubleshooting (4) - Jenkins Agent로 Slave Pod가 뜨지 않고 계속 죽을 때"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
-            </li>
-            <li class="next">
-                <a href="https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_4/"
-                    title="Kubernets(쿠버네티스) Troubleshooting (4) - Jenkins Agent로 Slave Pod가 뜨지 않고 계속 죽을 때"><span>Newer&nbsp;&nbsp;</span><i
-                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">

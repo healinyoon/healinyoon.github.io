@@ -33,7 +33,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://healinyoon.github.io/" />
-<meta property="og:updated_time" content="2020-12-16T16:40:24+09:00" />
+<meta property="og:updated_time" content="2020-12-22T16:40:24+09:00" />
 <meta itemprop="name" content="ringu blog">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
@@ -150,7 +150,7 @@
     <div class="widget-body">
         <ul class="category-list">
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/blog/" class="category-list-link">blog</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/ci/cd/" class="category-list-link">ci/cd</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://healinyoon.github.io/categories/ci/cd/" class="category-list-link">ci/cd</a><span class="category-list-count">4</span></li>
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/cloud/" class="category-list-link">cloud</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/devops/" class="category-list-link">devops</a><span class="category-list-count">3</span></li>
             <li class="category-list-item"><a href="https://healinyoon.github.io/categories/gpu/" class="category-list-link">gpu</a><span class="category-list-count">1</span></li>
@@ -176,15 +176,7 @@
                     class="tag-list-count">11</span></li>
             
             
-            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/gitlab/" class="tag-list-link">gitlab</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
             <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/go/" class="tag-list-link">go</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/helm/" class="tag-list-link">helm</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -197,7 +189,7 @@
             
             
             <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/jenkins/" class="tag-list-link">jenkins</a><span
-                    class="tag-list-count">4</span></li>
+                    class="tag-list-count">3</span></li>
             
             
             <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/kubernetes/" class="tag-list-link">kubernetes</a><span
@@ -213,7 +205,7 @@
             
             
             <li class="tag-list-item"><a href="https://healinyoon.github.io/tags/troubleshooting/" class="tag-list-link">troubleshooting</a><span
-                    class="tag-list-count">4</span></li>
+                    class="tag-list-count">5</span></li>
             
         </ul>
 
@@ -227,20 +219,20 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_4/" class="title">Kubernets(쿠버네티스) Troubleshooting (4) - Jenkins Agent로 Slave Pod가 뜨지 않고 계속 죽을 때</a>
+                        <a href="https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_5/" class="title">Kubernets(쿠버네티스) Troubleshooting (5) - docker login 안될 때 Cannot autolaunch D-Bus without X11 $DISPLAY</a>
                     </p>
                     <p class="item-date">
-                        <time datetime="2020-12-16 16:40:24 &#43;0900 KST" itemprop="datePublished">2020-12-16</time>
+                        <time datetime="2020-12-22 16:40:24 &#43;0900 KST" itemprop="datePublished">2020-12-22</time>
                     </p>
                 </div>
             </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/" class="title">Kubernetes CI/CD 구축기 (1) - Kubernetes CI 구축하기</a>
+                        <a href="https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_4/" class="title">Kubernets(쿠버네티스) Troubleshooting (4) - Jenkins Agent로 Slave Pod가 뜨지 않고 계속 죽을 때</a>
                     </p>
                     <p class="item-date">
-                        <time datetime="2020-12-14 11:50:39 &#43;0900 KST" itemprop="datePublished">2020-12-14</time>
+                        <time datetime="2020-12-16 16:40:24 &#43;0900 KST" itemprop="datePublished">2020-12-16</time>
                     </p>
                 </div>
             </li>
@@ -298,6 +290,47 @@
         <h1 itemprop="name">
   <a
     class="article-title"
+    href="/2020/12/20201216_k8s_troubleshooting_5/"
+    >Kubernets(쿠버네티스) Troubleshooting (5) - docker login 안될 때 Cannot autolaunch D-Bus without X11 $DISPLAY</a
+  >
+</h1>
+
+      </div>
+      <div class="article-entry text-muted" itemprop="description">
+        이슈 # docker login 10.231.238.220:31000 Username: admin Password: Error saving credentials: error storing credentials - err: exit status 1, out: `Cannot autolaunch D-Bus without X11 $DISPLAY` 해결 방법 # sudo apt remove golang-docker-credential-helpers Reading package lists... Done Building dependency tree Reading state information... Done The following packages were automatically installed and are no longer required: libpython-stdlib python python-asn1crypto python-backports.ssl-match-hostname python-cached-property python-certifi python-cffi-backend python-chardet python-cryptography python-dockerpty python-docopt python-enum34
+      </div>
+      <p class="article-meta">
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://healinyoon.github.io/2020/12/20201216_k8s_troubleshooting_5/" class="article-date">
+  <time datetime="2020-12-22 16:40:24 &#43;0900 KST" itemprop="datePublished">2020-12-22</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/msa/"> msa </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/docker/"> docker </a>
+    <a class="article-tag-link" href="/tags/kubernetes/"> kubernetes </a>
+    <a class="article-tag-link" href="/tags/troubleshooting/"> troubleshooting </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> &nbsp;<a href="/2020/12/20201216_k8s_troubleshooting_5/#comments" class="article-comment-link">Comments</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 205words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1minutes </span>
+      </p>
+    </article>
+    <article
+      class="article article-type-page"
+      itemscope
+      itemtype="http://schema.org/BlogPosting"
+    >
+      <div class="article-header">
+        <h1 itemprop="name">
+  <a
+    class="article-title"
     href="/2020/12/20201216_k8s_troubleshooting_4/"
     >Kubernets(쿠버네티스) Troubleshooting (4) - Jenkins Agent로 Slave Pod가 뜨지 않고 계속 죽을 때</a
   >
@@ -326,52 +359,8 @@
   </span>
 
         <span class="post-comment"><i class="icon icon-comment"></i> &nbsp;<a href="/2020/12/20201216_k8s_troubleshooting_4/#comments" class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 529words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 548words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2minutes </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/2020/12/20201214_k8s_ci_cd/"
-    >Kubernetes CI/CD 구축기 (1) - Kubernetes CI 구축하기</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        Intro Kubernetes CI/CD 구축기 (1) - Kubernetes CI 구축하기 목차 Helm으로 Jenkins를 Kubernetes에 배포하기 Kubernetes와 Docker Private Resistry 연동하기 Gitlab과
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://healinyoon.github.io/2020/12/20201214_k8s_ci_cd/" class="">
-  <time datetime="2020-12-14 11:50:39 &#43;0900 KST" itemprop="datePublished">2020-12-14</time>
-</a>
-</span>
-<span class="article-category">
-  <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/msa/"> msa </a>
-  <a class="article-category-link" href="/categories/ci/cd/"> ci/cd </a>
-</span>  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/docker/"> docker </a>
-    <a class="article-tag-link" href="/tags/kubernetes/"> kubernetes </a>
-    <a class="article-tag-link" href="/tags/helm/"> helm </a>
-    <a class="article-tag-link" href="/tags/jenkins/"> jenkins </a>
-    <a class="article-tag-link" href="/tags/gitlab/"> gitlab </a>
-  </span>
-
-        <span class="post-comment"><i class="icon icon-comment"></i> &nbsp;<a href="/2020/12/20201214_k8s_ci_cd/#comments" class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2719words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 6minutes </span>
       </p>
     </article>
     <article
@@ -390,7 +379,7 @@
 
       </div>
       <div class="article-entry text-muted" itemprop="description">
-        이슈 Jenkins를 Helm으로 설치하는 과정에서 이슈가 하나 발생했다. 컨테이너 초기화가 계속 실패했는데, 아래와 같이 STATUS가 Running이
+        이슈 Jenkins를 Helm으로 설치하는 과정에서 발생한 이슈이다. 컨테이너 초기화가 계속 실패했는데, 아래와 같이 STATUS가 Running이 되지
       </div>
       <p class="article-meta">
 <span class="article-date">
@@ -411,7 +400,7 @@
   </span>
 
         <span class="post-comment"><i class="icon icon-comment"></i> &nbsp;<a href="/2020/12/20201214_k8s_troubleshooting_3/#comments" class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 763words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 761words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2minutes </span>
       </p>
     </article>

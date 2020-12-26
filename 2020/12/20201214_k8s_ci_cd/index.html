@@ -39,7 +39,7 @@
 <meta itemprop="description" content="Intro Kubernetes CI/CD 구축기 (1) - Kubernetes CI 구축하기 목차 Helm으로 Jenkins를 Kubernetes에 배포하기 Kubernetes와 Docker Private Resistry 연동하기 Gitlab과">
 <meta itemprop="datePublished" content="2020-12-14T11:50:39+09:00" />
 <meta itemprop="dateModified" content="2020-12-14T11:50:39+09:00" />
-<meta itemprop="wordCount" content="2719">
+<meta itemprop="wordCount" content="2773">
 
 
 
@@ -335,7 +335,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/12/20201214_k8s_ci_cd/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2719words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2773words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 6minutes </span>
       </div>
     </div>
@@ -700,26 +700,38 @@ jenkins-agent    ClusterIP   10.109.207.50    &lt;none&gt;        50000/TCP     
 <h3 id="ci를-위한-jenkinsfile-작성하기">CI를 위한 Jenkinsfile 작성하기</h3>
 <h4 id="1-jenkinsfile-작성">1. Jenkinsfile 작성</h4>
 <pre><code>podTemplate(
-    containers: [
-        containerTemplate(name: 'chatbot-container', image: 'docker', ttyEnabled: true, command: 'cat'),
-  ]) {
-
+  nodeSelector: 'kubernetes.io/hostname=gs-hci-vm-cicd',
+  volumes: [
+      hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock')
+  ],
+  containers: [
+    containerTemplate(name: 'docker', image: 'docker', ttyEnabled: true, command: 'cat', imagePullSecrets: 'ldccai'),
+  ],
+  ) 
+  {
     node(POD_LABEL) {
-        stage('Get a chatbot project') {
+        stage('Get a Chatbot project') {
             git branch: 'chatbot/pages-link',
                 credentialsId: 'gitlab',
                 url: 'https://ldccai.lotte.net/gitlab/newdeal-chatbot/chatbot-client.git'
-            container('chatbot-container') {
-                stage('Build a chatbot project') {
-                    sh 'docker login 10.231.238.220:31000 -uadmin -pHarbor12345'
-                    sh 'docker build -t 10.231.238.220:31000/library/test-chatbot .'
-                    sh 'docker push 10.231.238.220:31000/library/test-chatbot'
+            container('docker') {
+                stage('Unit Test') {
+                    sh 'echo &quot;test code를 작성하세요&quot;'
+                    sh 'ls -al'
+                }
+                stage('Build and Push Docker Image') {
+                    //sh 'docker login 10.231.238.220:31000 -uadmin -pHarbor12345'
+                    sh 'docker build -t 10.231.238.220:31000/library/chatbot-test:v2 .'
+                    sh 'docker push 10.231.238.220:31000/library/chatbot-test:v2'
                 }
             }
         }
     }
 }
 </code></pre>
+<ul>
+<li><a href="https://stackoverflow.com/questions/53405633/cat-command-without-object-in-container-template"><code>command: 'cat'</code>의 의미 바로 가기</a></li>
+</ul>
 <h1 id="참고">참고</h1>
 <h3 id="helm으로-jenkins를-kubernetes에-배포하기-1">Helm으로 Jenkins를 Kubernetes에 배포하기</h3>
 <ul>
@@ -737,6 +749,7 @@ jenkins-agent    ClusterIP   10.109.207.50    &lt;none&gt;        50000/TCP     
 <li><a href="https://velog.io/@tkfrn4799/Harbor%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Private-Docker-Registry-%EA%B5%AC%EC%B6%95">https://velog.io/@tkfrn4799/Harbor%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Private-Docker-Registry-%EA%B5%AC%EC%B6%95</a></li>
 <li><a href="https://engineering.linecorp.com/ko/blog/harbor-for-private-docker-registry/">https://engineering.linecorp.com/ko/blog/harbor-for-private-docker-registry/</a></li>
 <li><a href="https://github.com/keptn/keptn/issues/226">https://github.com/keptn/keptn/issues/226</a></li>
+<li><a href="https://www.leafcats.com/200">https://www.leafcats.com/200</a></li>
 </ul>
 <h3 id="gitlab과-jenkins를-사용하여-kubernetes-애플리케이션-배포하기-1">Gitlab과 Jenkins를 사용하여 Kubernetes 애플리케이션 배포하기</h3>
 <ul>
